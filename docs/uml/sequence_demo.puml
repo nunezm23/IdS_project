@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant "ads1263_app" as App
+participant "acquisition" as Acq
+participant "ads1263" as ADC
+participant "Linux spidev/gpiod" as Linux
+
+User -> App : --samples 10 --channel 0 --rate-hz 2
+App -> Acq : run samples
+Acq -> ADC : init + check presence
+ADC -> Linux : RREG ID..MODE1
+Acq -> ADC : configure AIN0-AINCOM
+loop N samples
+  Acq -> ADC : read sample
+  ADC -> Linux : DRDY + RDATA1
+  Acq -> User : print raw/voltage
+end
+Acq -> ADC : close
+@enduml

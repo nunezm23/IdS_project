@@ -1,0 +1,35 @@
+@startuml
+class ads1263_config_t {
+  spi_device
+  gpio_chip
+  drdy_line
+  spi_speed_hz
+  vref
+  gain
+}
+
+class acquisition_config_t {
+  channel
+  samples
+  rate_hz
+  live
+  csv_path
+}
+
+class ads1263_sample_t {
+  raw
+  voltage
+  drdy
+  status
+}
+
+class ads1263_t {
+  config
+  spi
+  gpio
+}
+
+ads1263_t *-- ads1263_config_t
+ads1263_t ..> ads1263_sample_t
+acquisition_config_t ..> ads1263_t
+@enduml

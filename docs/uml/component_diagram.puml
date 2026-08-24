@@ -1,0 +1,15 @@
+@startuml
+skinparam componentStyle rectangle
+
+component "main" as Main
+component "acquisition" as Acq
+component "ads1263" as ADC
+component "linux SPI/GPIO" as Linux
+component "logger" as Log
+
+Main --> Acq : command config
+Acq --> ADC : check/config/read
+Acq --> Log : console/CSV
+ADC --> Linux : SPI + DRDY
+
+@enduml
