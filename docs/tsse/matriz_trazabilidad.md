@@ -1,45 +1,84 @@
-# Matriz de trazabilidad — TSSE
+# Matriz de trazabilidad - TSSE
 
 ## Referencia
-- Proyecto: IdS_project
-- Commit base: c59b240
-- Rama: feature/tsse-testing
-- Estado: planificación; pruebas aún no ejecutadas
 
-## Relación entre requisitos y pruebas
+- Proyecto: `IdS_project`.
+- Baseline de produccion: `c59b24017f5daebb4e37512d799a0d07f589bce5`.
+- Revision documental al iniciar Milestone 1: `8dc23861e8bf87345f20218c587244329e1caf6f`.
+- Rama: `feature/tsse-testing`.
+- Estado: Milestone 1 de diseno; no se implementaron ni ejecutaron tests dinamicos.
 
-| Requisito | Descripción resumida | Prueba prevista | Nivel | Estado |
+## Convenciones
+
+Estados:
+
+- `PASS`: actividad ejecutada con evidencia y resultado conforme.
+- `FAIL`: actividad ejecutada con diferencia observada.
+- `BLOCKED`: actividad en alcance sin herramienta, contrato o condicion habilitante.
+- `NOT RUN`: caso disenado o planificado sin ejecucion.
+- `OUT OF SCOPE`: actividad excluida deliberadamente.
+
+Clasificacion de la afirmacion:
+
+- `SOFTWARE CONTRACT`: verificable totalmente en software host dentro del limite declarado.
+- `PARTIAL HOST/MOCKED`: verifica logica o interaccion simulada, no el fenomeno fisico.
+- `REQUIRES HARDWARE`: necesita target/hardware para cerrar el requisito tal como esta escrito.
+- `UNRESOLVED`: el criterio normativo requiere una decision.
+
+## Requisitos originales
+
+| ID | Clasificacion | Metodo/casos previstos | Estado actual | Evidencia o destino | Limite de la afirmacion |
+|---|---|---|---|---|---|
+| REQ-001 | `REQUIRES HARDWARE` | HW-LEGACY-001 | `OUT OF SCOPE` | `docs/acceptance_tests.md` | TSSE host no verifica ejecucion target |
+| REQ-002 | `PARTIAL HOST/MOCKED` | UT-SPI-001-A/B; UT-SPI-002..004; INT-MOCK-001 | `NOT RUN` | futura evidencia unitaria/integracion | Verifica path/default/tramas, no bus fisico ni ADS1263 |
+| REQ-003 | `PARTIAL HOST/MOCKED` | UT-CFG-001..002; UT-SPI-005 | `NOT RUN` | futura evidencia unitaria | Verifica valores y argumentos ioctl, no waveform |
+| REQ-004 | `PARTIAL HOST/MOCKED` | UT-REG-001-A..D; UT-REG-002..003; UT-REG-004-A..D; UT-REG-005; UT-REG-006-A/B; UT-REG-009-A..D; UT-REG-010; UT-PRES-001..003; UT-PRES-006..011; CFT-P14..P15 | `NOT RUN` | catalogo y futura evidencia unitaria | Verifica RREG/WREG/mapeo y respuesta acquisition, no lectura fisica |
+| REQ-005 | `PARTIAL HOST/MOCKED` | UT-PRES-004..005; CFT-P12..P13 | `NOT RUN` | catalogo y futura evidencia unitaria | Verifica clasificacion/response simulada 0x00/0xFF; desconexion fisica queda fuera |
+| REQ-006 | `PARTIAL HOST/MOCKED` | UT-CFG-001; UT-DRDY-001-A/B; UT-DRDY-002..007 | `NOT RUN` | futura evidencia unitaria | Verifica defaults/logica GPIO simulada, no PG8 fisico |
+| REQ-007 | `PARTIAL HOST/MOCKED` | UT-CHAN-001..007; CFT-P07; CFT-P16..P17; CFT-P21 | `NOT RUN` | `docs/tsse/cft_cases.md` y futura evidencia | Verifica seleccion/secuencia y respuesta simulada de canal 0, no señal analogica |
+| REQ-008 | `SOFTWARE CONTRACT` | UT-SAMPLE-001-A/B; UT-SAMPLE-002..003; CFT-P17..P24; INT-ACQ-001..004 | `NOT RUN` | `docs/tsse/cft_cases.md` y futura evidencia | Verifica conteo/control host; no frecuencia real |
+| REQ-009 | `SOFTWARE CONTRACT` | INT-LIVE-001..002 | `NOT RUN` | futura evidencia integracion host | No forma parte del CFT fijo ni de Milestone 1 |
+| REQ-010 | `SOFTWARE CONTRACT` con DSP-006 | CFT-P18..P19; CFT-P24; INT-CSV-001..003 | `NOT RUN` | `docs/tsse/cft_cases.md` y futura evidencia | Exito CSV verificable; politica de open failure sigue sin contrato final |
+| REQ-011 | `SOFTWARE CONTRACT` | CFT-P01..P08; INT-ACQ-003; CLI-001..002; CLI-003-A..F; CLI-004-A..D; CLI-005; CLI-006-A..F | `NOT RUN` | `docs/tsse/cft_cases.md` y futura evidencia | “Claro” se operacionaliza como retorno y fragmento esperado |
+| REQ-012 | `UNRESOLVED` | ARCH-001 | `BLOCKED` | `docs/tsse/discrepancias.md#dsp-003` | Ubicacion se puede inspeccionar; abstraccion completa no esta definida |
+
+Ningun `NOT RUN` prueba cumplimiento. La columna de casos describe diseno futuro o casos CFT documentados.
+
+## Requisitos de infraestructura de testing
+
+Estos requisitos son nuevos para el proceso TSSE; no modifican REQ-001..REQ-012.
+
+| ID | Requisito de testing | Casos atomicos | Estado | Evidencia actual |
 |---|---|---|---|---|
-| REQ-001 | Ejecución en STM32MP157D | No aplica al alcance actual | HW/SW | Excluido |
-| REQ-002 | Comunicación SPI con ADS1263 | UT-SPI: comandos y transferencias simuladas | Unitario | Pendiente |
-| REQ-003 | Configuración SPI predeterminada | UT-CFG: configuración y argumentos | Unitario | Pendiente |
-| REQ-004 | Lectura de registros 0x00..0x04 | UT-REG: lectura y límites | Unitario | Pendiente |
-| REQ-005 | Detección de respuesta 0x00/0xFF | UT-PRES: detección de dispositivo | Unitario | Pendiente |
-| REQ-006 | Lectura DRDY por GPIO | UT-DRDY: respuestas simuladas | Unitario | Pendiente |
-| REQ-007 | Adquisición del canal 0 | CFT-ACQ: flujo de adquisición | Diseño de sistema | Pendiente |
-| REQ-008 | Adquisición de N muestras | INT-ACQ: conteo y secuencia | Integración host | Pendiente |
-| REQ-009 | Adquisición continua | Diseño documentado; ejecución opcional | Sistema | Parcial planificado |
-| REQ-010 | Exportación CSV | INT-CSV: salida simulada | Integración host | Pendiente |
-| REQ-011 | Rechazo de parámetros inválidos | CFT-ACQ y UT de límites | Unitario / sistema | Pendiente |
-| REQ-012 | Aislamiento de código Linux | Revisión de arquitectura | Estático | Pendiente |
+| TST-001 | Preservar baseline, revision, entorno y checksums | AUD-BASE-001 | `PASS` | `evidencias/01_proyecto/milestone_1_linea_base.md` |
+| TST-002 | Mantener trazabilidad atomica y estados normalizados | REV-MTP-001; REV-CFT-002 | `PASS` | `docs/tsse/catalogo_casos.md`; `evidencias/01_proyecto/milestone_1_revision_trazabilidad.md` |
+| TST-003 | Modelar CFT de componente con decisiones, edges y factibilidad | REV-CFT-001..002; CFT-P01..P24 | `PASS` | `docs/tsse/cft_acquisition_run_samples.md`; evidencia de revision |
+| TST-004 | Compilar fuente de produccion real en unit tests | AUD-SOURCE-001 | `NOT RUN` | Milestone 2 |
+| TST-005 | Ejecutar unit tests deterministas sin hardware/esperas reales | RUN-DET-001 | `NOT RUN` | Milestone 2 |
+| TST-006 | Ejecutar integracion host con limites simulados declarados | INT-MOCK-001; INT-ACQ-001..004; INT-CSV-001..003; INT-LIVE-001..002; CLI-001..002; CLI-003-A..F; CLI-004-A..D; CLI-005; CLI-006-A..F | `NOT RUN` | Milestone 3 |
+| TST-007 | Medir line/branch/function coverage por modulo sin umbral inventado | ANA-COV-001 | `NOT RUN` | Milestone 3 |
+| TST-008 | Ejecutar analisis estatico reproducible por configuracion | ANA-STATIC-001..002 | `NOT RUN` | Milestone 4 |
+| TST-009 | Preservar evidencia con provenance y distinguir expected/observed | AUD-EVID-001 | `NOT RUN` | Cierre futuro; politica en MTP |
+| TST-010 | Exigir gate antes de modificar produccion | AUD-PROD-001 | `PASS` | `evidencias/01_proyecto/milestone_1_guarda_produccion.md` |
 
-Nota: la ejecución de tests con mocks verifica contratos
-de software, no la comunicación física con el ADS1263.
+## Hipotesis de robustez
 
-## Casos adicionales de robustez
+| ID | Objetivo | Casos previstos | Estado | Defecto confirmado | Restriccion |
+|---|---|---|---|---|---|
+| ROB-001 | Caracterizar rango combinado de registros | UT-REG-007..008 + ASan | `NOT RUN` | No | No corregir ni asumir rechazo antes de evidencia/contrato |
+| ROB-002 | Verificar tratamiento de fallas SPI | UT-REG-005/010; UT-PRES-003; UT-CHAN-003/004/006; UT-SAMPLE-008; UT-SPI-004; CFT-P20/P22/P24 | `NOT RUN` | No | Dependencias simuladas |
+| ROB-003 | Caracterizar propagacion DRDY | UT-DRDY-004..007; UT-ACQ-ROB003-001..004 | `NOT RUN` | No | No existe contrato aprobado de retorno fatal |
+| ROB-004 | Verificar conversion ADC en limites | UT-VOLT-001; UT-VOLT-002-A/B; UT-VOLT-003-A/B; UT-VOLT-004-A/B; UT-VOLT-005; UT-SAMPLE-004..007 | `NOT RUN` | No | Resultado numerico host, no exactitud ADC fisica |
 
-| ID | Objetivo | Estado |
-|---|---|---|
-| ROB-001 | Rechazar acceso a registros fuera de rango | Pendiente |
-| ROB-002 | Verificar tratamiento de fallas SPI | Pendiente |
-| ROB-003 | Caracterizar propagación de errores DRDY | Pendiente |
-| ROB-004 | Verificar conversión ADC para valores límite | Pendiente |
+## Inventario atomico
 
-## Criterios de trazabilidad
+El inventario completo de casos, incluyendo precondiciones, inputs, oraculo, estado, evidencia y defecto, se mantiene en `docs/tsse/catalogo_casos.md`. Los casos CFT detallados y sus secuencias se mantienen en `docs/tsse/cft_cases.md`.
 
-- Cada prueba implementada tendrá un identificador.
-- Los resultados se registrarán como PASS, FAIL o BLOCKED.
-- No se afirmará cumplimiento de requisitos de hardware.
-- Los casos adicionales de robustez se distinguirán
-  de los requisitos originales.
-- Se actualizará esta matriz después de ejecutar las pruebas.
+## Reglas de cierre
+
+- Cada caso debe enlazar un requisito original, TST o ROB.
+- Cada afirmacion cuantitativa debe enlazar evidencia de ejecucion.
+- Los casos mock limitan su afirmacion al contrato software.
+- Los estados solo cambian de `NOT RUN` cuando existe evidencia real.
+- `REQ-001` permanece `OUT OF SCOPE`; `REQ-012` permanece `BLOCKED` hasta decision del criterio.
+- Los ROB no se convierten en requisitos originales ni defectos por documentacion sola.

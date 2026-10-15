@@ -2,39 +2,39 @@
 
 ## 1. Repository Audit and Baseline Preservation
 
-- [ ] 1.1 Capture branch, full HEAD, baseline commit, worktree state, OS/architecture, and source-file checksums in a new baseline evidence set; verify it identifies `feature/tsse-testing`, `c59b24017f5daebb4e37512d799a0d07f589bce5`, and all production C/H files.
-- [ ] 1.2 Inventory production modules, public functions, build inputs, direct external dependencies, and current test/tooling files; verify the inventory links each selected SUT function to its source location and dependency boundary.
-- [ ] 1.3 Create a discrepancy register without overwriting prior documents; verify it includes legacy hardware/cross-build scope, REQ-012 Linux-type leakage, logger/CSV responsibility, CSV truncation/failure behavior, CLI order dependence, ROB-001, and ROB-003.
-- [ ] 1.4 Establish a production-baseline guard that reports any diff in `components/**/*.c`, `components/**/*.h`, `main/*.c`, and the production `Makefile`; verify its initial result is empty and retain the command/output as evidence.
+- [x] 1.1 Capture branch, full HEAD, baseline commit, worktree state, OS/architecture, and source-file checksums in a new baseline evidence set; verify it identifies `feature/tsse-testing`, `c59b24017f5daebb4e37512d799a0d07f589bce5`, and all production C/H files.
+- [x] 1.2 Inventory production modules, public functions, build inputs, direct external dependencies, and current test/tooling files; verify the inventory links each selected SUT function to its source location and dependency boundary.
+- [x] 1.3 Create a discrepancy register without overwriting prior documents; verify it includes legacy hardware/cross-build scope, REQ-012 Linux-type leakage, logger/CSV responsibility, CSV truncation/failure behavior, CLI order dependence, ROB-001, and ROB-003.
+- [x] 1.4 Establish a production-baseline guard that reports any diff in `components/**/*.c`, `components/**/*.h`, `main/*.c`, and the production `Makefile`; verify its initial result is empty and retain the command/output as evidence.
 
 ## 2. Master Test Plan Review and Finalization
 
-- [ ] 2.1 Extend `docs/tsse/master_test_plan.md` in place with environment, roles, entry/exit criteria, suspension/resumption criteria, risks, defect workflow, evidence policy, and schedule; verify existing scope and priority percentages remain visible and unchanged unless explicitly approved.
-- [ ] 2.2 Clarify test levels and techniques, including static analysis as verification rather than dynamic testing, component-depth CFT, unit boundaries, host integration, and hardware exclusions; verify every selected subsystem has a stated technique and objective.
-- [ ] 2.3 Resolve the efficiency-priority presentation by defining a limited host-observable indicator or an analysis-only limitation; verify no host timing metric is represented as real-time target performance.
-- [ ] 2.4 Conduct a Master Test Plan review gate; verify reviewer disposition, unresolved assumptions, and approval state are recorded before CFT cases or automated tests are finalized.
+- [x] 2.1 Extend `docs/tsse/master_test_plan.md` in place with environment, roles, entry/exit criteria, suspension/resumption criteria, risks, defect workflow, evidence policy, and schedule; verify existing scope and priority percentages remain visible and unchanged unless explicitly approved.
+- [x] 2.2 Clarify test levels and techniques, including static analysis as verification rather than dynamic testing, component-depth CFT, unit boundaries, host integration, and hardware exclusions; verify every selected subsystem has a stated technique and objective.
+- [x] 2.3 Resolve the efficiency-priority presentation by defining a limited host-observable indicator or an analysis-only limitation; verify no host timing metric is represented as real-time target performance.
+- [x] 2.4 Conduct a Master Test Plan review gate; verify reviewer disposition, unresolved assumptions, and approval state are recorded before CFT cases or automated tests are finalized.
 
 ## 3. Requirement-to-Test Traceability
 
-- [ ] 3.1 Classify every original REQ-001..REQ-012 row as software-contract, partial host/mocked, requires hardware, excluded, or unresolved; verify no mocked case closes a physical requirement without qualification.
-- [ ] 3.2 Add testing-infrastructure requirement and robustness-hypothesis rows with stable identifiers; verify ROB-001..ROB-004 remain separate from original application requirements.
-- [ ] 3.3 Expand planned test groups into atomic case records containing ID, source requirement/hypothesis, level, technique, preconditions, inputs, oracle, state, evidence path, and defect link; verify required fields are present for every case.
-- [ ] 3.4 Standardize traceability states to `PASS`, `FAIL`, `BLOCKED`, `NOT RUN`, and `OUT OF SCOPE`; verify unexecuted in-scope cases remain `NOT RUN` or `BLOCKED`, while deliberately excluded cases use `OUT OF SCOPE` with rationale.
+- [x] 3.1 Classify every original REQ-001..REQ-012 row as software-contract, partial host/mocked, requires hardware, excluded, or unresolved; verify no mocked case closes a physical requirement without qualification.
+- [x] 3.2 Add testing-infrastructure requirement and robustness-hypothesis rows with stable identifiers; verify ROB-001..ROB-004 remain separate from original application requirements.
+- [x] 3.3 Expand planned test groups into atomic case records containing ID, source requirement/hypothesis, level, technique, preconditions, inputs, oracle, state, evidence path, and defect link; verify required fields are present for every case.
+- [x] 3.4 Standardize traceability states to `PASS`, `FAIL`, `BLOCKED`, `NOT RUN`, and `OUT OF SCOPE`; verify unexecuted in-scope cases remain `NOT RUN` or `BLOCKED`, while deliberately excluded cases use `OUT OF SCOPE` with rationale.
 
 ## 4. CFT Control-Flow Model
 
-- [ ] 4.1 Freeze the CFT source revision and boundary at `acquisition_run_samples()` plus acquisition-local helpers, with external contracts for ADS1263, logger, file, and timing services; verify a call-boundary table maps every included/excluded call.
-- [ ] 4.2 Produce a numbered CFG, node table, and edge list covering short-circuit validation, preparation stages, CSV branches, fixed loop, sample failure, terminal break, sleep retry, and cleanup; verify every node maps to baseline source lines.
-- [ ] 4.3 Document decision counting and cyclomatic-complexity convention, including compound predicates; verify the reported value can be recomputed from the graph under the stated convention.
-- [ ] 4.4 Add feasibility constraints and identify infeasible or environmentally unbounded paths; verify zero-iteration fixed success, live branches, invalid-channel configuration, zero-rate sleep, and persistent sleep failure are treated accurately.
-- [ ] 4.5 Complete an independent source-to-model review; verify every discrepancy is corrected or recorded and the preliminary diagram is not relabeled final before approval.
+- [x] 4.1 Freeze the CFT source revision and boundary at `acquisition_run_samples()` plus acquisition-local helpers, with external contracts for ADS1263, logger, file, and timing services; verify a call-boundary table maps every included/excluded call.
+- [x] 4.2 Produce a numbered CFG, node table, and edge list covering short-circuit validation, preparation stages, CSV branches, fixed loop, sample failure, terminal break, sleep retry, and cleanup; verify every node maps to baseline source lines.
+- [x] 4.3 Document decision counting and cyclomatic-complexity convention, including compound predicates; verify the reported value can be recomputed from the graph under the stated convention.
+- [x] 4.4 Add feasibility constraints and identify infeasible or environmentally unbounded paths; verify zero-iteration fixed success, live branches, invalid-channel configuration, zero-rate sleep, and persistent sleep failure are treated accurately.
+- [x] 4.5 Complete an independent source-to-model review; verify every discrepancy is corrected or recorded and the preliminary diagram is not relabeled final before approval.
 
 ## 5. CFT-Derived Test Cases
 
-- [ ] 5.1 Select and document a defensible independent/edge path set with node sequences, predicates, and feasibility rationale; verify the set covers validation rejection, each preparation stage, fixed-loop success, sample failures, CSV outcomes, sleep retry, and cleanup.
-- [ ] 5.2 Derive boundary and equivalence cases for samples `{0,1,1000,1001}`, rate `{0,1,10,11}`, and channel `{0,unsupported}`; verify each value has an explicit expected validation or downstream result.
-- [ ] 5.3 Define each CFT case with preconditions, inputs, dependency script, action, expected return, logs/outputs, call counts, file effects, and cleanup; verify `N=1` expects no sleep and `N=2` expects one back edge and one sleep.
-- [ ] 5.4 Review path-to-case mapping and claim language before implementation; verify every selected path has a case or justified non-execution and no claim extends to ADS1263 internals, HAL, physical hardware, or exhaustive unbounded paths.
+- [x] 5.1 Select and document a defensible independent/edge path set with node sequences, predicates, and feasibility rationale; verify the set covers validation rejection, each preparation stage, fixed-loop success, sample failures, CSV outcomes, sleep retry, and cleanup.
+- [x] 5.2 Derive boundary and equivalence cases for samples `{0,1,1000,1001}`, rate `{0,1,10,11}`, and channel `{0,unsupported}`; verify each value has an explicit expected validation or downstream result.
+- [x] 5.3 Define each CFT case with preconditions, inputs, dependency script, action, expected return, logs/outputs, call counts, file effects, and cleanup; verify `N=1` expects no sleep and `N=2` expects one back edge and one sleep.
+- [x] 5.4 Review path-to-case mapping and claim language before implementation; verify every selected path has a case or justified non-execution and no claim extends to ADS1263 internals, HAL, physical hardware, or exhaustive unbounded paths.
 
 ## 6. Ceedling Setup
 

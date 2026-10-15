@@ -1,0 +1,221 @@
+digraph acquisition_run_samples_cfg {
+    graph [
+        label="CFG CFT - acquisition_run_samples() - baseline c59b240",
+        labelloc=t,
+        fontsize=20,
+        rankdir=TB,
+        nodesep=0.28,
+        ranksep=0.38,
+        splines=polyline
+    ];
+    node [fontname="DejaVu Sans", fontsize=9, shape=box, style="rounded,filled", fillcolor="#eef3f8"];
+    edge [fontname="DejaVu Sans", fontsize=8];
+
+    N00 [shape=oval, fillcolor="#d5f5e3", label="N00 ENTRY\nacquisition_run_samples\n260-266"];
+    D01 [shape=diamond, fillcolor="#fff2cc", label="D01 adc_config == NULL?\n266"];
+    D02 [shape=diamond, fillcolor="#fff2cc", label="D02 validate result != 0?\n266"];
+    N01 [label="N01 log acquisition config\n270-273"];
+    D13 [shape=diamond, fillcolor="#fff2cc", label="D13 prepare result != 0?\n275"];
+    N90 [fillcolor="#d9ead3", label="N90 ads1263_close contract after loop\n280"];
+    N91 [label="N91 return loop rc\n282"];
+    N92 [label="N92 return -1\n267 or 276"];
+    N99 [shape=oval, fillcolor="#d5f5e3", label="N99 synthetic EXIT join\nreturns 267, 276, 282"];
+
+    subgraph cluster_validate {
+        label="validate_acquisition_config (127-152)";
+        color="#8da9c4";
+        V00 [label="V00 errors = 0\n127-129"];
+        D03 [shape=diamond, fillcolor="#fff2cc", label="D03 config == NULL?\n131"];
+        V01 [label="V01 log invalid config; return -1\n132-133"];
+        D04 [shape=diamond, fillcolor="#fff2cc", label="D04 samples < 1?\n136"];
+        D05 [shape=diamond, fillcolor="#fff2cc", label="D05 samples > 1000?\n136"];
+        V02 [label="V02 log samples; errors++\n137-138"];
+        D06 [shape=diamond, fillcolor="#fff2cc", label="D06 rate_hz < 1?\n141"];
+        D07 [shape=diamond, fillcolor="#fff2cc", label="D07 rate_hz > 10?\n141"];
+        V03 [label="V03 log rate; errors++\n142-143"];
+        D08 [shape=diamond, fillcolor="#fff2cc", label="D08 channel != 0?\n146"];
+        V04 [label="V04 log channel; errors++\n147-148"];
+        D09 [shape=diamond, fillcolor="#fff2cc", label="D09 errors == 0?\n151"];
+        V05 [label="V05 return 0\n151"];
+        V06 [label="V06 return -1\n151"];
+    }
+
+    subgraph cluster_prepare {
+        label="prepare_adc_for_acquisition + local log/print helpers";
+        color="#8da9c4";
+        P00 [fillcolor="#d9ead3", label="P00 ads1263_init contract\n194"];
+        D10 [shape=diamond, fillcolor="#fff2cc", label="D10 init status != OK?\n195"];
+        D11 [shape=diamond, fillcolor="#fff2cc", label="D11 status == SPI_OPEN?\n69"];
+        D12 [shape=diamond, fillcolor="#fff2cc", label="D12 status == GPIO_OPEN?\n72"];
+        P01 [label="P01 log SPI open guidance\n70-71"];
+        P02 [label="P02 log GPIO guidance\n73-76"];
+        P03 [label="P03 log generic init status\n78"];
+        P04 [label="P04 log_init_error return -1\n81"];
+        P05 [fillcolor="#d9ead3", label="P05 ads1263_check_presence contract\n199"];
+        D14 [shape=diamond, fillcolor="#fff2cc", label="D14 presence status != OK?\n200"];
+        D15 [shape=diamond, fillcolor="#fff2cc", label="D15 snapshot == NULL?\n28"];
+        P06 [label="P06 print snapshot fields\n32-36"];
+        P07 [label="P07 enter log_presence_error\n39-42"];
+        D16 [shape=diamond, fillcolor="#fff2cc", label="D16 status == NOT_DETECTED_ZERO?\n42-43"];
+        D17 [shape=diamond, fillcolor="#fff2cc", label="D17 status == NOT_DETECTED_FLOATING?\n42,47"];
+        D18 [shape=diamond, fillcolor="#fff2cc", label="D18 status == REGISTER_MISMATCH?\n42,51,61"];
+        P08 [label="P08 log all-zero guidance\n44-45"];
+        P09 [label="P09 log all-FF guidance\n48-49"];
+        P10 [label="P10 log register mismatch\n52"];
+        D19 [shape=diamond, fillcolor="#fff2cc", label="D19 snapshot != NULL?\n53"];
+        P11 [label="P11 log expected baseline\n54-58"];
+        P12 [label="P12 status_to_string contract; log generic presence status\n62"];
+        P13 [fillcolor="#d9ead3", label="P13 ads1263_close contract; return -1\n203-204"];
+        P14 [fillcolor="#d9ead3", label="P14 ads1263_configure_channel contract\n207"];
+        D20 [shape=diamond, fillcolor="#fff2cc", label="D20 configure status != OK?\n208"];
+        P15 [fillcolor="#d9ead3", label="P15 status_to_string + close contracts; log; return -1\n209-213"];
+        P16 [label="P16 return 0\n216"];
+    }
+
+    subgraph cluster_loop {
+        label="acquire_loop + open_csv_if_requested + sleep_for_rate";
+        color="#8da9c4";
+        L00 [label="L00 csv=NULL; index=1; rc=0\n224-228"];
+        D21 [shape=diamond, fillcolor="#fff2cc", label="D21 csv_path == NULL?\n172"];
+        L01 [label="L01 return csv=NULL\n173"];
+        L02 [fillcolor="#d9ead3", label="L02 fopen(path, w) contract\n176"];
+        D22 [shape=diamond, fillcolor="#fff2cc", label="D22 fopen result == NULL?\n177"];
+        L03 [label="L03 warn; return csv=NULL\n178-180"];
+        L04 [label="L04 fputs header; return csv\n183-184"];
+        D23 [shape=diamond, fillcolor="#fff2cc", label="D23 live != 0?\n230"];
+        D24 [shape=diamond, fillcolor="#fff2cc", label="D24 g_stop_requested == 0?\n230"];
+        D25 [shape=diamond, fillcolor="#fff2cc", label="D25 live == 0?\n231"];
+        D26 [shape=diamond, fillcolor="#fff2cc", label="D26 sample_index <= max_samples?\n231"];
+        L05 [fillcolor="#d9ead3", label="L05 ads1263_read_sample contract\n235"];
+        D27 [shape=diamond, fillcolor="#fff2cc", label="D27 sample status != OK?\n236"];
+        L06 [label="L06 status_to_string contract; log; rc=-1; break\n237-239"];
+        L07 [label="L07 log console/CSV; index++\n242-245"];
+        D28 [shape=diamond, fillcolor="#fff2cc", label="D28 live == 0?\n246"];
+        D29 [shape=diamond, fillcolor="#fff2cc", label="D29 sample_index > max_samples?\n246"];
+        D30 [shape=diamond, fillcolor="#fff2cc", label="D30 rate_hz == 0?\n158"];
+        L08 [label="L08 set timespec\n162-163"];
+        L09 [fillcolor="#d9ead3", label="L09 nanosleep contract\n164"];
+        D31 [shape=diamond, fillcolor="#fff2cc", label="D31 nanosleep result != 0?\n164"];
+        L10 [label="L10 leave while / break target\n251-253"];
+        D32 [shape=diamond, fillcolor="#fff2cc", label="D32 csv != NULL?\n253"];
+        L11 [fillcolor="#d9ead3", label="L11 fclose contract\n254"];
+        L12 [label="L12 return rc\n257"];
+    }
+
+    N00 -> D01;
+    D01 -> N92 [label="T"];
+    D01 -> V00 [label="F"];
+
+    V00 -> D03;
+    D03 -> V01 [label="T"];
+    D03 -> D04 [label="F"];
+    V01 -> D02;
+    D04 -> V02 [label="T"];
+    D04 -> D05 [label="F"];
+    D05 -> V02 [label="T"];
+    D05 -> D06 [label="F"];
+    V02 -> D06;
+    D06 -> V03 [label="T"];
+    D06 -> D07 [label="F"];
+    D07 -> V03 [label="T"];
+    D07 -> D08 [label="F"];
+    V03 -> D08;
+    D08 -> V04 [label="T"];
+    D08 -> D09 [label="F"];
+    V04 -> D09;
+    D09 -> V05 [label="T"];
+    D09 -> V06 [label="F"];
+    V05 -> D02;
+    V06 -> D02;
+
+    D02 -> N92 [label="T"];
+    D02 -> N01 [label="F"];
+    N01 -> P00;
+
+    P00 -> D10;
+    D10 -> D11 [label="T"];
+    D10 -> P05 [label="F"];
+    D11 -> P01 [label="T"];
+    D11 -> D12 [label="F"];
+    D12 -> P02 [label="T"];
+    D12 -> P03 [label="F"];
+    P01 -> P04;
+    P02 -> P04;
+    P03 -> P04;
+    P04 -> D13;
+
+    P05 -> D14;
+    D14 -> D15 [label="T"];
+    D14 -> P14 [label="F"];
+    D15 -> P07 [label="T"];
+    D15 -> P06 [label="F"];
+    P06 -> P07;
+    P07 -> D16;
+    D16 -> P08 [label="T"];
+    D16 -> D17 [label="F"];
+    D17 -> P09 [label="T"];
+    D17 -> D18 [label="F"];
+    D18 -> P10 [label="T"];
+    D18 -> P12 [label="F"];
+    P10 -> D19;
+    D19 -> P11 [label="T"];
+    D19 -> P13 [label="F"];
+    P11 -> P13;
+    P08 -> P13;
+    P09 -> P13;
+    P12 -> P13;
+    P13 -> D13;
+
+    P14 -> D20;
+    D20 -> P15 [label="T"];
+    D20 -> P16 [label="F"];
+    P15 -> D13;
+    P16 -> D13;
+
+    D13 -> N92 [label="T"];
+    D13 -> L00 [label="F"];
+    L00 -> D21;
+    D21 -> L01 [label="T"];
+    D21 -> L02 [label="F"];
+    L01 -> D23;
+    L02 -> D22;
+    D22 -> L03 [label="T"];
+    D22 -> L04 [label="F"];
+    L03 -> D23;
+    L04 -> D23;
+
+    D23 -> D24 [label="T"];
+    D23 -> D25 [label="F"];
+    D24 -> L05 [label="T"];
+    D24 -> D25 [label="F"];
+    D25 -> D26 [label="T"];
+    D25 -> L10 [label="F"];
+    D26 -> L05 [label="T"];
+    D26 -> L10 [label="F"];
+
+    L05 -> D27;
+    D27 -> L06 [label="T"];
+    D27 -> L07 [label="F"];
+    L06 -> L10;
+    L07 -> D28;
+    D28 -> D29 [label="T"];
+    D28 -> D30 [label="F"];
+    D29 -> L10 [label="T"];
+    D29 -> D30 [label="F"];
+
+    D30 -> D23 [label="T"];
+    D30 -> L08 [label="F"];
+    L08 -> L09;
+    L09 -> D31;
+    D31 -> L09 [label="T"];
+    D31 -> D23 [label="F"];
+
+    L10 -> D32;
+    D32 -> L11 [label="T"];
+    D32 -> L12 [label="F"];
+    L11 -> L12;
+    L12 -> N90;
+    N90 -> N91;
+    N91 -> N99;
+    N92 -> N99;
+}
