@@ -2,7 +2,7 @@
 
 ## Convenciones
 
-Este catalogo es el indice canonico de casos planificados y analiticos. Los casos CFT delegan su script y oracle completos a `docs/tsse/cft_cases.md`, que forma parte del registro atomico. No se infiere ejecucion por estar catalogado.
+Este catalogo es el indice canonico de casos planificados y analiticos. Los casos CFT delegan su script y oracle completos a `docs/tsse/cft_cases.md`, que forma parte del registro atomico. El suplemento canonico de los 71 escenarios de integracion ejecutados es `docs/tsse/evidencias/08_trazabilidad/milestone_4_20261015T161203Z/integration_case_traceability.md`; no se reemplazan IDs legacy por escenarios solo equivalentes.
 
 Campos obligatorios: ID, fuente, nivel, tecnica, precondiciones, inputs/script, oracle, estado, evidencia y defecto. Estados permitidos: `PASS`, `FAIL`, `BLOCKED`, `NOT RUN`, `OUT OF SCOPE`.
 
@@ -21,46 +21,48 @@ Campos obligatorios: ID, fuente, nivel, tecnica, precondiciones, inputs/script, 
 | AUD-PROD-001 | TST-010 | Gate / diff Git | Baseline c59b240 | guarda C/H y Makefile | Diff vacio; ninguna correccion autorizada | `PASS` | `docs/tsse/evidencias/01_proyecto/milestone_1_guarda_produccion.md` | N/A |
 | REV-MTP-001 | TST-002 | Revision / checklist | Master Test Plan completo | alcance, niveles, criterios, riesgos, evidencia | Disposicion aprobada y supuestos visibles | `PASS` | `docs/tsse/evidencias/01_proyecto/milestone_1_revision_plan.md` | N/A |
 | REV-CFT-001 | TST-003 | Revision / source-to-model | Fuente y CFG preservados | nodos, edges, decisiones, lineas, complejidad | Modelo corresponde a fuente; hallazgos corregidos | `PASS` | `docs/tsse/evidencias/03_cft/milestone_1_revision_cft.md` | N/A |
-| REV-CFT-002 | TST-002, TST-003 | Revision / path-to-case | Modelo y 24 casos completos | paths, limites, scripts, oraculos, claims | Mapeo aprobado; cada caso sigue `NOT RUN` | `PASS` | `docs/tsse/evidencias/03_cft/milestone_1_revision_casos_cft.md` | N/A |
+| REV-CFT-002 | TST-002, TST-003 | Revision / path-to-case | Modelo y 24 casos completos | paths, limites, scripts, oraculos, claims | Mapeo de diseno aprobado; al cierre M1 cada caso quedo `NOT RUN` | `PASS` | `docs/tsse/evidencias/03_cft/milestone_1_revision_casos_cft.md`; ejecucion posterior en Milestone 4 | N/A |
 | ARCH-001 | REQ-012 | Analisis / inspeccion | C/H preservados | ubicacion y tipos Linux expuestos | Ubicacion observable; criterio de abstraccion requiere decision | `BLOCKED` | `docs/tsse/discrepancias.md#dsp-003` | N/A |
 | HW-LEGACY-001 | REQ-001 | Sistema / aceptacion hardware | STM32MP157D-DK1 y ADS1263 fisicos | build/deploy/ejecucion target legacy | No se ejecuta en alcance host TSSE | `OUT OF SCOPE` | `docs/acceptance_tests.md` | N/A |
 | AUD-SOURCE-001 | TST-004 | Auditoria / build inputs | Ceedling configurado | fuentes enlazadas por suite | Cada SUT resuelve a `.c` de produccion, sin copia | `PASS` | `docs/tsse/evidencias/01_proyecto/milestone_3a_20261015T150616Z/README.md` | N/A |
-| RUN-DET-001 | TST-005 | Unit / repeticion | Suites limpias sin devices | dos ejecuciones completas por proyecto | Inventario y outcomes equivalentes; sin waits/devices reales | `PASS` | `docs/tsse/evidencias/04_unitarias/milestone_3a_20261015T150616Z/README.md` | N/A |
-| ANA-COV-001 | TST-007 | Analisis / gcov-gcovr | Suites identificadas completas | perfiles coverage y filtros produccion | Metricas line/branch/function por modulo, sin umbral inventado | `PASS` | `docs/tsse/evidencias/06_cobertura/milestone_3a_20261015T150616Z/README.md` | N/A |
-| ANA-STATIC-001 | TST-008 | Analisis / Cppcheck | Tool/version verificado | `ADS1263_NO_GPIOD=1`, scope C/H | Raw output, exit y findings completos | `NOT RUN` | `pendiente:docs/tsse/evidencias/02_analisis_estatico/ANA-STATIC-001/` | N/A |
-| ANA-STATIC-002 | TST-008 | Analisis / Cppcheck | Headers libgpiod v2 disponibles | rama GPIO real, scope C/H | Raw output o `BLOCKED` explicito; nunca “clean” incompleto | `NOT RUN` | `pendiente:docs/tsse/evidencias/02_analisis_estatico/ANA-STATIC-002/` | N/A |
-| AUD-EVID-001 | TST-009 | Auditoria / manifest | Runs futuros preservados | metadata, raw links, estados | Cada claim resuelve a evidencia o no-ejecucion explicita | `NOT RUN` | `pendiente:docs/tsse/evidencias/08_trazabilidad/AUD-EVID-001/` | N/A |
+| RUN-DET-001 | TST-005 | Unit / repeticion | Suites limpias sin devices | ADS1263 y acquisition completos | ADS1263 66/66; acquisition 30/30; sin devices reales | `PASS` | `docs/tsse/evidencias/04_unitarias/milestone_4_20261015T161203Z/README.md` | N/A |
+| ANA-COV-001 | TST-007 | Analisis / gcov-gcovr | Suites identificadas completas | perfiles coverage y filtros produccion | Metricas line/branch/function por modulo, sin umbral inventado | `PASS` | `docs/tsse/evidencias/06_cobertura/milestone_4_20261015T161203Z/README.md` | N/A |
+| ANA-STATIC-001 | TST-008 | Analisis / Cppcheck | Tool/version verificado | `ADS1263_NO_GPIOD=1`, scope C/H | Raw output, exit y findings completos | `PASS` con findings | `docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/README.md` | N/A |
+| ANA-STATIC-002 | TST-008 | Analisis / Cppcheck | Headers libgpiod v2 disponibles | rama GPIO real, scope C/H | Raw output o `BLOCKED` explicito; nunca “clean” incompleto | `BLOCKED` | `docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/README.md`; faltan `pkg-config` y `gpiod.h` | N/A |
+| AUD-EVID-001 | TST-009 | Auditoria / manifest | Runs preservados | metadata, raw links, estados | Cada claim resuelve a evidencia o no-ejecucion explicita | `PASS` | `docs/tsse/evidencias/08_trazabilidad/milestone_4_20261015T161203Z/raw_to_summary_audit.md` | N/A |
 
 ## Casos CFT
 
 Para cada fila: nivel `Componente`; tecnica `CFT + particion/limite cuando aplica`; precondiciones, input, script, accion `RUN`, retorno, logs, outputs, cuentas, archivo y cleanup estan completos en la fila homonima de `docs/tsse/cft_cases.md`.
 
+En las filas P02..P24, `mismo reporte` expande literalmente a la ruta exacta `docs/tsse/evidencias/04_unitarias/milestone_4_20261015T161203Z/acquisition_tests_report.json`; el nombre `test_CFT_Pnn_*` identifica la entrada individual.
+
 | ID | Fuente | Precondiciones / inputs / oracle | Estado | Evidencia | Defecto |
 |---|---|---|---|---|---|
-| CFT-P01 | REQ-011, TST-003 | Registro canonico CFT-P01: adc nulo, short-circuit, retorno -1 | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P01/` | N/A |
-| CFT-P02 | REQ-011, TST-003 | Registro canonico CFT-P02: config nula, log y retorno -1 | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P02/` | N/A |
-| CFT-P03 | REQ-011, TST-003 | Registro canonico CFT-P03: samples 0 rechazado | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P03/` | N/A |
-| CFT-P04 | REQ-011, TST-003 | Registro canonico CFT-P04: samples 1001 rechazado | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P04/` | N/A |
-| CFT-P05 | REQ-011, TST-003 | Registro canonico CFT-P05: rate 0 rechazado | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P05/` | N/A |
-| CFT-P06 | REQ-011, TST-003 | Registro canonico CFT-P06: rate 11 rechazado | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P06/` | N/A |
-| CFT-P07 | REQ-007, REQ-011, TST-003 | Registro canonico CFT-P07: canal no soportado rechazado | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P07/` | N/A |
-| CFT-P08 | REQ-011, TST-003 | Registro canonico CFT-P08: tres errores acumulados | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P08/` | N/A |
-| CFT-P09 | TST-003 | Registro canonico CFT-P09: init SPI_OPEN | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P09/` | N/A |
-| CFT-P10 | TST-003 | Registro canonico CFT-P10: init GPIO_OPEN | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P10/` | N/A |
-| CFT-P11 | TST-003 | Registro canonico CFT-P11: init SPI_CONFIG | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P11/` | N/A |
-| CFT-P12 | REQ-005 parcial, TST-003 | Registro canonico CFT-P12: presence ZERO y cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P12/` | N/A |
-| CFT-P13 | REQ-005 parcial, TST-003 | Registro canonico CFT-P13: presence FLOATING y cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P13/` | N/A |
-| CFT-P14 | REQ-004 parcial, TST-003 | Registro canonico CFT-P14: mismatch, snapshot y cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P14/` | N/A |
-| CFT-P15 | REQ-004 parcial, TST-003 | Registro canonico CFT-P15: presence IO y cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P15/` | N/A |
-| CFT-P16 | REQ-007 parcial, TST-003 | Registro canonico CFT-P16: configure SPI_TRANSFER y cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P16/` | N/A |
-| CFT-P17 | REQ-007 parcial, REQ-008, TST-003 | Registro canonico CFT-P17: N=1/rate=1, sin sleep, retorno 0 | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P17/` | N/A |
-| CFT-P18 | REQ-008, REQ-010 caracterizacion, TST-003 | Registro canonico CFT-P18: open CSV falla, adquisicion continua | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P18/` | N/A |
-| CFT-P19 | REQ-008, REQ-010, TST-003 | Registro canonico CFT-P19: CSV/header/output/cierre | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P19/` | N/A |
-| CFT-P20 | REQ-008, ROB-002, TST-003 | Registro canonico CFT-P20: primera lectura SPI_TRANSFER | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P20/` | N/A |
-| CFT-P21 | REQ-007 parcial, REQ-008, TST-003 | Registro canonico CFT-P21: N=2/rate=2, back edge y un sleep | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P21/` | N/A |
-| CFT-P22 | REQ-008, ROB-002, TST-003 | Registro canonico CFT-P22: segunda lectura SPI_TRANSFER | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P22/` | N/A |
-| CFT-P23 | REQ-008, TST-003 | Registro canonico CFT-P23: EINTR y retry finito | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P23/` | N/A |
-| CFT-P24 | REQ-008, REQ-010 parcial, ROB-002, TST-003 | Registro canonico CFT-P24: N=1000/rate=10, CSV y fallo temprano | `NOT RUN` | `pendiente:docs/tsse/evidencias/04_unitarias/CFT-P24/` | N/A |
+| CFT-P01 | REQ-011, TST-003 | Registro canonico CFT-P01: adc nulo, short-circuit, retorno -1 | `PASS` | `docs/tsse/evidencias/04_unitarias/milestone_4_20261015T161203Z/acquisition_tests_report.json` (`test_CFT_P01_*`) | N/A |
+| CFT-P02 | REQ-011, TST-003 | Registro canonico CFT-P02: config nula, log y retorno -1 | `PASS` | mismo reporte (`test_CFT_P02_*`) | N/A |
+| CFT-P03 | REQ-011, TST-003 | Registro canonico CFT-P03: samples 0 rechazado | `PASS` | mismo reporte (`test_CFT_P03_*`) | N/A |
+| CFT-P04 | REQ-011, TST-003 | Registro canonico CFT-P04: samples 1001 rechazado | `PASS` | mismo reporte (`test_CFT_P04_*`) | N/A |
+| CFT-P05 | REQ-011, TST-003 | Registro canonico CFT-P05: rate 0 rechazado | `PASS` | mismo reporte (`test_CFT_P05_*`) | N/A |
+| CFT-P06 | REQ-011, TST-003 | Registro canonico CFT-P06: rate 11 rechazado | `PASS` | mismo reporte (`test_CFT_P06_*`) | N/A |
+| CFT-P07 | REQ-007, REQ-011, TST-003 | Registro canonico CFT-P07: canal no soportado rechazado | `PASS` | mismo reporte (`test_CFT_P07_*`) | N/A |
+| CFT-P08 | REQ-011, TST-003 | Registro canonico CFT-P08: tres errores acumulados | `PASS` | mismo reporte (`test_CFT_P08_*`) | N/A |
+| CFT-P09 | TST-003 | Registro canonico CFT-P09: init SPI_OPEN | `PASS` | mismo reporte (`test_CFT_P09_*`) | N/A |
+| CFT-P10 | TST-003 | Registro canonico CFT-P10: init GPIO_OPEN | `PASS` | mismo reporte (`test_CFT_P10_*`) | N/A |
+| CFT-P11 | TST-003 | Registro canonico CFT-P11: init SPI_CONFIG | `PASS` | mismo reporte (`test_CFT_P11_*`) | N/A |
+| CFT-P12 | REQ-005 parcial, TST-003 | Registro canonico CFT-P12: presence ZERO y cleanup | `PASS` | mismo reporte (`test_CFT_P12_*`) | N/A |
+| CFT-P13 | REQ-005 parcial, TST-003 | Registro canonico CFT-P13: presence FLOATING y cleanup | `PASS` | mismo reporte (`test_CFT_P13_*`) | N/A |
+| CFT-P14 | REQ-004 parcial, TST-003 | Registro canonico CFT-P14: mismatch, snapshot y cleanup | `PASS` | mismo reporte (`test_CFT_P14_*`) | N/A |
+| CFT-P15 | REQ-004 parcial, TST-003 | Registro canonico CFT-P15: presence IO y cleanup | `PASS` | mismo reporte (`test_CFT_P15_*`) | N/A |
+| CFT-P16 | REQ-007 parcial, TST-003 | Registro canonico CFT-P16: configure SPI_TRANSFER y cleanup | `PASS` | mismo reporte (`test_CFT_P16_*`) | N/A |
+| CFT-P17 | REQ-007 parcial, REQ-008, TST-003 | Registro canonico CFT-P17: N=1/rate=1, sin sleep, retorno 0 | `PASS` | mismo reporte (`test_CFT_P17_*`) | N/A |
+| CFT-P18 | REQ-008, REQ-010 caracterizacion, TST-003 | Registro canonico CFT-P18: open CSV falla, adquisicion continua | `PASS` | mismo reporte (`test_CFT_P18_*`) | N/A |
+| CFT-P19 | REQ-008, REQ-010, TST-003 | Registro canonico CFT-P19: CSV/header/output/cierre | `PASS` | mismo reporte (`test_CFT_P19_*`) | N/A |
+| CFT-P20 | REQ-008, ROB-002, TST-003 | Registro canonico CFT-P20: primera lectura SPI_TRANSFER | `PASS` | mismo reporte (`test_CFT_P20_*`) | N/A |
+| CFT-P21 | REQ-007 parcial, REQ-008, TST-003 | Registro canonico CFT-P21: N=2/rate=2, back edge y un sleep | `PASS` | mismo reporte (`test_CFT_P21_*`) | N/A |
+| CFT-P22 | REQ-008, ROB-002, TST-003 | Registro canonico CFT-P22: segunda lectura SPI_TRANSFER | `PASS` | mismo reporte (`test_CFT_P22_*`) | N/A |
+| CFT-P23 | REQ-008, TST-003 | Registro canonico CFT-P23: EINTR y retry finito | `PASS` | mismo reporte (`test_CFT_P23_*`) | N/A |
+| CFT-P24 | REQ-008, REQ-010 parcial, ROB-002, TST-003 | Registro canonico CFT-P24: N=1000/rate=10, CSV y fallo temprano | `PASS` | mismo reporte (`test_CFT_P24_*`) | N/A |
 
 ## Unitarios ADS1263 core y adapters
 
@@ -151,39 +153,41 @@ Todos requieren `HOST`; el oracle se evalua contra la traduccion de produccion r
 
 ## Integracion host y CLI
 
-Todos usan `PROC`; evidencia prevista: `docs/tsse/evidencias/05_integracion_host/<ID>/`.
+Todos usan `PROC`. Solo se marca `PASS` cuando un escenario ejecutado conserva el mismo input y oracle. Los casos equivalentes pero no identicos permanecen `NOT RUN`; el registro canonico de los 71 IDs ejecutados se mantiene en el suplemento Milestone 4.
 
 | ID | Fuente | Nivel / tecnica | Precondiciones | Inputs o script | Oracle | Estado | Evidencia | Defecto |
 |---|---|---|---|---|---|---|---|---|
-| INT-MOCK-001 | REQ-002, TST-006 | Integracion / proceso | Binario host mock | `ads1263_app --check --mock` | exit 0, baseline simulado, sin devices | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-MOCK-001/` | N/A |
-| INT-ACQ-001 | REQ-008, TST-006 | Integracion / proceso | Binario host mock | `--samples 1 --channel 0 --rate-hz 2 --mock` | una muestra indice 1, exit 0, cleanup | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-ACQ-001/` | N/A |
-| INT-ACQ-002 | REQ-008, TST-006 | Integracion / proceso | Binario host mock | `--samples 2 --channel 0 --rate-hz 2 --mock` | dos muestras indices 1/2, exit 0 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-ACQ-002/` | N/A |
-| INT-ACQ-003 | REQ-008, REQ-011, TST-006 | Integracion / limite | Binario host mock | `--samples 0 --channel 0 --rate-hz 2 --mock` | exit no-cero; `invalid samples value. Valid range: 1..1000` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-ACQ-003/` | N/A |
-| INT-ACQ-004 | REQ-008, TST-006 | Integracion / caracterizacion condicional | Gate scripted HAL no aprobado | Primera sample retorna SPI_TRANSFER | Preservar exit/diagnostico/cleanup observado; no oracle de conformance antes del gate | `BLOCKED` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-ACQ-004/`; bloqueado por gate 11.6 | N/A |
-| INT-CSV-001 | REQ-010, TST-006 | Integracion / archivo | Temp file con contenido `OLD` | `--samples 2 --channel 0 --rate-hz 2 --mock --csv <temp>` | `OLD` truncado; header exacto; dos filas; cierre; exit 0 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-CSV-001/` | N/A |
-| INT-CSV-002 | REQ-010, TST-006 | Integracion / contenido | Logger real host, counter mock inicial 0 | `--samples 1 --channel 0 --rate-hz 2 --mock --csv <temp>` | fila exacta `1,1234567,0.001437225,OK`; exit 0 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-CSV-002/` | N/A |
-| INT-CSV-003 | REQ-010, TST-006 | Integracion / caracterizacion | Directorio padre inexistente | fixed mock N=1 + csv invalido | dos warnings, una muestra de consola y exit 0 actual; DSP-006 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-CSV-003/` | N/A |
-| INT-LIVE-001 | REQ-009, TST-006 | Integracion / proceso acotado | Control de child fiable, timeout 5 s | `--live --channel 0 --rate-hz 2 --mock`; SIGINT tras primera muestra | termina antes de 5 s, cleanup, exit observado, ningun child | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-LIVE-001/` | N/A |
-| INT-LIVE-002 | REQ-009, TST-006 | Integracion / repeticion | Igual anterior, dos runs | SIGINT despues de al menos 2 muestras en cada run | ambos terminan antes de 5 s y dejan cero children; inventario comparable | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/INT-LIVE-002/` | N/A |
-| CLI-001 | REQ-011, TST-006 | Integracion / gramatica | Binario host | sin argumentos | EXIT_FAILURE y usage | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-001/` | N/A |
-| CLI-002 | REQ-011, TST-006 | Integracion / gramatica | Binario host | `--help` | usage y EXIT_SUCCESS | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-002/` | N/A |
-| CLI-003-A | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 0 --mock` | EXIT_FAILURE; `invalid samples value. Valid range: 1..1000` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-A/` | N/A |
-| CLI-003-B | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1001 --mock` | EXIT_FAILURE; `invalid samples value. Valid range: 1..1000` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-B/` | N/A |
-| CLI-003-C | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --rate-hz 0 --mock` | EXIT_FAILURE; `invalid rate-hz value. Valid range: 1..10` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-C/` | N/A |
-| CLI-003-D | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --rate-hz 11 --mock` | EXIT_FAILURE; `invalid rate-hz value. Valid range: 1..10` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-D/` | N/A |
-| CLI-003-E | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --channel 1 --mock` | EXIT_FAILURE; `invalid channel value. Valid range: 0..0` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-E/` | N/A |
-| CLI-003-F | REQ-011, TST-006 | Integracion / limite | Binario host | `--check --drdy-line 1024 --mock` | EXIT_FAILURE; `invalid drdy-line value. Valid range: 0..1023` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-003-F/` | N/A |
-| CLI-004-A | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--samples` | EXIT_FAILURE; `--samples requires a value` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-004-A/` | N/A |
-| CLI-004-B | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--samples abc --mock` | EXIT_FAILURE; `invalid samples value. Valid range: 1..1000` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-004-B/` | N/A |
-| CLI-004-C | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--check --spi-dev` | EXIT_FAILURE; `--spi-dev requires a value` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-004-C/` | N/A |
-| CLI-004-D | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--check --drdy-line abc --mock` | EXIT_FAILURE; `invalid drdy-line value. Valid range: 0..1023` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-004-D/` | N/A |
-| CLI-005 | REQ-011, TST-006 | Integracion / equivalencia | Binario host | `--unknown` | EXIT_FAILURE y `unknown option: --unknown` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-005/` | N/A |
-| CLI-006-A | REQ-011, TST-006 | Integracion / modos | Binario host | `--check --samples 1 --mock` | EXIT_FAILURE; `select exactly one command mode` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-A/` | N/A |
-| CLI-006-B | REQ-011, TST-006 | Integracion / modos | Binario host | `--samples 1 --check --mock` | EXIT_FAILURE; `select exactly one command mode` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-B/` | N/A |
-| CLI-006-C | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--check --help` | EXIT_SUCCESS y usage; bypass por ultimo modo HELP; DSP-007 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-C/` | N/A |
-| CLI-006-D | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--help --check --mock` | EXIT_FAILURE; `select exactly one command mode`; DSP-007 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-D/` | N/A |
-| CLI-006-E | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--check --csv out.csv --mock` | EXIT_SUCCESS actual; CSV ignorado; DSP-008 | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-E/` | N/A |
+| INT-MOCK-001 | REQ-002, TST-006 | Integracion / proceso | Binario host mock | `ads1263_app --check --mock` | exit 0, baseline simulado, sin devices | `PASS` | `docs/tsse/evidencias/05_integracion_host/milestone_4_20261015T161203Z/run_1/cases/INT-MOCK-CHECK/result.json`; mismo path `run_2` | N/A |
+| INT-ACQ-001 | REQ-008, TST-006 | Integracion / proceso | Binario host mock | `--samples 1 --channel 0 --rate-hz 2 --mock` | una muestra indice 1, exit 0, cleanup | `NOT RUN` | Equivalente no identico: `CLI-SAMPLES-1` usa rate 10; ver suplemento | N/A |
+| INT-ACQ-002 | REQ-008, TST-006 | Integracion / proceso | Binario host mock | `--samples 2 --channel 0 --rate-hz 2 --mock` | dos muestras indices 1/2, exit 0 | `NOT RUN` | Equivalentes no identicos: `INT-MOCK-SAMPLES` usa N=3/rate 10; `INT-CSV-CREATE` agrega CSV/rate 10 | N/A |
+| INT-ACQ-003 | REQ-008, REQ-011, TST-006 | Integracion / limite | Binario host mock | `--samples 0 --channel 0 --rate-hz 2 --mock` | exit no-cero; error rango samples | `PASS` | `docs/tsse/evidencias/05_integracion_host/milestone_4_20261015T161203Z/run_1/cases/CLI-SAMPLES-0/result.json`; mismo path `run_2` (defaults 0/2) | N/A |
+| INT-ACQ-004 | REQ-008, ROB-002, TST-006 | Integracion / caracterizacion | HAL scripted aprobado | Primera sample retorna SPI_TRANSFER | exit 1, diagnostico y cleanup exacto | `PASS` | `docs/tsse/evidencias/05_integracion_host/milestone_4_20261015T161203Z/run_1/cases/HAL-READ-FAILURE/result.json`; mismo path `run_2` | N/A |
+| INT-CSV-001 | REQ-010, TST-006 | Integracion / archivo | Temp file con `OLD` | N=2/rate=2 + CSV | truncado, header, dos filas, cierre, exit 0 | `NOT RUN` | Equivalente no identico: `INT-CSV-TRUNCATE` usa N=1/rate 10 | N/A |
+| INT-CSV-002 | REQ-010, TST-006 | Integracion / contenido | Logger real, counter 0 | N=1/rate=2 + CSV | fila exacta y exit 0 | `NOT RUN` | Equivalentes no identicos `INT-CSV-CLOSE-STRACE`/`CLI-CSV-SAMPLES` usan rate 10 | N/A |
+| INT-CSV-003 | REQ-010, TST-006 | Integracion / caracterizacion | Padre inexistente | N=1 + CSV invalido | dos warnings, una muestra, exit 0 | `NOT RUN` | Equivalente no identico: `INT-CSV-FAIL` usa N=2/rate 10 | N/A |
+| INT-LIVE-001 | REQ-009, TST-006 | Integracion / proceso acotado | Control child | live rate 2; SIGINT tras primera | termina, cleanup, sin child | `NOT RUN` | Equivalente no identico: `INT-LIVE-SIGINT` usa rate 10 y al menos dos registros | N/A |
+| INT-LIVE-002 | REQ-009, TST-006 | Integracion / repeticion | Dos runs | live rate 2; SIGINT tras al menos dos | ambos terminan y sin children | `NOT RUN` | Dos runs de `INT-LIVE-SIGINT` son repetibles pero usan rate 10 | N/A |
+| CLI-001 | REQ-011, TST-006 | Integracion / gramatica | Binario host | sin argumentos | EXIT_FAILURE y usage | `PASS` | `docs/tsse/evidencias/05_integracion_host/milestone_4_20261015T161203Z/run_1/cases/CLI-NO-MODE/result.json`; mismo path `run_2` | N/A |
+| CLI-002 | REQ-011, TST-006 | Integracion / gramatica | Binario host | `--help` | usage y EXIT_SUCCESS | `PASS` | `docs/tsse/evidencias/05_integracion_host/milestone_4_20261015T161203Z/run_1/cases/CLI-HELP/result.json`; mismo path `run_2` | N/A |
+| CLI-003-A | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 0 --mock` | fallo y rango 1..1000 | `PASS` | casos `CLI-SAMPLES-0` de ambos runs | N/A |
+| CLI-003-B | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1001 --mock` | fallo y rango 1..1000 | `PASS` | casos `CLI-SAMPLES-1001` de ambos runs | N/A |
+| CLI-003-C | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --rate-hz 0 --mock` | fallo y rango 1..10 | `PASS` | casos `CLI-RATE-0` de ambos runs | N/A |
+| CLI-003-D | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --rate-hz 11 --mock` | fallo y rango 1..10 | `PASS` | casos `CLI-RATE-11` de ambos runs | N/A |
+| CLI-003-E | REQ-011, TST-006 | Integracion / limite | Binario host | `--samples 1 --channel 1 --mock` | fallo y rango 0..0 | `PASS` | casos `CLI-CHANNEL-1` de ambos runs | N/A |
+| CLI-003-F | REQ-011, TST-006 | Integracion / limite | Binario host | `--check --drdy-line 1024 --mock` | fallo y rango 0..1023 | `PASS` | casos `CLI-DRDY-1024` de ambos runs | N/A |
+| CLI-004-A | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--samples` | requiere valor | `PASS` | casos `CLI-MISSING-SAMPLES` de ambos runs | N/A |
+| CLI-004-B | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--samples abc --mock` | valor invalido | `PASS` | casos `CLI-MALFORMED-SAMPLES` de ambos runs | N/A |
+| CLI-004-C | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--check --spi-dev` | requiere valor | `PASS` | casos `CLI-MISSING-SPI` de ambos runs | N/A |
+| CLI-004-D | REQ-011, TST-006 | Integracion / sintaxis | Binario host | `--check --drdy-line abc --mock` | valor invalido | `NOT RUN` | Equivalente no identico: `CLI-MALFORMED-DRDY` usa `3.5`; tambien se ejecuto empty/overflow | N/A |
+| CLI-005 | REQ-011, TST-006 | Integracion / equivalencia | Binario host | `--unknown` | unknown option | `NOT RUN` | Equivalente no identico: `CLI-UNKNOWN` agrega `--check --mock` | N/A |
+| CLI-006-A | REQ-011, TST-006 | Integracion / modos | Binario host | `--check --samples 1 --mock` | exactly one mode | `PASS` | casos `CLI-CHECK-SAMPLES` de ambos runs | N/A |
+| CLI-006-B | REQ-011, TST-006 | Integracion / modos | Binario host | `--samples 1 --check --mock` | exactly one mode | `PASS` | casos `CLI-SAMPLES-CHECK` de ambos runs | N/A |
+| CLI-006-C | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--check --help` | usage, exit 0; DSP-007 | `PASS` caracterizacion | casos `CLI-CHECK-HELP` de ambos runs | N/A |
+| CLI-006-D | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--help --check --mock` | exactly one mode; DSP-007 | `PASS` caracterizacion | casos `CLI-HELP-CHECK` de ambos runs | N/A |
+| CLI-006-E | REQ-011, TST-006 | Integracion / caracterizacion | Binario host | `--check --csv <path> --mock` | check acepta/ignora CSV; DSP-008 | `PASS` caracterizacion | casos `CLI-CHECK-CSV` de ambos runs | N/A |
 | CLI-006-F | REQ-011, TST-006 | Integracion / politica CSV | Binario host | `--live --channel 0 --rate-hz 2 --csv out.csv --mock` | EXIT_FAILURE; `--csv is supported with --samples mode only` | `NOT RUN` | `pendiente:docs/tsse/evidencias/05_integracion_host/CLI-006-F/` | N/A |
+
+Evidencia cercana, no identica: `CLI-LIVE-CSV` paso en ambos runs con `--live --csv unused.csv --mock` y el mismo diagnostico de politica. Ese escenario omite `--channel 0 --rate-hz 2` explicitos y usa otra ruta CSV; por ello no cambia el estado de CLI-006-F.
 
 ## Reglas de actualizacion
 

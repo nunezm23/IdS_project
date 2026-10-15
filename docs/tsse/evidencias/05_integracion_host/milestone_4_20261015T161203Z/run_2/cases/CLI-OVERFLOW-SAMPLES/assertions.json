@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] invalid samples value. Valid range: 1..1000\n",
+    "expected": "invalid samples value",
+    "name": "stderr contains 'invalid samples value'",
+    "passed": true
+  }
+]

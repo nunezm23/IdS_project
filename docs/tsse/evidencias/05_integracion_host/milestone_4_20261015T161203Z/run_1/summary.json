@@ -1,0 +1,591 @@
+{
+  "blocked": 0,
+  "blocked_preconditions": [],
+  "cases": [
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "INT-MOCK-CHECK",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "INT-MOCK-SAMPLES",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 5,
+      "assertions_passed": 5,
+      "blocked_reason": null,
+      "case_id": "INT-CSV-CREATE",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "INT-CSV-TRUNCATE",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "INT-CSV-FAIL",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 5,
+      "assertions_passed": 5,
+      "blocked_reason": null,
+      "case_id": "CLI-CSV-SAMPLES",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-NO-MODE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-UNKNOWN",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-CHANNEL",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-RATE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-DRDY",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-CSV",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-SPI",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MISSING-GPIO",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MALFORMED-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MALFORMED-RATE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MALFORMED-CHANNEL",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-MALFORMED-DRDY",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-EMPTY-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-EMPTY-RATE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-EMPTY-CHANNEL",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-EMPTY-DRDY",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-OVERFLOW-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-OVERFLOW-RATE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-OVERFLOW-CHANNEL",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-OVERFLOW-DRDY",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-0",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-1",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-1000",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-1001",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-RATE-0",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-RATE-1",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-RATE-10",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-RATE-11",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-CHANNEL-0",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CHANNEL-1",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-DRDY-0",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-DRDY-1023",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-DRDY-1024",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CHECK-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-CHECK",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CHECK-LIVE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-LIVE-CHECK",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-HELP-CHECK",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-CHECK-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-REPEATED-CHECK",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-LIVE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-LIVE-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-SAMPLES-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-HELP-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-LIVE-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-HELP-LIVE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-REPEATED-SAMPLES",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-REPEATED-LIVE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 4,
+      "assertions_passed": 4,
+      "blocked_reason": null,
+      "case_id": "CLI-REPEATED-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-LIVE-CSV",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CSV-LIVE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CHECK-CSV",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CSV-CHECK",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-HELP-CSV",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CSV-HELP",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 3,
+      "assertions_passed": 3,
+      "blocked_reason": null,
+      "case_id": "CLI-CSV-NO-MODE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 5,
+      "assertions_passed": 5,
+      "blocked_reason": null,
+      "case_id": "INT-STRACE-NO-DEVICE",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "INT-CSV-CLOSE-STRACE",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "INT-LIVE-SIGINT",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "HAL-HAPPY-SAMPLE",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 6,
+      "assertions_passed": 6,
+      "blocked_reason": null,
+      "case_id": "HAL-DELAYED-DRDY",
+      "exit_code": 0,
+      "state": "PASS"
+    },
+    {
+      "assertions": 5,
+      "assertions_passed": 5,
+      "blocked_reason": null,
+      "case_id": "HAL-READ-FAILURE",
+      "exit_code": 1,
+      "state": "PASS"
+    },
+    {
+      "assertions": 5,
+      "assertions_passed": 5,
+      "blocked_reason": null,
+      "case_id": "HAL-PRESENCE-FAILURE",
+      "exit_code": 1,
+      "state": "PASS"
+    }
+  ],
+  "declaration_matches_execution": true,
+  "declared_not_executed": [],
+  "declared_scenario_count": 71,
+  "duration_seconds": 0.752018,
+  "failed": 0,
+  "finished_utc": "2026-10-15T16:39:23.836992+00:00",
+  "limitations": [
+    "No physical SPI, GPIO, ADS1263, target deployment, electrical behavior, ADC accuracy, or real-time timing is verified.",
+    "Built-in mock bypasses SPI framing and GPIO polling; fake-HAL cases exercise framing and orchestration but not Linux ioctl/libgpiod behavior.",
+    "The samples=1000 CLI maximum is parser-checked through the production help short-circuit to avoid a roughly 100-second paced acquisition.",
+    "Normal CSV close is syscall-correlated, but injected write, flush, or close failures remain outside this process suite."
+  ],
+  "passed": 71,
+  "scenario_count": 71,
+  "started_utc": "2026-10-15T16:39:23.084974+00:00",
+  "state": "PASS",
+  "undeclared_executed": []
+}

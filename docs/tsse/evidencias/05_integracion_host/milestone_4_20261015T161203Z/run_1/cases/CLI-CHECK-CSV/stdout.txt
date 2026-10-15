@@ -1,0 +1,8 @@
+[INFO] ADS1263 register check
+ID        = 0x23
+POWER     = 0x11
+INTERFACE = 0x05
+MODE0     = 0x00
+MODE1     = 0x80
+[INFO] ADS1263 detected
+[INFO] DRDY: chip=/dev/gpiochip6 line=8 value=1

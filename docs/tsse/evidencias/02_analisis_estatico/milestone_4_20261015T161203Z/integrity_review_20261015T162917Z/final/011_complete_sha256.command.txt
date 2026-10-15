@@ -1,0 +1,1 @@
+sha256sum over every path in 010_complete_inventory.txt except the eight explicitly named self-referential or post-hash output files in 009_checksum_exclusions.txt.

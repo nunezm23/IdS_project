@@ -57,6 +57,7 @@
 :defines:
   :test:
     - _POSIX_C_SOURCE=200809L
+    - TEST_STDIO_WRAPPER=1
   :release: []
   :use_test_definition: FALSE
 
@@ -67,8 +68,13 @@
       - -Wall
       - -Wextra
       - -Wpedantic
+      - -fno-builtin-fputs
     :link:
       - -Wl,--wrap=nanosleep
+      - -Wl,--wrap=fopen
+      - -Wl,--wrap=fputs
+      - -Wl,--wrap=fclose
+      - -Wl,--wrap=printf
 
 :cmock:
   :plugins:

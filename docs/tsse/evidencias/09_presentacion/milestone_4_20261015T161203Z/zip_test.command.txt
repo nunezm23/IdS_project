@@ -1,0 +1,1 @@
+unzip -t docs/tsse/presentacion/verificacion_software_ads1263_milestone_4.pptx

@@ -1,0 +1,6 @@
+63236 openat(AT_FDCWD</home/cronos/projects/tsse/IdS_project>, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3</etc/ld.so.cache>
+63236 close(3</etc/ld.so.cache>)        = 0
+63236 openat(AT_FDCWD</home/cronos/projects/tsse/IdS_project>, "/usr/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3</usr/lib/x86_64-linux-gnu/libc.so.6>
+63236 close(3</usr/lib/x86_64-linux-gnu/libc.so.6>) = 0
+63236 openat(AT_FDCWD</home/cronos/projects/tsse/IdS_project>, "/tmp/opencode/m4-integration-run2.k3OEx3/cases/INT-CSV-CLOSE-STRACE/closed.csv", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3</tmp/opencode/m4-integration-run2.k3OEx3/cases/INT-CSV-CLOSE-STRACE/closed.csv>
+63236 close(3</tmp/opencode/m4-integration-run2.k3OEx3/cases/INT-CSV-CLOSE-STRACE/closed.csv>) = 0

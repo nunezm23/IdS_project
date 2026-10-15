@@ -1,0 +1,1 @@
+uname -m && getconf LONG_BIT

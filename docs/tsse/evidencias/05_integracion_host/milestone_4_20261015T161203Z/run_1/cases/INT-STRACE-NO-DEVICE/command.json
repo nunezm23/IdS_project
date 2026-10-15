@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/strace",
+    "-f",
+    "-qq",
+    "-e",
+    "trace=open,openat,openat2,ioctl",
+    "-o",
+    "/tmp/opencode/m4-integration-run1.hhv9j2/cases/INT-STRACE-NO-DEVICE/strace.txt",
+    "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app",
+    "--check",
+    "--mock"
+  ],
+  "cwd": "/home/cronos/projects/tsse/IdS_project",
+  "timeout_occurred": false
+}

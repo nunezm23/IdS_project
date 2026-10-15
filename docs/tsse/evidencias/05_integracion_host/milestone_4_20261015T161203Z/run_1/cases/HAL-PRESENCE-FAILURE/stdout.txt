@@ -1,0 +1,6 @@
+[INFO] Acquisition configuration: channel=0 samples=1 rate_hz=10
+ID        = 0x00
+POWER     = 0x00
+INTERFACE = 0x00
+MODE0     = 0x00
+MODE1     = 0x00

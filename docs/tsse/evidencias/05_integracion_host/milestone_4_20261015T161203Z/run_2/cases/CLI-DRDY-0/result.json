@@ -1,0 +1,9 @@
+{
+  "assertion_count": 3,
+  "assertions_passed": 3,
+  "blocked_reason": null,
+  "case_id": "CLI-DRDY-0",
+  "duration_seconds": 0.001014,
+  "exit_code": 0,
+  "state": "PASS"
+}

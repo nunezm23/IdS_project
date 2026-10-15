@@ -1,0 +1,12 @@
+main/main.c: OK
+components/logger/src/app_log.c: OK
+components/acquisition/src/acquisition.c: OK
+components/ads1263/src/ads1263.c: OK
+components/ads1263/arch/linux/src/ads1263_spi_linux.c: OK
+components/ads1263/arch/linux/src/ads1263_gpio_linux.c: OK
+components/logger/include/app_log.h: OK
+components/acquisition/include/acquisition.h: OK
+components/ads1263/include/ads1263.h: OK
+components/ads1263/include/ads1263_defs.h: OK
+components/ads1263/arch/linux/include/ads1263_spi_linux.h: OK
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h: OK

@@ -1,0 +1,6 @@
+Script started on 2026-10-15 11:39:16-05:00 [COMMAND="test/integration/build.sh /tmp/opencode/m4-integration-build.QW1QuA" <not executed on terminal>]
+Built /tmp/opencode/m4-integration-build.QW1QuA/ads1263_app
+Built /tmp/opencode/m4-integration-build.QW1QuA/ads1263_app_fake_hal
+Manifest /tmp/opencode/m4-integration-build.QW1QuA/build_manifest.json
+
+Script done on 2026-10-15 11:39:17-05:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,2 @@
+[INFO] Acquisition configuration: channel=0 samples=1 rate_hz=10
+sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK

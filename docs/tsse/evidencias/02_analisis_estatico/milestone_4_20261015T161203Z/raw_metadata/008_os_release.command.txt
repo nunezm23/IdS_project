@@ -1,0 +1,1 @@
+if test -r /etc/os-release; then printf "%s\n" "$(< /etc/os-release)"; else printf "%s\n" "/etc/os-release unavailable"; exit 1; fi

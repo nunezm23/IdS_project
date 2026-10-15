@@ -1,0 +1,44 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] Acquisition configuration: channel=0 samples=2 rate_hz=10\n[WARN] could not open CSV path: /tmp/opencode/m4-integration-run1.hhv9j2/cases/INT-CSV-FAIL/not_a_directory/output.csv\n[WARN] continuing with console output only\nsample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK\nsample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK\n",
+    "expected": "could not open CSV path",
+    "name": "stdout contains 'could not open CSV path'",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] Acquisition configuration: channel=0 samples=2 rate_hz=10\n[WARN] could not open CSV path: /tmp/opencode/m4-integration-run1.hhv9j2/cases/INT-CSV-FAIL/not_a_directory/output.csv\n[WARN] continuing with console output only\nsample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK\nsample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK\n",
+    "expected": "continuing with console output only",
+    "name": "stdout contains 'continuing with console output only'",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "name": "exact complete console sample rows",
+    "passed": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "name": "CSV absent",
+    "passed": true
+  }
+]

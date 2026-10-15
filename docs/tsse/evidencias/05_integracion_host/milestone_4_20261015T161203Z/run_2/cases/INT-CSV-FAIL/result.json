@@ -1,0 +1,9 @@
+{
+  "assertion_count": 6,
+  "assertions_passed": 6,
+  "blocked_reason": null,
+  "case_id": "INT-CSV-FAIL",
+  "duration_seconds": 0.101414,
+  "exit_code": 0,
+  "state": "PASS"
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app",
+    "--samples",
+    "2",
+    "--channel",
+    "0",
+    "--rate-hz",
+    "10",
+    "--csv",
+    "/tmp/opencode/m4-integration-run2.k3OEx3/cases/INT-CSV-CREATE/created.csv",
+    "--mock"
+  ],
+  "cwd": "/home/cronos/projects/tsse/IdS_project",
+  "timeout_occurred": false
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": 153,
+    "expected": "nonempty strace output",
+    "name": "trace captured",
+    "passed": true
+  },
+  {
+    "actual": "63221 openat(AT_FDCWD, \"/etc/ld.so.cache\", O_RDONLY|O_CLOEXEC) = 3\n63221 openat(AT_FDCWD, \"/usr/lib/x86_64-linux-gnu/libc.so.6\", O_RDONLY|O_CLOEXEC) = 3\n",
+    "expected": "no /dev/spidev path",
+    "name": "no spidev access",
+    "passed": true
+  },
+  {
+    "actual": "63221 openat(AT_FDCWD, \"/etc/ld.so.cache\", O_RDONLY|O_CLOEXEC) = 3\n63221 openat(AT_FDCWD, \"/usr/lib/x86_64-linux-gnu/libc.so.6\", O_RDONLY|O_CLOEXEC) = 3\n",
+    "expected": "no /dev/gpiochip path",
+    "name": "no gpiochip access",
+    "passed": true
+  }
+]

@@ -178,7 +178,7 @@ Se adopta profundidad 1 de componente: raiz `acquisition_run_samples()` con expa
 - Requisitos y discrepancias disponibles.
 - Alcance y exclusiones aprobados.
 
-### Entrada a ejecucion automatizada futura
+### Entrada a ejecucion automatizada
 
 - Modelo y casos revisados.
 - Toolchain requerido disponible o actividad marcada `BLOCKED`.
@@ -193,7 +193,7 @@ Se adopta profundidad 1 de componente: raiz `acquisition_run_samples()` con expa
 - Casos CFT concretos con estado `NOT RUN`.
 - Guarda de produccion sin diferencias.
 
-### Salida global futura
+### Salida global
 
 - Casos implementados y estados respaldados por evidencia.
 - Cobertura por modulo informada sin umbral inventado.
@@ -214,7 +214,7 @@ Se suspende una actividad si falta una herramienta obligatoria, el modelo contra
 | `NOT RUN` | Caso disenado o implementado sin ejecucion respaldada |
 | `OUT OF SCOPE` | Actividad excluida deliberadamente, con razon |
 
-Los casos disenados en Milestone 1 quedan `NOT RUN`. Un resultado esperado no es evidencia observada.
+Al cierre de Milestone 1 los casos disenados quedaron `NOT RUN`; Milestone 4 actualiza `CFT-P01..P24` a `PASS` con evidencia de ejecucion. Un resultado esperado por si solo no es evidencia observada.
 
 ## 16. Flujo de defectos y regresion
 
@@ -225,7 +225,7 @@ Los casos disenados en Milestone 1 quedan `NOT RUN`. Un resultado esperado no es
 5. Antes de tocar C/H o `Makefile`, realizar gate humano y definir regresion.
 6. Si se aprueba una correccion en un cambio separado, conservar before/after y ejecutar la regresion relacionada.
 
-Al cierre de Milestone 1, ROB-001 y ROB-003 seguian siendo hipotesis y no se habian ejecutado. Milestone 3A agrega caracterizacion controlada sin correccion: ROB-001 queda como defecto sospechado por efecto intraobjeto y ROB-003 como ambiguedad contractual. DSP-017 queda confirmado como DEF-001 contra REQ-008 y espera gate humano antes de cualquier cambio de produccion.
+Al cierre de Milestone 1, ROB-001 y ROB-003 seguian siendo hipotesis y no se habian ejecutado. Milestone 3A agrega caracterizacion controlada sin correccion: ROB-001 queda como defecto sospechado por efecto intraobjeto y ROB-003 como ambiguedad contractual. Milestone 4 reproduce esas seis pruebas junto con los 24 casos CFT, sin cambiar sus disposiciones. DSP-017 queda confirmado como DEF-001 contra REQ-008 y espera gate humano antes de cualquier cambio de produccion.
 
 ## 17. Politica de evidencia
 
@@ -254,6 +254,8 @@ Ubicaciones de Milestone 1:
 
 No se asignan fechas academicas no provistas. El orden expresa dependencias, no duraciones comprometidas.
 
+Milestone 4 completo la ejecucion tecnica y la auditoria documental del run `milestone_4_20261015T161203Z`. La aprobacion humana del reporte y el ensayo de presentacion no se consideran completados.
+
 ## 19. Riesgos y mitigaciones
 
 | Riesgo | Mitigacion |
@@ -273,9 +275,12 @@ La prioridad historica de eficiencia permanece en 10 %, pero no se medira rendim
 
 ## 21. Estado actual
 
-- Milestone 1: diseno documental en curso.
-- Tests implementados: ninguno.
-- Tests ejecutados: ninguno.
-- Cobertura medida: ninguna.
-- Defectos confirmados por TSSE: ninguno.
-- Hardware utilizado por TSSE: ninguno.
+- Identidad de ejecucion: HEAD `54a91ed4b684b5ac6f4221c8743768fad5083270` mas inputs test/infraestructura dirty identificados por `evidencias/01_proyecto/milestone_4_20261015T161203Z/test_input_checksums.typescript`; HEAD solo no reproduce el run. El manifest es post-ejecucion sobre inputs sin cambios, no un commit pre-ejecucion. Baseline de produccion protegido: `c59b24017f5daebb4e37512d799a0d07f589bce5`; diff de produccion/Makefile vacio.
+- Unitarios ADS1263: `66/66 PASS`. El primer intento fallo en link por alcance accidental del wrapper stdio; se preservo como fallo de infraestructura y el rerun limpio paso.
+- Unitarios acquisition: `30/30 PASS`: seis casos de robustez existentes y los 24 casos exactos `CFT-P01..P24`; todos los CFT estan `PASS`.
+- Integracion host: dos runs independientes con el mismo inventario de 71 IDs; cada run `71 PASS`, `0 FAIL`, `0 BLOCKED`. Es evidencia software-only con hardware simulado o sustituido.
+- Analisis estatico: Cppcheck no-gpiod completo con 41 hallazgos style, 32 `missingIncludeSystem` y metadata/limites; 38 falsos positivos de contexto/herramienta, tres observaciones aceptadas de interfaz publica y cero defectos confirmados. La configuracion libgpiod-v2 esta `BLOCKED` por falta de `pkg-config` y `gpiod.h`; GCC fallback no-gpiod tuvo cero diagnosticos.
+- Cobertura ADS1263: 151/222 lineas, 13/16 funciones y 90/134 branches, sin cambio. Acquisition: 118/168 lineas, 9/13 funciones y 53/76 branches, frente a 54/168, 6/13 y 26/76. El intento gcovr acquisition paralelo fallo por carrera sobre el arbol compartido y el rerun serial paso; ambos se preservan.
+- Defectos confirmados por TSSE: DEF-001 permanece abierto y sin correccion de produccion. Los estados ROB y las ambiguedades contractuales se conservan.
+- Hardware utilizado por TSSE: ninguno. No se verifican target, SPI/GPIO fisicos, exactitud ADC ni tiempo real.
+- Cierre humano: aprobacion final del reporte y ensayo/rehearsal `BLOCKED / PENDING HUMAN`; no se infiere cierre academico.

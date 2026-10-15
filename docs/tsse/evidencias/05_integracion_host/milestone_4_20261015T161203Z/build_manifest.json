@@ -1,0 +1,187 @@
+{
+  "builds": {
+    "native_linux_adapters": {
+      "argv": [
+        "/usr/bin/x86_64-linux-gnu-gcc-15",
+        "-std=c11",
+        "-O2",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-D_POSIX_C_SOURCE=200809L",
+        "-DADS1263_NO_GPIOD=1",
+        "-I/home/cronos/projects/tsse/IdS_project/components/logger/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/ads1263/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/acquisition/include",
+        "/home/cronos/projects/tsse/IdS_project/main/main.c",
+        "/home/cronos/projects/tsse/IdS_project/components/acquisition/src/acquisition.c",
+        "/home/cronos/projects/tsse/IdS_project/components/ads1263/src/ads1263.c",
+        "/home/cronos/projects/tsse/IdS_project/components/logger/src/app_log.c",
+        "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/src/ads1263_spi_linux.c",
+        "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/src/ads1263_gpio_linux.c",
+        "-o",
+        "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app"
+      ],
+      "binary": {
+        "path": "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app",
+        "sha256": "c7e5ff0905c6b66a5a7160457d4ced347f6c022abd7c6d3ed905199c139dd27a"
+      }
+    },
+    "scripted_fake_hal": {
+      "argv": [
+        "/usr/bin/x86_64-linux-gnu-gcc-15",
+        "-std=c11",
+        "-O2",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-D_POSIX_C_SOURCE=200809L",
+        "-DADS1263_NO_GPIOD=1",
+        "-I/home/cronos/projects/tsse/IdS_project/components/logger/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/ads1263/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/include",
+        "-I/home/cronos/projects/tsse/IdS_project/components/acquisition/include",
+        "/home/cronos/projects/tsse/IdS_project/main/main.c",
+        "/home/cronos/projects/tsse/IdS_project/components/acquisition/src/acquisition.c",
+        "/home/cronos/projects/tsse/IdS_project/components/ads1263/src/ads1263.c",
+        "/home/cronos/projects/tsse/IdS_project/components/logger/src/app_log.c",
+        "/home/cronos/projects/tsse/IdS_project/test/integration/fake_hal/fake_hal.c",
+        "-o",
+        "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app_fake_hal"
+      ],
+      "binary": {
+        "path": "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app_fake_hal",
+        "sha256": "eb8116ef4c0ecdbad256c768bc8c623807611860f67cc2ddf02572dfdcfbda82"
+      },
+      "substitution": "test/integration/fake_hal/fake_hal.c replaces both Linux adapter objects"
+    }
+  },
+  "compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-gcc-15",
+    "version": "x86_64-linux-gnu-gcc-15 (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "version_argv": [
+      "/usr/bin/x86_64-linux-gnu-gcc-15",
+      "--version"
+    ]
+  },
+  "created_utc": "2026-10-15T16:39:17.642250+00:00",
+  "defines": [
+    "_POSIX_C_SOURCE=200809L",
+    "ADS1263_NO_GPIOD=1"
+  ],
+  "repo_root": "/home/cronos/projects/tsse/IdS_project",
+  "schema_version": 1,
+  "sources": [
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/main/main.c",
+      "classification": "production",
+      "path": "main/main.c",
+      "sha256": "21888880c50117c41dff067713c194f80c097d99ac9a607403d21b6ee13468b1"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/acquisition/src/acquisition.c",
+      "classification": "production",
+      "path": "components/acquisition/src/acquisition.c",
+      "sha256": "0c37acc3f8283c507a9cd981878e3891a428b9e6fdb9f5457033dd0e2418ad06"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/acquisition/include/acquisition.h",
+      "classification": "production",
+      "path": "components/acquisition/include/acquisition.h",
+      "sha256": "00f11bb2cd1534df9ef8354de3408f04648e0071c4078bae69cab861b658ba59"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/src/ads1263.c",
+      "classification": "production",
+      "path": "components/ads1263/src/ads1263.c",
+      "sha256": "01e6e0b888886e46669c72a2bfc5d8aa40bb1571bcc038e784178048de01fd0c"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/include/ads1263.h",
+      "classification": "production",
+      "path": "components/ads1263/include/ads1263.h",
+      "sha256": "9e3fa167904644180238e671e44d4fa2d331d2bbe30b2804ee75738bf62baa6a"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/include/ads1263_defs.h",
+      "classification": "production",
+      "path": "components/ads1263/include/ads1263_defs.h",
+      "sha256": "102b383e280c12771a02a0d5b6ef02f4a254553450a14ce76e92bfc64f866001"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/logger/src/app_log.c",
+      "classification": "production",
+      "path": "components/logger/src/app_log.c",
+      "sha256": "e981b8fcaff2762888148940d95b580a518d25d057c5a4562c36c03f582f2587"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/logger/include/app_log.h",
+      "classification": "production",
+      "path": "components/logger/include/app_log.h",
+      "sha256": "acc8db7489c950f364644d0d50ac47bf59a8a9f28474607be92f57b2512511bd"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/src/ads1263_spi_linux.c",
+      "classification": "production",
+      "path": "components/ads1263/arch/linux/src/ads1263_spi_linux.c",
+      "sha256": "af2d71df33bf33be94d58c5df4a01ab077da00eb1553276dbbc9c242c6766b94"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/src/ads1263_gpio_linux.c",
+      "classification": "production",
+      "path": "components/ads1263/arch/linux/src/ads1263_gpio_linux.c",
+      "sha256": "b94b5494559c60a9b081560f313d588da6891ffa908c3e49d1adc20761470d19"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/include/ads1263_spi_linux.h",
+      "classification": "production",
+      "path": "components/ads1263/arch/linux/include/ads1263_spi_linux.h",
+      "sha256": "42b4213030a598d1095244fc5843e7f32b48d821374c809ad79dd708e679a7b2"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/components/ads1263/arch/linux/include/ads1263_gpio_linux.h",
+      "classification": "production",
+      "path": "components/ads1263/arch/linux/include/ads1263_gpio_linux.h",
+      "sha256": "1a462dd502ed527a33e7c6b322677b914235728e4d8f3a8d3d918ca79734b584"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/build.sh",
+      "classification": "test_support",
+      "path": "test/integration/build.sh",
+      "sha256": "108baf524f6a002ef8db28823a3f3d823b8c6697f8595b69f590aca3ac13df4d"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/build_manifest.py",
+      "classification": "test_support",
+      "path": "test/integration/build_manifest.py",
+      "sha256": "6e5472a8218a948f4549ac2aae2ecc1d2654df154468980eff493e99dbca7b34"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/run.py",
+      "classification": "test_support",
+      "path": "test/integration/run.py",
+      "sha256": "1bc3c4d5cab154bcb7b50e07fd50b85d848bcc8b8e966ea924603c3721262315"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/scenarios.md",
+      "classification": "test_support",
+      "path": "test/integration/scenarios.md",
+      "sha256": "0831674f7c7f16298e4b897547cfb6211f710419aa385c42067f39b8a62f025a"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/README.md",
+      "classification": "test_support",
+      "path": "test/integration/README.md",
+      "sha256": "6fa51ac951f53e74ae7b139231a9e6dec3dbd58aa5d332821a3ad4836ca1a69b"
+    },
+    {
+      "absolute_path": "/home/cronos/projects/tsse/IdS_project/test/integration/fake_hal/fake_hal.c",
+      "classification": "test_support",
+      "path": "test/integration/fake_hal/fake_hal.c",
+      "sha256": "668dd3c10485aebd1e39779f18e4adab8e99524f238181e9bd10fcb8db35cebe"
+    }
+  ]
+}

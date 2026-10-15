@@ -1,0 +1,282 @@
+{
+  "Name": "ads1263_host_tests",
+  "BuildDuration": 2.0087548660012544,
+  "FailedTests": [
+
+  ],
+  "PassedTests": [
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_001_rejects_null_device_without_transfers"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_002_rejects_unsupported_channel_without_transfers"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_003_write_failure_suppresses_readback_and_start"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_004_read_failure_suppresses_start"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_005_readback_mismatch_suppresses_start"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_006_start_failure_is_propagated_after_write_and_read"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_channel.c",
+      "test": "test_UT_CHAN_007_channel_zero_uses_wreg_rreg_start_order"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_CFG_001_default_configuration_matches_board_defaults"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_001_zero_raw_converts_to_zero"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_002_A_representative_positive_raw_converts_by_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_002_B_representative_negative_raw_converts_by_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_003_A_positive_extreme_converts_to_vref"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_003_B_negative_extreme_is_finite_and_uses_signed_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_004_A_gain_two_scales_voltage_by_half"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_004_B_alternate_vref_scales_voltage"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_005_gain_zero_matches_current_gain_one_behavior"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_001_rejects_null_device_without_changing_snapshot"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_002_rejects_null_snapshot"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_003_propagates_spi_failure_and_observes_zeroed_snapshot"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_004_classifies_all_zero_registers"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_005_classifies_all_ff_registers"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_006_detects_power_register_mismatch"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_007_detects_interface_register_mismatch"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_008_detects_mode0_register_mismatch"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_009_detects_mode1_register_mismatch"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_010_accepts_id_variation_when_mandatory_registers_match"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_presence.c",
+      "test": "test_UT_PRES_011_accepts_valid_baseline_snapshot"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_001_A_read_rejects_null_device"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_001_B_read_rejects_null_output"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_001_C_write_rejects_null_device"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_001_D_write_rejects_null_values"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_002_read_first_register_uses_exact_rreg_frame"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_003_read_last_register_uses_exact_rreg_frame"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_004_A_read_rejects_zero_count"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_004_B_read_accepts_full_register_count"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_004_C_read_rejects_count_above_register_file"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_004_D_read_rejects_start_above_last_register"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_005_read_propagates_transfer_failure_without_changing_output"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_006_A_write_first_register_uses_exact_wreg_frame"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_006_B_write_last_register_uses_exact_wreg_frame"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_009_A_write_rejects_zero_count"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_009_B_write_accepts_full_register_count"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_009_C_write_rejects_count_above_register_file"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_009_D_write_rejects_start_above_last_register"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_010_write_propagates_transfer_failure"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_011_A_mock_read_returns_stored_registers_without_spi"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_registers.c",
+      "test": "test_UT_REG_011_B_mock_write_updates_stored_registers_without_spi"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_robustness.c",
+      "test": "test_UT_REG_007_cross_boundary_mock_read_exposes_adjacent_object_byte"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_robustness.c",
+      "test": "test_UT_REG_008_cross_boundary_mock_write_changes_byte_after_register_bank"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_001_A_rejects_null_device"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_001_B_rejects_null_sample"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_002_mock_samples_are_deterministic"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_003_decodes_positive_value_and_exact_rdata1_frame"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_004_decodes_zero_value"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_005_decodes_positive_full_scale"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_006_decodes_negative_full_scale"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_007_extracts_status_checksum_and_voltage"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_SAMPLE_008_propagates_spi_failure_and_leaves_zeroed_sample"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_001_A_read_drdy_rejects_null_device"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_001_B_read_drdy_rejects_null_output"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_002_immediate_ready_reads_without_waiting"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_003_delayed_ready_polls_three_times_and_waits_twice"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_004_gpio_error_is_recorded_while_spi_success_returns_ok"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_005_timeout_is_bounded_and_recorded_after_spi_success"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_006_gpio_error_followed_by_spi_failure_returns_spi_error"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_sample.c",
+      "test": "test_UT_DRDY_007_timeout_followed_by_spi_failure_returns_spi_error"
+    }
+  ],
+  "IgnoredTests": [
+
+  ],
+  "Summary": {
+    "total_tests": 66,
+    "passed": 66,
+    "ignored": 0,
+    "failures": 0
+  }
+}

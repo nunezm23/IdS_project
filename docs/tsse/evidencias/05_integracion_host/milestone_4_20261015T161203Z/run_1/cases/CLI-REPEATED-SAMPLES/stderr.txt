@@ -1,0 +1,1 @@
+[ERROR] select exactly one command mode: --check, --samples, --live, or --help

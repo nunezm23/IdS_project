@@ -1,0 +1,7 @@
+PASS ZIP CRC: 80 parts
+PASS XML parse: all XML and relationship parts
+PASS relationships: all internal targets present
+PASS OOXML inventory: 16 slides + 16 note slides
+PASS content assertions: required claims and evidence-linked notes
+PASS page size: 12192000 x 6858000 EMU (16:9)
+SHA256 667cb94f4905ea45bb6036325b2192c9f76b10d429674401772f2a110d4228cc  docs/tsse/presentacion/verificacion_software_ads1263_milestone_4.pptx

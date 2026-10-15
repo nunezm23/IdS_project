@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] ADS1263 register check\nID        = 0x23\nPOWER     = 0x11\nINTERFACE = 0x05\nMODE0     = 0x00\nMODE1     = 0x80\n[INFO] ADS1263 detected\n[INFO] DRDY: chip=/dev/gpiochip6 line=1023 value=1\n",
+    "expected": "line=1023",
+    "name": "stdout contains 'line=1023'",
+    "passed": true
+  }
+]

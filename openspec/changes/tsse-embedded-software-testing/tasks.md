@@ -51,7 +51,7 @@
 - [x] 7.3 Implement presence cases for null arguments, transfer failure, all zero, all `0xFF`, each mandatory baseline mismatch, accepted ID variation, and success; verify snapshots and statuses are asserted for each partition.
 - [x] 7.4 Implement channel cases for null/unsupported input, write failure, read failure, mismatch, START1 failure, and successful ordering; verify later calls are suppressed after each failure.
 - [x] 7.5 Implement sample cases for null arguments, mock determinism, immediate/delayed/no DRDY, GPIO error, timeout, SPI error, exact RDATA1 frame, signed decoding, status/checksum, and voltage; verify timeout cases use no real one-second wait.
-- [ ] 7.6 Implement acquisition cases corresponding to the approved CFT set with an ADS1263 mock and logger/event spy; verify returns, ordered calls, sample/sleep counts, CSV effects, and cleanup match each path oracle.
+- [x] 7.6 Implement acquisition cases corresponding to the approved CFT set with an ADS1263 mock and logger/event spy; verify returns, ordered calls, sample/sleep counts, CSV effects, and cleanup match each path oracle.
 - [x] 7.7 Run the unit suite twice from clean test build state; verify identical case inventory and outcomes, no `/dev/spidev*` or `/dev/gpiochip*` access, and preserved raw outputs for both runs.
 
 ## 8. Controlled Robustness Investigations and Review Gate
@@ -78,36 +78,36 @@
 
 ## 11. Host-Based Software Integration Testing
 
-- [ ] 11.1 Define process-level scenarios with real-module boundaries, simulated dependencies, commands, expected outputs, exit statuses, timeouts, cleanup, and limitations; verify each scenario is approved before execution.
-- [ ] 11.2 Build a native software-only application variant using unchanged `main`, acquisition, ADS1263, and logger production sources; verify it links without target SDK or physical device access and record all substitutions/defines.
-- [ ] 11.3 Execute `--check --mock`, fixed mock samples, successful mock CSV, and unavailable-CSV-path scenarios; verify successful-path creation/truncation, exact header, representative row fields, requested row count, close/cleanup, and failure-path warnings, console continuation, process result, and preserved raw/file evidence.
-- [ ] 11.4 Execute CLI grammar and boundary scenarios, including missing/malformed values, unknown options, conflicting mode orders, and CSV/mode combinations; verify actual exit codes and diagnostic fragments are recorded, including discrepancies.
-- [ ] 11.5 Execute bounded live mock plus SIGINT only with reliable process control; verify timely clean termination and no child remains, or record `BLOCKED` with the attempted setup and reason.
-- [ ] 11.6 Perform the scripted SPI/GPIO integration feasibility gate; if accepted, implement and execute deterministic happy/error scripts with real core/orchestration modules and record added value, otherwise mark it `OUT OF SCOPE` or `BLOCKED` with rationale.
+- [x] 11.1 Define process-level scenarios with real-module boundaries, simulated dependencies, commands, expected outputs, exit statuses, timeouts, cleanup, and limitations; verify each scenario is approved before execution.
+- [x] 11.2 Build a native software-only application variant using unchanged `main`, acquisition, ADS1263, and logger production sources; verify it links without target SDK or physical device access and record all substitutions/defines.
+- [x] 11.3 Execute `--check --mock`, fixed mock samples, successful mock CSV, and unavailable-CSV-path scenarios; verify successful-path creation/truncation, exact header, representative row fields, requested row count, close/cleanup, and failure-path warnings, console continuation, process result, and preserved raw/file evidence.
+- [x] 11.4 Execute CLI grammar and boundary scenarios, including missing/malformed values, unknown options, conflicting mode orders, and CSV/mode combinations; verify actual exit codes and diagnostic fragments are recorded, including discrepancies.
+- [x] 11.5 Execute bounded live mock plus SIGINT only with reliable process control; verify timely clean termination and no child remains, or record `BLOCKED` with the attempted setup and reason.
+- [x] 11.6 Perform the scripted SPI/GPIO integration feasibility gate; if accepted, implement and execute deterministic happy/error scripts with real core/orchestration modules and record added value, otherwise mark it `OUT OF SCOPE` or `BLOCKED` with rationale.
 
 ## 12. Static Analysis
 
-- [ ] 12.1 Recheck Cppcheck availability/version and define exact source, include, platform, language, checks, suppressions, and exit policy; verify the command is documented before interpreting output.
-- [ ] 12.2 Run Cppcheck over all declared production C/H files for `ADS1263_NO_GPIOD=1` and the libgpiod-v2 branch when supported; verify raw outputs, exit codes, configuration coverage, and any blocked branch are preserved.
-- [ ] 12.3 Record stable ID, source location, severity/impact, reproducibility state, disposition, and defect/accepted-risk link for every finding, including false positives and environment limitations; verify no one-line progress output or incomplete run is summarized as “clean.”
-- [ ] 12.4 Optionally compile production sources with additional GCC diagnostics in an informational profile; verify findings are kept separate from mandatory Cppcheck results and are not silently promoted to acceptance criteria.
+- [x] 12.1 Recheck Cppcheck availability/version and define exact source, include, platform, language, checks, suppressions, and exit policy; verify the command is documented before interpreting output.
+- [x] 12.2 Run Cppcheck over all declared production C/H files for `ADS1263_NO_GPIOD=1` and the libgpiod-v2 branch when supported; verify raw outputs, exit codes, configuration coverage, and any blocked branch are preserved.
+- [x] 12.3 Record stable ID, source location, severity/impact, reproducibility state, disposition, and defect/accepted-risk link for every finding, including false positives and environment limitations; verify no one-line progress output or incomplete run is summarized as “clean.”
+- [x] 12.4 Optionally compile production sources with additional GCC diagnostics in an informational profile; verify findings are kept separate from mandatory Cppcheck results and are not silently promoted to acceptance criteria.
 
 ## 13. Evidence Collection and Traceability Closure
 
 - [ ] 13.1 Extend the evidence tree and manifest without deleting or overwriting existing TSSE evidence; verify unique run identifiers prevent overwrite and categories cover baseline, static, CFT, unit, integration, coverage, defects/regression, traceability, and presentation.
-- [ ] 13.2 Add reproducibility metadata to every new run set, including revisions, worktree, host, versions, working directory, exact command, timestamps, exit code, and real/mock/simulated classification; verify references use repository-relative paths or documented variables and a sample run can be repeated from its record.
-- [ ] 13.3 Audit raw-to-summary links and status labels; verify every `PASS`, `FAIL`, coverage number, or defect claim has source evidence and every missing activity is `BLOCKED`, `NOT RUN`, or `OUT OF SCOPE`.
-- [ ] 13.4 Finalize bidirectional traceability from requirements/hypotheses to atomic cases, results, evidence, and defects; verify every case links back to a requirement or robustness objective and every in-scope requirement has a disposition.
-- [ ] 13.5 Audit each confirmed defect record for stable ID, approved contract reference, preconditions, minimal reproduction, expected/actual behavior, impact, evidence, disposition, and regression links; verify unresolved hypotheses and ambiguities are not recorded as confirmed defects.
+- [x] 13.2 Add reproducibility metadata to every new run set, including revisions, worktree, host, versions, working directory, exact command, timestamps, exit code, and real/mock/simulated classification; verify references use repository-relative paths or documented variables and a sample run can be repeated from its record.
+- [x] 13.3 Audit raw-to-summary links and status labels; verify every `PASS`, `FAIL`, coverage number, or defect claim has source evidence and every missing activity is `BLOCKED`, `NOT RUN`, or `OUT OF SCOPE`.
+- [x] 13.4 Finalize bidirectional traceability from requirements/hypotheses to atomic cases, results, evidence, and defects; verify every case links back to a requirement or robustness objective and every in-scope requirement has a disposition.
+- [x] 13.5 Audit each confirmed defect record for stable ID, approved contract reference, preconditions, minimal reproduction, expected/actual behavior, impact, evidence, disposition, and regression links; verify unresolved hypotheses and ambiguities are not recorded as confirmed defects.
 
 ## 14. Final Technical Report
 
-- [ ] 14.1 Write the report covering the real embedded system, architecture, historical validation, TSSE scope, Master Test Plan, formal CFT derivation, test architecture, implemented cases, actual results, coverage, findings, and limitations; verify each quantitative claim links to evidence.
-- [ ] 14.2 Include an explicit discrepancy and uncertainty section for hardware-only requirements, REQ-012, CSV semantics, ROB-001, ROB-003, blocked tools/scenarios, and untested behavior; verify no ambiguity is silently converted into compliance or defect status.
+- [x] 14.1 Write the report covering the real embedded system, architecture, historical validation, TSSE scope, Master Test Plan, formal CFT derivation, test architecture, implemented cases, actual results, coverage, findings, and limitations; verify each quantitative claim links to evidence.
+- [x] 14.2 Include an explicit discrepancy and uncertainty section for hardware-only requirements, REQ-012, CSV semantics, ROB-001, ROB-003, blocked tools/scenarios, and untested behavior; verify no ambiguity is silently converted into compliance or defect status.
 - [ ] 14.3 Perform a factual and reproducibility review against source, traceability, and raw evidence; verify planned, executed, blocked, and historical work remain visibly distinct and reviewer approval is recorded.
 
 ## 15. Google Slides Presentation Preparation
 
-- [ ] 15.1 Prepare a Google Slides-compatible main deck and speaker outline covering system/baseline, scope, quality strategy, one readable CFT model/path example, unit/mock architecture, actual results, coverage/traceability, and conclusions/limitations; verify no planned result is presented as executed.
-- [ ] 15.2 Add backup slides for detailed paths, test inventory, raw excerpts, findings, coverage by module, and defect records; verify the main narrative remains concise while review evidence is accessible.
+- [x] 15.1 Prepare a Google Slides-compatible main deck and speaker outline covering system/baseline, scope, quality strategy, one readable CFT model/path example, unit/mock architecture, actual results, coverage/traceability, and conclusions/limitations; verify no planned result is presented as executed.
+- [x] 15.2 Add backup slides for detailed paths, test inventory, raw excerpts, findings, coverage by module, and defect records; verify the main narrative remains concise while review evidence is accessible.
 - [ ] 15.3 Conduct and record a timed rehearsal targeting approximately ten minutes; verify timing, slide ownership, terminology, hardware disclaimer, and likely question responses are captured in presentation evidence.

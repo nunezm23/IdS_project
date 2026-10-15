@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/tmp/opencode/m4-integration-build.QW1QuA/ads1263_app_fake_hal",
+    "--samples",
+    "1",
+    "--channel",
+    "0",
+    "--rate-hz",
+    "10"
+  ],
+  "cwd": "/home/cronos/projects/tsse/IdS_project",
+  "environment": {
+    "FAKE_HAL_SCENARIO": "delayed_drdy",
+    "FAKE_HAL_TRACE": "/tmp/opencode/m4-integration-run1.hhv9j2/cases/HAL-DELAYED-DRDY/hal_trace.txt"
+  },
+  "timeout_occurred": false
+}

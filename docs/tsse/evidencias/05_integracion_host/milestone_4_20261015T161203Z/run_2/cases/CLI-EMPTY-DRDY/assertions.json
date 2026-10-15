@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] drdy-line requires a value\n",
+    "expected": "drdy-line requires a value",
+    "name": "stderr contains 'drdy-line requires a value'",
+    "passed": true
+  }
+]

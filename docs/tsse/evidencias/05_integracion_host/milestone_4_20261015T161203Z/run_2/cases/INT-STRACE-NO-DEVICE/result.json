@@ -1,0 +1,9 @@
+{
+  "assertion_count": 5,
+  "assertions_passed": 5,
+  "blocked_reason": null,
+  "case_id": "INT-STRACE-NO-DEVICE",
+  "duration_seconds": 0.004733,
+  "exit_code": 0,
+  "state": "PASS"
+}

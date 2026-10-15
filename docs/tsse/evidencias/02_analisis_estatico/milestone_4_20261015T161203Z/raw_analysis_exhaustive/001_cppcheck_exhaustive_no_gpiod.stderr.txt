@@ -1,0 +1,74 @@
+components/ads1263/include/ads1263_defs.h|4|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/include/acquisition.h|6|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|6|2|information|missingIncludeSystem|Include file: <stddef.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|7|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/include/ads1263.h|8|2|information|missingIncludeSystem|Include file: <stddef.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/include/ads1263.h|9|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/logger/include/app_log.h|6|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/logger/include/app_log.h|7|2|information|missingIncludeSystem|Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+main/main.c|5|2|information|missingIncludeSystem|Include file: <errno.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+main/main.c|6|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+main/main.c|7|2|information|missingIncludeSystem|Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+main/main.c|8|2|information|missingIncludeSystem|Include file: <stdlib.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+main/main.c|9|2|information|missingIncludeSystem|Include file: <string.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/logger/src/app_log.c|3|2|information|missingIncludeSystem|Include file: <inttypes.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/logger/src/app_log.c|4|2|information|missingIncludeSystem|Include file: <stdarg.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/logger/src/app_log.c|5|2|information|missingIncludeSystem|Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/src/acquisition.c|6|2|information|missingIncludeSystem|Include file: <signal.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/src/acquisition.c|7|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/src/acquisition.c|8|2|information|missingIncludeSystem|Include file: <stdio.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/src/acquisition.c|9|2|information|missingIncludeSystem|Include file: <time.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/src/ads1263.c|3|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/src/ads1263.c|4|2|information|missingIncludeSystem|Include file: <string.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/src/ads1263.c|5|2|information|missingIncludeSystem|Include file: <time.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|3|2|information|missingIncludeSystem|Include file: <errno.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|4|2|information|missingIncludeSystem|Include file: <fcntl.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|5|2|information|missingIncludeSystem|Include file: <linux/spi/spidev.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|6|2|information|missingIncludeSystem|Include file: <stddef.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|7|2|information|missingIncludeSystem|Include file: <stdint.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|8|2|information|missingIncludeSystem|Include file: <string.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|9|2|information|missingIncludeSystem|Include file: <sys/ioctl.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|10|2|information|missingIncludeSystem|Include file: <unistd.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|46|54|style|constParameterPointer|Parameter 'rx' can be declared as pointer to const
+components/ads1263/arch/linux/src/ads1263_gpio_linux.c|3|2|information|missingIncludeSystem|Include file: <string.h> not found. Please note: Cppcheck does not need standard library headers to get proper results.
+components/acquisition/include/acquisition.h|9|13|style|unusedStructMember|struct member 'acquisition_config_t::channel' is never used.
+components/acquisition/include/acquisition.h|10|14|style|unusedStructMember|struct member 'acquisition_config_t::samples' is never used.
+components/acquisition/include/acquisition.h|11|14|style|unusedStructMember|struct member 'acquisition_config_t::rate_hz' is never used.
+components/acquisition/include/acquisition.h|12|9|style|unusedStructMember|struct member 'acquisition_config_t::live' is never used.
+components/acquisition/include/acquisition.h|13|17|style|unusedStructMember|struct member 'acquisition_config_t::csv_path' is never used.
+components/ads1263/include/ads1263.h|12|22|style|unusedStructMember|struct member 'ads1263_t::config' is never used.
+components/ads1263/include/ads1263.h|13|25|style|unusedStructMember|struct member 'ads1263_t::spi' is never used.
+components/ads1263/include/ads1263.h|15|9|style|unusedStructMember|struct member 'ads1263_t::initialized' is never used.
+components/ads1263/include/ads1263.h|16|13|style|unusedStructMember|struct member 'ads1263_t::mock_registers' is never used.
+components/ads1263/include/ads1263.h|17|14|style|unusedStructMember|struct member 'ads1263_t::mock_sample_counter' is never used.
+components/ads1263/include/ads1263_defs.h|57|13|style|unusedStructMember|struct member 'ads1263_sample_t::raw' is never used.
+components/ads1263/include/ads1263_defs.h|58|12|style|unusedStructMember|struct member 'ads1263_sample_t::voltage' is never used.
+components/ads1263/include/ads1263_defs.h|59|9|style|unusedStructMember|struct member 'ads1263_sample_t::drdy' is never used.
+components/ads1263/include/ads1263_defs.h|60|13|style|unusedStructMember|struct member 'ads1263_sample_t::status_byte' is never used.
+components/ads1263/include/ads1263_defs.h|61|13|style|unusedStructMember|struct member 'ads1263_sample_t::checksum_byte' is never used.
+components/ads1263/include/ads1263_defs.h|62|17|style|unusedStructMember|struct member 'ads1263_sample_t::status' is never used.
+components/ads1263/include/ads1263_defs.h|66|13|style|unusedStructMember|struct member 'ads1263_register_snapshot_t::id' is never used.
+components/ads1263/include/ads1263_defs.h|67|13|style|unusedStructMember|struct member 'ads1263_register_snapshot_t::power' is never used.
+components/ads1263/include/ads1263_defs.h|68|13|style|unusedStructMember|struct member 'ads1263_register_snapshot_t::interface' is never used.
+components/ads1263/include/ads1263_defs.h|69|13|style|unusedStructMember|struct member 'ads1263_register_snapshot_t::mode0' is never used.
+components/ads1263/include/ads1263_defs.h|70|13|style|unusedStructMember|struct member 'ads1263_register_snapshot_t::mode1' is never used.
+components/ads1263/include/ads1263_defs.h|74|17|style|unusedStructMember|struct member 'ads1263_config_t::spi_device' is never used.
+components/ads1263/include/ads1263_defs.h|75|17|style|unusedStructMember|struct member 'ads1263_config_t::gpio_chip' is never used.
+components/ads1263/include/ads1263_defs.h|76|18|style|unusedStructMember|struct member 'ads1263_config_t::drdy_line' is never used.
+components/ads1263/include/ads1263_defs.h|77|14|style|unusedStructMember|struct member 'ads1263_config_t::spi_speed_hz' is never used.
+components/ads1263/include/ads1263_defs.h|78|12|style|unusedStructMember|struct member 'ads1263_config_t::vref' is never used.
+components/ads1263/include/ads1263_defs.h|79|13|style|unusedStructMember|struct member 'ads1263_config_t::gain' is never used.
+components/ads1263/include/ads1263_defs.h|80|9|style|unusedStructMember|struct member 'ads1263_config_t::use_drdy' is never used.
+components/ads1263/include/ads1263_defs.h|81|9|style|unusedStructMember|struct member 'ads1263_config_t::mock' is never used.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|10|9|style|unusedStructMember|struct member 'ads1263_spi_linux_t::fd' is never used.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|11|14|style|unusedStructMember|struct member 'ads1263_spi_linux_t::speed_hz' is never used.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|12|13|style|unusedStructMember|struct member 'ads1263_spi_linux_t::mode' is never used.
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|13|13|style|unusedStructMember|struct member 'ads1263_spi_linux_t::bits_per_word' is never used.
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h|10|24|style|unusedStructMember|struct member 'ads1263_gpio_linux_t::chip' is never used.
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h|11|32|style|unusedStructMember|struct member 'ads1263_gpio_linux_t::request' is never used.
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h|12|18|style|unusedStructMember|struct member 'ads1263_gpio_linux_t::line' is never used.
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h|13|9|style|unusedStructMember|struct member 'ads1263_gpio_linux_t::enabled' is never used.
+components/ads1263/src/ads1263.c|92|18|style|staticFunction|The function 'ads1263_read_registers' should have static linkage since it is not used outside of its translation unit.
+components/ads1263/src/ads1263.c|127|18|style|staticFunction|The function 'ads1263_write_registers' should have static linkage since it is not used outside of its translation unit.
+components/ads1263/src/ads1263.c|355|8|style|staticFunction|The function 'ads1263_raw_to_voltage' should have static linkage since it is not used outside of its translation unit.
+nofile|0|0|information|checkersReport|Active checkers: 119/975 (use --checkers-report=<filename> to see details)

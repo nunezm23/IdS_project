@@ -1,0 +1,20 @@
+Usage:
+  ads1263_app --check
+  ads1263_app --samples <N> --channel <CH> --rate-hz <HZ> [--csv <path>]
+  ads1263_app --live --channel <CH> --rate-hz <HZ>
+  ads1263_app --help
+
+Defaults:
+  spi device  : /dev/spidev0.0
+  gpio chip   : /dev/gpiochip6
+  drdy line   : 8
+  samples     : 10
+  rate-hz     : 2
+  channel     : 0 (AIN0-AINCOM)
+
+Advanced:
+  --spi-dev <path>       Override SPI character device
+  --gpio-chip <path>     Override GPIO chip path
+  --drdy-line <offset>   Override DRDY GPIO line offset
+  --no-drdy              Skip DRDY GPIO open/read for SPI-only checks
+  --mock                 Simulate ADS1263 registers and samples

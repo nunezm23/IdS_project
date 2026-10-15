@@ -1,0 +1,4 @@
+Generated docs/tsse/presentacion/verificacion_software_ads1263_milestone_4.pptx
+Slides: 16 (9 main + 7 backup); speaker notes: 16
+SHA256: 03eb4e3402d63fd3afc604b63c869ca4afd0994a0984096a39edcaf74379a8d9
+Verification: PASS (ZIP CRC, required parts, XML parse, slide/note counts)

@@ -1,0 +1,5 @@
+SPI_OPEN device=/dev/spidev0.0 speed=1000000 result=OK
+GPIO_OPEN chip=/dev/gpiochip6 line=8 result=OK
+SPI_TRANSFER len=7 tx=20:04:00:00:00:00:00 result=OK
+GPIO_CLOSE
+SPI_CLOSE
