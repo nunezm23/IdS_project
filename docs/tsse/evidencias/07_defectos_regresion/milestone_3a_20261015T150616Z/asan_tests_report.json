@@ -1,0 +1,26 @@
+{
+  "Name": "ads1263_host_tests",
+  "BuildDuration": 0.858899663000102,
+  "FailedTests": [
+
+  ],
+  "PassedTests": [
+    {
+      "file": "test/ceedling/tests/test_ads1263_robustness.c",
+      "test": "test_UT_REG_007_cross_boundary_mock_read_exposes_adjacent_object_byte"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_robustness.c",
+      "test": "test_UT_REG_008_cross_boundary_mock_write_changes_byte_after_register_bank"
+    }
+  ],
+  "IgnoredTests": [
+
+  ],
+  "Summary": {
+    "total_tests": 2,
+    "passed": 2,
+    "ignored": 0,
+    "failures": 0
+  }
+}

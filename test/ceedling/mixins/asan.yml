@@ -1,0 +1,11 @@
+---
+:project:
+  :build_root: build/ceedling/asan
+
+:flags:
+  :test:
+    :compile:
+      - -fsanitize=address
+      - -fno-omit-frame-pointer
+    :link:
+      - -fsanitize=address

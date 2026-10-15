@@ -1,0 +1,8 @@
+Script started on 2026-10-15 10:15:19-05:00 [COMMAND="gcovr --root . --filter 'components/ads1263/src/ads1263\.c$' --merge-mode-functions merge-use-line-max --txt docs/tsse/evidencias/06_cobertura/milestone_3a_20261015T150616Z/final/ads1263_coverage.txt --html-details docs/tsse/evidencias/06_cobertura/milestone_3a_20261015T150616Z/final/ads1263_coverage.html --json docs/tsse/evidencias/06_cobertura/milestone_3a_20261015T150616Z/final/ads1263_coverage.json --json-pretty --print-summary" <not executed on terminal>]
+[34m(INFO) Reading coverage data...[0m
+[34m(INFO) Writing coverage report...[0m
+lines: 68.0% (151 out of 222)
+functions: 81.2% (13 out of 16)
+branches: 67.2% (90 out of 134)
+
+Script done on 2026-10-15 10:15:19-05:00 [COMMAND_EXIT_CODE="0"]

@@ -369,3 +369,47 @@ void test_UT_DRDY_005_timeout_is_bounded_and_recorded_after_spi_success(void)
                              test_wait_wrapper_call_count());
     TEST_ASSERT_EQUAL_INT(1, spi_calls);
 }
+
+void test_UT_DRDY_006_gpio_error_followed_by_spi_failure_returns_spi_error(void)
+{
+    ads1263_t dev = make_device(0, 1);
+    ads1263_sample_t sample;
+    const int values[1] = { 0 };
+    const ads1263_status_t results[1] = { ADS1263_ERROR_GPIO_READ };
+    const uint8_t rx[7] = { 0U };
+
+    memset(&sample, 0xA5, sizeof(sample));
+    expect_gpio_sequence(&dev, values, results, 1);
+    expect_sample_transfer(&dev, rx, ADS1263_ERROR_SPI_TRANSFER, 1, 0U);
+
+    TEST_ASSERT_EQUAL(ADS1263_ERROR_SPI_TRANSFER,
+                      ads1263_read_sample(&dev, &sample));
+    TEST_ASSERT_EQUAL_MEMORY((const uint8_t[sizeof(sample)]){ 0U },
+                             &sample,
+                             sizeof(sample));
+    TEST_ASSERT_EQUAL_INT(1, gpio_calls);
+    TEST_ASSERT_EQUAL_INT(1, spi_calls);
+    TEST_ASSERT_EQUAL_size_t(0U, test_wait_wrapper_call_count());
+}
+
+void test_UT_DRDY_007_timeout_followed_by_spi_failure_returns_spi_error(void)
+{
+    ads1263_t dev = make_device(0, 1);
+    ads1263_sample_t sample;
+    const uint8_t rx[7] = { 0U };
+
+    memset(&sample, 0xA5, sizeof(sample));
+    expect_gpio_timeout(&dev);
+    expect_sample_transfer(&dev, rx, ADS1263_ERROR_SPI_TRANSFER,
+                           DRDY_TIMEOUT_POLLS, DRDY_TIMEOUT_POLLS);
+
+    TEST_ASSERT_EQUAL(ADS1263_ERROR_SPI_TRANSFER,
+                      ads1263_read_sample(&dev, &sample));
+    TEST_ASSERT_EQUAL_MEMORY((const uint8_t[sizeof(sample)]){ 0U },
+                             &sample,
+                             sizeof(sample));
+    TEST_ASSERT_EQUAL_INT(DRDY_TIMEOUT_POLLS, gpio_calls);
+    TEST_ASSERT_EQUAL_INT(1, spi_calls);
+    TEST_ASSERT_EQUAL_size_t(DRDY_TIMEOUT_POLLS,
+                             test_wait_wrapper_call_count());
+}

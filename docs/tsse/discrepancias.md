@@ -24,20 +24,20 @@ Disposiciones del registro (no son estados de ejecucion de trazabilidad):
 | DSP-007 | Modos CLI y help | `main.c:168-175` procesa HELP antes de validar `mode_count` | `--check --help` y `--help --check` pueden tener resultados distintos | `CARACTERIZAR` en integracion posterior |
 | DSP-008 | CSV con check | `main.c:178-180` solo rechaza CSV en live; el mensaje afirma que solo samples lo soporta | `--check --csv` puede ignorarse silenciosamente | `CARACTERIZAR` en integracion posterior |
 | DSP-009 | Rate de muestreo | `acquisition.c:154-166,245-250` agrega una espera despues del trabajo; no configura MODE2 | `rate_hz` es pacing aproximado, no garantia temporal end-to-end | `ACEPTADO PARA DISENO`; no afirmar rendimiento real |
-| DSP-010 | ROB-001 rango de registros | `ads1263.c:102,136` valida start/count separados, no `start + count <= 32`; mock usa `memcpy` | Hipotesis de acceso fuera del arreglo para start 31/count 2 | `CARACTERIZAR` en Milestone posterior; no es defecto confirmado |
-| DSP-011 | ROB-003 propagacion DRDY | `ads1263.c:338-352` conserva error DRDY en `sample.status`, pero retorna OK si SPI funciona; UT-DRDY-004/005 lo observaron en `evidencias/04_unitarias/milestone_2b_20261015T144924Z/` | Falta contrato que exija abortar/retornar error | `REQUIERE DECISION`; caracterizacion ejecutada parcial, no defecto confirmado |
+| DSP-010 | ROB-001 rango de registros | `ads1263.c:102,136` valida start/count separados; UT-REG-007/008 en `evidencias/07_defectos_regresion/milestone_3a_20261015T150616Z/` observan lectura/escritura del byte posterior al arreglo | Efecto intraobjeto reproducible; falta contrato para status de rango combinado | `SUSPECTED DEFECT`; no confirmado ni corregido sin decision contractual |
+| DSP-011 | ROB-003 propagacion DRDY | `ads1263.c:338-352` conserva error DRDY en `sample.status`, pero retorna OK si SPI funciona; las cuatro combinaciones y consecuencias se ejecutaron en Milestone 3A | Falta contrato que exija abortar/retornar error | `CONTRACT AMBIGUITY`; caracterizacion completa, no defecto confirmado |
 | DSP-012 | Estado de inicializacion | `ads1263_t.initialized` se escribe pero las operaciones publicas no lo consultan | Precondicion del caller no documentada con precision | `CARACTERIZAR` fuera del CFT actual |
 | DSP-013 | Cierre de conversion | `ADS1263_CMD_STOP1` esta definido pero `ads1263_close()` no lo envia | El cleanup software libera recursos, no demuestra estado fisico ADC | `FUERA DE ALCANCE TSSE` hasta contrato separado |
 | DSP-014 | Evidencia CFT historica | `evidencias/03_cft/codigo_flujo_cft.txt` es extracto parcial/duplicado, no CFG verificado | No puede citarse como CFT completado | `ACEPTADO PARA DISENO`; preservar y crear artefactos nuevos |
 | DSP-015 | Evidencia Cppcheck historica | `cppcheck_inicial.txt` contiene solo una linea de progreso y `herramientas.txt` registro indisponibilidad | No demuestra ejecucion completa ni cero findings | `CARACTERIZAR` en seccion 12; no se ejecuta en Milestone 1 |
 | DSP-016 | Validacion fisica historica | El plan informa validacion previa en placa, sin raw log adjunto en este repositorio | Es contexto del proyecto, no resultado reproducible de TSSE | `ACEPTADO PARA DISENO`; atribuir como antecedente |
-| DSP-017 | Pacing con `rate_hz=1` | `acquisition.c:162-164` calcula `{tv_sec=0,tv_nsec=1000000000}`; POSIX exige `tv_nsec<1000000000` | Para N>1, `nanosleep` real retorna `EINVAL` y el retry puede no terminar; un mock que acepte ese timespec ocultaria el comportamiento | `CARACTERIZAR`; usar rate 1 solo con N=1 en CFT finito y rate 2 para paths con sleep; no corregir produccion sin gate |
+| DSP-017 | Pacing con `rate_hz=1` | Milestone 3A captura `{0,1000000000}`, EINVAL y timeout 124 con N=2; `evidencias/07_defectos_regresion/milestone_3a_20261015T150616Z/` | Viola REQ-008 para una entrada rate aceptada en `1..10`; fixed mode no completa | `CONFIRMED DEFECT` DEF-001; no corregir produccion sin gate |
 
 ## Decisiones que requieren aprobacion humana futura
 
 1. Definir si REQ-012 exige solo ubicacion de implementaciones Linux o tambien ausencia de tipos Linux en la API core.
 2. Definir si solicitar CSV implica que un fallo de apertura debe hacer fallar la adquisicion.
 3. Definir si un fallo/timeout DRDY debe ser retorno fatal de `ads1263_read_sample()` o estado diagnostico de una muestra obtenida por SPI.
-4. Definir el contrato de pacing para `rate_hz=1` y si el timespec debe normalizarse a un segundo antes de cualquier correccion.
+4. Aprobar, rechazar o diferir una correccion separada para DEF-001; Milestone 3A no selecciona la implementacion.
 
 Estas decisiones no bloquean el modelo CFT: los contratos externos se parametrizan y los casos ambiguos se etiquetan como caracterizacion. Si se pretendiera modificar produccion, el flujo debe detenerse en el gate OpenSpec correspondiente.

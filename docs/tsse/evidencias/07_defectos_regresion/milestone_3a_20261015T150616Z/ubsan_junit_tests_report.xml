@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<testsuites name="ads1263_host_tests" tests="2" failures="0" time="0.004">
+  <testsuite name="test/ceedling/tests/test_ads1263_robustness" tests="2" failures="0" skipped="0" errors="0" time="0.004">
+    <testcase name="test_UT_REG_007_cross_boundary_mock_read_exposes_adjacent_object_byte" time="0.000"/>
+    <testcase name="test_UT_REG_008_cross_boundary_mock_write_changes_byte_after_register_bank" time="0.000"/>
+  </testsuite>
+</testsuites>

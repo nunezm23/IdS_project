@@ -225,7 +225,7 @@ Los casos disenados en Milestone 1 quedan `NOT RUN`. Un resultado esperado no es
 5. Antes de tocar C/H o `Makefile`, realizar gate humano y definir regresion.
 6. Si se aprueba una correccion en un cambio separado, conservar before/after y ejecutar la regresion relacionada.
 
-ROB-001 y ROB-003 siguen siendo hipotesis. Este milestone no las ejecuta ni corrige.
+Al cierre de Milestone 1, ROB-001 y ROB-003 seguian siendo hipotesis y no se habian ejecutado. Milestone 3A agrega caracterizacion controlada sin correccion: ROB-001 queda como defecto sospechado por efecto intraobjeto y ROB-003 como ambiguedad contractual. DSP-017 queda confirmado como DEF-001 contra REQ-008 y espera gate humano antes de cualquier cambio de produccion.
 
 ## 17. Politica de evidencia
 

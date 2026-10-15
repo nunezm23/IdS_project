@@ -52,21 +52,21 @@
 - [x] 7.4 Implement channel cases for null/unsupported input, write failure, read failure, mismatch, START1 failure, and successful ordering; verify later calls are suppressed after each failure.
 - [x] 7.5 Implement sample cases for null arguments, mock determinism, immediate/delayed/no DRDY, GPIO error, timeout, SPI error, exact RDATA1 frame, signed decoding, status/checksum, and voltage; verify timeout cases use no real one-second wait.
 - [ ] 7.6 Implement acquisition cases corresponding to the approved CFT set with an ADS1263 mock and logger/event spy; verify returns, ordered calls, sample/sleep counts, CSV effects, and cleanup match each path oracle.
-- [ ] 7.7 Run the unit suite twice from clean test build state; verify identical case inventory and outcomes, no `/dev/spidev*` or `/dev/gpiochip*` access, and preserved raw outputs for both runs.
+- [x] 7.7 Run the unit suite twice from clean test build state; verify identical case inventory and outcomes, no `/dev/spidev*` or `/dev/gpiochip*` access, and preserved raw outputs for both runs.
 
 ## 8. Controlled Robustness Investigations and Review Gate
 
-- [ ] 8.1 Execute ROB-001 crossing-range read/write cases in an isolated normal profile with canaries or explicit state checks; verify actual status and memory effects are preserved without assuming rejection or changing production code.
-- [ ] 8.2 Execute finite ROB-001 cases in a separate AddressSanitizer profile and optional UBSan profile; verify each finding records a stable ID, source location, impact, reproducibility, disposition, defect/risk link, complete diagnostic, exit status, and known intra-object-detection limitations.
-- [ ] 8.3 Execute ROB-003 cases for GPIO-read failure and DRDY timeout followed by SPI success/failure; verify function return, SPI activity, sample fields/status, and acquisition consequence are recorded separately.
-- [ ] 8.4 Complete ROB-002 SPI-failure and ROB-004 conversion-boundary evidence; verify each hypothesis has an atomic result and traceability link.
-- [ ] 8.5 Hold the mandatory production-change review gate; verify characterization is preserved, any claimed defect violates an explicitly approved contract, proposed correction and regression cases receive separate review, and production C/H plus production Makefile diffs remain empty. If a correction is requested, stop and obtain an approved OpenSpec update or separate change before editing production code.
+- [x] 8.1 Execute ROB-001 crossing-range read/write cases in an isolated normal profile with canaries or explicit state checks; verify actual status and memory effects are preserved without assuming rejection or changing production code.
+- [x] 8.2 Execute finite ROB-001 cases in a separate AddressSanitizer profile and optional UBSan profile; verify each finding records a stable ID, source location, impact, reproducibility, disposition, defect/risk link, complete diagnostic, exit status, and known intra-object-detection limitations.
+- [x] 8.3 Execute ROB-003 cases for GPIO-read failure and DRDY timeout followed by SPI success/failure; verify function return, SPI activity, sample fields/status, and acquisition consequence are recorded separately.
+- [x] 8.4 Complete ROB-002 SPI-failure and ROB-004 conversion-boundary evidence; verify each hypothesis has an atomic result and traceability link.
+- [x] 8.5 Hold the mandatory production-change review gate; verify characterization is preserved, any claimed defect violates an explicitly approved contract, proposed correction and regression cases receive separate review, and production C/H plus production Makefile diffs remain empty. If a correction is requested, stop and obtain an approved OpenSpec update or separate change before editing production code.
 
 ## 9. Test Execution and Regression
 
-- [ ] 9.1 Run the complete normal host unit suite from a clean test build and preserve command, metadata, stdout, stderr, exit code, and case summary; verify traceability states match the raw results.
-- [ ] 9.2 Triage every failure without deleting or weakening a case; verify each failure has a test-infrastructure fix, defect/ambiguity record, or `BLOCKED` disposition linked to evidence.
-- [ ] 9.3 Rerun affected suites after test-infrastructure corrections and preserve both before/after runs; verify no prior failure evidence is overwritten.
+- [x] 9.1 Run the complete normal host unit suite from a clean test build and preserve command, metadata, stdout, stderr, exit code, and case summary; verify traceability states match the raw results.
+- [x] 9.2 Triage every failure without deleting or weakening a case; verify each failure has a test-infrastructure fix, defect/ambiguity record, or `BLOCKED` disposition linked to evidence.
+- [x] 9.3 Rerun affected suites after test-infrastructure corrections and preserve both before/after runs; verify no prior failure evidence is overwritten.
 - [ ] 9.4 If a separately approved production correction later occurs, rerun the minimal reproduction, all relevant unit/integration suites, production build check, static analysis, and coverage; verify before/after and regression evidence are linked.
 
 ## 10. Coverage Reporting

@@ -1,0 +1,304 @@
+---
+:project:
+  :name: acquisition_robustness_tests
+  :which_ceedling: gem
+  :ceedling_version: 1.1.10
+  :use_mocks: true
+  :use_test_preprocessor: :none
+  :use_backtrace: :simple
+  :build_root: build/ceedling/acquisition-coverage
+  :test_file_prefix: test_
+  :default_tasks:
+  - test:all
+  :test_threads: 1
+  :compile_threads: 1
+  :release_build: false
+  :use_exceptions: false
+  :use_partials: false
+:test_build:
+  :use_assembly: false
+  :preprocess_force_fallback: false
+  :preprocess_directives_only_available: false
+:release_build:
+  :use_assembly: false
+  :artifacts: []
+:plugins:
+  :load_paths:
+  - "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins"
+  :enabled:
+  - gcov
+  - report_tests_pretty_stdout
+  - report_tests_log_factory
+  - report_tests_raw_output_log
+  :display_raw_test_results: false
+  :gcov_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/gcov"
+  :report_tests_pretty_stdout_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_pretty_stdout"
+  :report_tests_log_factory_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_log_factory"
+  :report_tests_raw_output_log_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_raw_output_log"
+:report_tests_log_factory:
+  :reports:
+  - json
+  - junit
+:extension:
+  :executable: ".out"
+  :header: ".h"
+  :source: ".c"
+  :assembly: ".s"
+  :object: ".o"
+  :libraries:
+  - ".a"
+  - ".so"
+  :map: ".map"
+  :list: ".lst"
+  :testpass: ".pass"
+  :testfail: ".fail"
+  :dependencies: ".d"
+  :yaml: ".yml"
+:paths:
+  :test:
+  - test/ceedling/tests_acquisition_robustness/**
+  :source:
+  - components/acquisition/src/**
+  :include:
+  - components/acquisition/include/**
+  - components/ads1263/include/**
+  - components/ads1263/arch/linux/include/**
+  - components/logger/include/**
+  :support:
+  - test/ceedling/support
+  :libraries: []
+  :test_toolchain_include: []
+  :release_toolchain_include: []
+:files:
+  :test: []
+  :source:
+  - components/acquisition/src/acquisition.c
+  :assembly: []
+  :support: []
+  :include: []
+:defines:
+  :test:
+  - _POSIX_C_SOURCE=200809L
+  :release: []
+  :use_test_definition: false
+:flags:
+  :test:
+    :compile:
+    - "-std=c11"
+    - "-Wall"
+    - "-Wextra"
+    - "-Wpedantic"
+    :link:
+    - "-Wl,--wrap=nanosleep"
+:cmock:
+  :plugins:
+  - :ignore
+  - :ignore_arg
+  - :callback
+  - :return_thru_ptr
+  :verbosity: 2
+  :when_no_prototypes: :warn
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :treat_externs: :exclude
+  :treat_inlines: :exclude
+  :memcmp_if_unknown: true
+  :when_ptr: :compare_data
+  :enforce_strict_ordering: true
+  :fail_on_unexpected_calls: true
+  :callback_include_count: true
+  :callback_after_arg_check: false
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :includes: []
+  :defines:
+  - CMOCK_MOCK_PREFIX=mock_
+  :unity_helper_path: []
+  :mock_path: build/ceedling/acquisition-coverage/test/mocks
+:unity:
+  :defines: []
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :use_param_tests: false
+:environment: []
+:libraries:
+  :placement: :end
+  :flag: "-l${1}"
+  :path_flag: "-L ${1}"
+  :system: []
+  :test: []
+  :release: []
+:history:
+  :config:
+  - :type: :file
+    :path: test/ceedling/project_acquisition_robustness.yml
+    :mechanism: :project
+  - :type: :file
+    :path: test/ceedling/mixins/acquisition_coverage.yml
+    :mechanism: :cmdline
+    :source: "--mixin"
+    :value: test/ceedling/mixins/acquisition_coverage.yml
+:gcov:
+  :summaries: true
+  :report_task: false
+  :untested_sources: :ignore
+  :utilities:
+  - gcovr
+  :reports:
+  - Text
+  - HtmlDetailed
+  - JSON
+  :gcovr:
+    :config_file: test/ceedling/gcovr_acquisition.cfg
+    :report_root: "."
+    :merge_mode_function: merge-use-line-max
+  :mcdc: false
+  :report_generator:
+    :verbosity: Warning
+    :custom_args: []
+    :gcov_exclude: []
+:cexception:
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :defines: []
+:partials:
+  :max_extraction_length: 5000
+:test_runner:
+  :cmdline_args: true
+  :includes: []
+  :defines: []
+  :file_suffix: _runner
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :enforce_strict_ordering: true
+  :use_param_tests: false
+:tools:
+  :test_compiler:
+    :executable: gcc
+    :name: default_test_compiler
+    :optional: false
+    :arguments:
+    - -I"${5}"
+    - -D"${6}"
+    - "-DGNU_COMPILER"
+    - "-g"
+    - -c "${1}"
+    - -o "${2}"
+    - "-MMD"
+    - -MF "${4}"
+    :stderr_redirect: :none
+  :test_linker:
+    :executable: gcc
+    :name: default_test_linker
+    :optional: false
+    :arguments:
+    - "${1}"
+    - "${5}"
+    - -o "${2}"
+    - ''
+    - "${4}"
+    :stderr_redirect: :none
+  :test_fixture:
+    :executable: "${1}"
+    :name: default_test_fixture
+    :optional: false
+    :arguments: []
+    :stderr_redirect: :none
+  :test_fixture_simple_backtrace:
+    :executable: "${1}"
+    :name: default_test_fixture_simple_backtrace
+    :optional: false
+    :arguments:
+    - "${2}"
+    :stderr_redirect: :none
+  :gcov_compiler:
+    :executable: gcc
+    :name: default_gcov_compiler
+    :optional: false
+    :arguments:
+    - "-g"
+    - "-fprofile-arcs"
+    - "-ftest-coverage"
+    - -I"${5}"
+    - -D"${6}"
+    - "-DGCOV_COMPILER"
+    - "-DCODE_COVERAGE"
+    - -c "${1}"
+    - -o "${2}"
+    - "-MMD"
+    - -MF "${4}"
+    :stderr_redirect: :none
+  :gcov_linker:
+    :executable: gcc
+    :name: default_gcov_linker
+    :optional: false
+    :arguments:
+    - "-g"
+    - "-fprofile-arcs"
+    - "-ftest-coverage"
+    - "${1}"
+    - "${5}"
+    - -o "${2}"
+    - "${4}"
+    :stderr_redirect: :none
+  :gcov_fixture:
+    :executable: "${1}"
+    :name: default_gcov_fixture
+    :optional: false
+    :arguments: []
+    :stderr_redirect: :none
+  :gcov_summary:
+    :executable: gcov
+    :name: default_gcov_summary
+    :optional: true
+    :arguments:
+    - "-n"
+    - "-p"
+    - "-b"
+    - -o "${2}"
+    - '"${1}"'
+    :stderr_redirect: :none
+  :gcov_gcc_version:
+    :executable: gcc
+    :name: default_gcov_gcc_version
+    :optional: false
+    :arguments:
+    - "--version"
+    :stderr_redirect: :none
+  :gcov_gcovr_version:
+    :executable: gcovr
+    :name: default_gcov_gcovr_version
+    :optional: true
+    :arguments:
+    - "--version"
+    :stderr_redirect: :none
+  :gcov_report:
+    :executable: gcov
+    :name: default_gcov_report
+    :optional: true
+    :arguments:
+    - "-b"
+    - "-c"
+    - "-r"
+    - -s "${2}"
+    - "-x"
+    - "${1}"
+    :stderr_redirect: :none
+  :gcov_gcovr_report:
+    :executable: gcovr
+    :name: default_gcov_gcovr_report
+    :optional: true
+    :arguments:
+    - --root "${1}"
+    - --exclude "${2}"
+    - "${3}"
+    :stderr_redirect: :none
+  :gcov_reportgenerator_report:
+    :executable: reportgenerator
+    :name: default_gcov_reportgenerator_report
+    :optional: true
+    :arguments:
+    - '"-reports:${1}"'
+    - '"-targetdir:${2}"'
+    - '"-reporttypes:${3}"'
+    - '"-sourcedirs:${4}"'
+    - '"-filefilters:${5}"'
+    - "${6}"
+    :stderr_redirect: :none

@@ -1,0 +1,1597 @@
+{
+    "files": [
+        {
+            "file": "components/acquisition/src/acquisition.c",
+            "functions": [
+                {
+                    "blocks_percent": 91.0,
+                    "execution_count": 5,
+                    "lineno": 219,
+                    "name": "acquire_loop",
+                    "returned_count": 5
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 13,
+                    "name": "acquisition_default_config",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 84,
+                    "name": "acquisition_run_check",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 291,
+                    "name": "acquisition_run_live",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 85.0,
+                    "execution_count": 5,
+                    "lineno": 260,
+                    "name": "acquisition_run_samples",
+                    "returned_count": 5
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 285,
+                    "name": "handle_sigint",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 67,
+                    "name": "log_init_error",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 39,
+                    "name": "log_presence_error",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 30.0,
+                    "execution_count": 5,
+                    "lineno": 168,
+                    "name": "open_csv_if_requested",
+                    "returned_count": 5
+                },
+                {
+                    "blocks_percent": 47.0,
+                    "execution_count": 5,
+                    "lineno": 187,
+                    "name": "prepare_adc_for_acquisition",
+                    "returned_count": 5
+                },
+                {
+                    "blocks_percent": 0.0,
+                    "execution_count": 0,
+                    "lineno": 26,
+                    "name": "print_snapshot",
+                    "returned_count": 0
+                },
+                {
+                    "blocks_percent": 88.0,
+                    "execution_count": 1,
+                    "lineno": 154,
+                    "name": "sleep_for_rate",
+                    "returned_count": 1
+                },
+                {
+                    "blocks_percent": 53.0,
+                    "execution_count": 5,
+                    "lineno": 127,
+                    "name": "validate_acquisition_config",
+                    "returned_count": 5
+                }
+            ],
+            "lines": [
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "99affdb6fb101b798ea6c04e6d1ac252",
+                    "line_number": 13
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "8c119736847c6afe01925eb19fc79815",
+                    "line_number": 17
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "285d0edbf5f421d4bd599133aaf32d2d",
+                    "line_number": 18
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "cb58f5ed20c334bbbafef336e5d6a45a",
+                    "line_number": 19
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "e0ac41f73bbd75f2e4d38e27e31bf13c",
+                    "line_number": 20
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "984fc76939c63cb892278e50231bc533",
+                    "line_number": 21
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "64d62a05bc5f756cf64f83dd2196c1d5",
+                    "line_number": 23
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "2aa232795e97723bc3a7564ef4dfed48",
+                    "line_number": 26
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "69f44943af12cbfa27c6e72fce59097f",
+                    "line_number": 28
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "1072edf0d0ed6864740700e9a3972415",
+                    "line_number": 29
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "6dd08c733d43534b3e36b19e79b8c86f",
+                    "line_number": 32
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "9b26127591f5551bb004701b59076dd9",
+                    "line_number": 33
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "1597874230c9a9bc938749cb5522c0b5",
+                    "line_number": 34
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "9c6de0e57c500b245e33c73b9d401969",
+                    "line_number": 35
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "251563a1eda5a0bf30f01b91035084cc",
+                    "line_number": 36
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "a7c1563348556f85cadccdc27aacfd3d",
+                    "line_number": 39
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "fd764c5e98012a4819ebca0d6f85c259",
+                    "line_number": 42
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "c928b5c0a7ce7af7af6b4ed370f4db3e",
+                    "line_number": 43
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "06ee1564e7f368dba2295a2bafaae82d",
+                    "line_number": 44
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "a57068cebf977a9088e0903b2f8464b3",
+                    "line_number": 45
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "caaaf24efc5ef9976cd3898993b277bc",
+                    "line_number": 46
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "1c54bdc4ba5dab5982724bececd34aea",
+                    "line_number": 47
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "2c4fa9f6304c5bf3417ab83938688177",
+                    "line_number": 48
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "68a37a286992235e94d8c2ef402db578",
+                    "line_number": 49
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "caaaf24efc5ef9976cd3898993b277bc",
+                    "line_number": 50
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "ab48249b84807e6f1f715b7c9c140278",
+                    "line_number": 51
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "1be708450741fc31a41944a8e5b60447",
+                    "line_number": 52
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 9,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 9,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "cbb2b8e327464521b33b61bbdfc93380",
+                    "line_number": 53
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "c81ead7d8e74fc2bb5ad32aed09f02c1",
+                    "line_number": 54
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "caaaf24efc5ef9976cd3898993b277bc",
+                    "line_number": 60
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "9108320cb8a0fe695de45e58ae94939c",
+                    "line_number": 61
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "03c1ec9e98629014d770686262d5055c",
+                    "line_number": 62
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "caaaf24efc5ef9976cd3898993b277bc",
+                    "line_number": 63
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "cbb184dd8e05c9709e5dcaedaa0495cf",
+                    "line_number": 65
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "8b7161733504c6afdcc7133f43255ff1",
+                    "line_number": 67
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "b8fca873e3161be9d5c4f1ba41c608c8",
+                    "line_number": 69
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "892cb93258f311d039d082888b9af5ad",
+                    "line_number": 70
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "838b7a0982ea9bf5ca85da2e6bed642c",
+                    "line_number": 71
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 5,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 5,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "1973747dc9d447bd45355f6e57c09a0a",
+                    "line_number": 72
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fd18674b43e4993feb633e3090520844",
+                    "line_number": 73
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "599386cb4174d8d7afaadcddc78d15ae",
+                    "line_number": 74
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "00c917eaff0a7c25dba6139ba3b604f2",
+                    "line_number": 75
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "ef61b7e97210662b3e8711918d4c004a",
+                    "line_number": 76
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "e85060c67f95a6dc1e4d0b49eec5f028",
+                    "line_number": 78
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "8c4907c97901ce0240dc5d1c675c7102",
+                    "line_number": 81
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "af00663f42e6d4557f2449af359b4132",
+                    "line_number": 84
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4e4e9b1c735bf6c1f5d091f7b7914a54",
+                    "line_number": 89
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "a51ad4b7440d48d3bdfe2b29ace35e26",
+                    "line_number": 91
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "493cda71055cd296f844084524774191",
+                    "line_number": 92
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 93
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "e0c703af90cbb6e02de31c9de71de6b5",
+                    "line_number": 96
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 5,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 5,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "d460be0e23c5b94a4d671cc2c2d6dc7a",
+                    "line_number": 97
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "bc1a600e3ef6737a4f9a728c1fb1508c",
+                    "line_number": 98
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "97bcc5c24a7f3c8cad1a9edbacc7b275",
+                    "line_number": 101
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "e2ddbbe20af46d611d9318bf2be9216d",
+                    "line_number": 102
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "bf08ae55450b386395a8472f4b79aad0",
+                    "line_number": 103
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 9,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 9,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "d460be0e23c5b94a4d671cc2c2d6dc7a",
+                    "line_number": 105
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "696facc60de79dbf8d9e691ef0550a2b",
+                    "line_number": 106
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "b011c7d5edc934fdf4bcc19b68cf6c6b",
+                    "line_number": 107
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 108
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "403ef1e71f051bc2453308862f5dff0d",
+                    "line_number": 111
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "54474f98929db79c30f02a9729dfb729",
+                    "line_number": 113
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 16,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 16,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "3fe539864881aa0c8331037a45016433",
+                    "line_number": 114
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "3eb011ef187ca3c072d3385433bcd3f1",
+                    "line_number": 115
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "460c340d5c6312a358de2aa8c5e9dfcf",
+                    "line_number": 116
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "99ea7a43c687c64d7eb2b62acd9f49e7",
+                    "line_number": 117
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "9c1afb153062c2a725737b74a54e914d",
+                    "line_number": 120
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4338603b59ca0fd5c8e20ba764cfdab9",
+                    "line_number": 123
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "02abc18c3b46fbd7cfee6bbcd0986b79",
+                    "line_number": 124
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "9837181915162e350b445e18aff40907",
+                    "line_number": 127
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "e88066e1d669effa76d3f928f834077b",
+                    "line_number": 129
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "68b8b22c464a30c71ee167e130bce04e",
+                    "line_number": 131
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4f15f86820b50e9c1ce9bfbb05b9ef4c",
+                    "line_number": 132
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 133
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 5,
+                            "count": 5,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 5,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 6,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 6,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "e80dfc06a991414e6d70a7e636b709c5",
+                    "line_number": 136
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "a3d359bf748362c4b1065d7d004b71ff",
+                    "line_number": 137
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4ce776b05b64d6a06d596ffd710f49ef",
+                    "line_number": 138
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 9,
+                            "count": 5,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 9,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 10,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 10,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "04d8a7f4ae9d01dad4c723fd5ac9f0a8",
+                    "line_number": 141
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "b41af62f15844d447912343c91f243da",
+                    "line_number": 142
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4ce776b05b64d6a06d596ffd710f49ef",
+                    "line_number": 143
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 13,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 13,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "2c92e88ef30a77df535f56f5137ba7d3",
+                    "line_number": 146
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "7a964c377750f329385a9dabecefe427",
+                    "line_number": 147
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4ce776b05b64d6a06d596ffd710f49ef",
+                    "line_number": 148
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 16,
+                            "count": 5,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 16,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "88dfecdaa7f0f5086063868b0aac887f",
+                    "line_number": 151
+                },
+                {
+                    "branches": [],
+                    "count": 1,
+                    "gcovr/md5": "f0fa21344f67864458128bbbc51d1afa",
+                    "line_number": 154
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 1,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 1,
+                    "gcovr/md5": "4da75ace272b22a0b35139e7eab32e59",
+                    "line_number": 158
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "1072edf0d0ed6864740700e9a3972415",
+                    "line_number": 159
+                },
+                {
+                    "branches": [],
+                    "count": 1,
+                    "gcovr/md5": "67ce96e51961836b3dc5826ccb13e010",
+                    "line_number": 162
+                },
+                {
+                    "branches": [],
+                    "count": 1,
+                    "gcovr/md5": "7209359fb908a98a78432169e013e5bf",
+                    "line_number": 163
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 5,
+                            "count": 2,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 5,
+                            "count": 1,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 3,
+                    "gcovr/md5": "1d1c5481b1d8cd8111e4529d98f7e52e",
+                    "line_number": 164
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "aff90c35ff519af950621aeff44f2d87",
+                    "line_number": 168
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "d981b1d60f4cbe375e5e3311a3a4f060",
+                    "line_number": 170
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 5,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "6e0b3f5e80a03375748bfa2747ef3f3e",
+                    "line_number": 172
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "3c3381f4a2149cf57d8bb9ef4ff07993",
+                    "line_number": 173
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fa3c641eeced9c9b9b4933b95a0e43b2",
+                    "line_number": 176
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 4,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 4,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "1b6c12645543f58cf2ce372888223ea7",
+                    "line_number": 177
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "39f209d05fb66e522f3daa577c6bb148",
+                    "line_number": 178
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "67b37850dbd06f873be17e711f6cc154",
+                    "line_number": 179
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "3c3381f4a2149cf57d8bb9ef4ff07993",
+                    "line_number": 180
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "6108a78be64384359df82f5c520f6a8c",
+                    "line_number": 183
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "b68e2c6be8cc292dc839844a02fd2146",
+                    "line_number": 184
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "1044dcfa25f685f31dcd3cf1e51cb01c",
+                    "line_number": 187
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "0fff695fcc3e6297b3ea18181d0a9336",
+                    "line_number": 194
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "d460be0e23c5b94a4d671cc2c2d6dc7a",
+                    "line_number": 195
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "bc1a600e3ef6737a4f9a728c1fb1508c",
+                    "line_number": 196
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "92c6b81a9ef117d5ab09c6df8e289350",
+                    "line_number": 199
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 6,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 6,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "d460be0e23c5b94a4d671cc2c2d6dc7a",
+                    "line_number": 200
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "800bcdbce8040c71a000e8c594f89a58",
+                    "line_number": 201
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "696facc60de79dbf8d9e691ef0550a2b",
+                    "line_number": 202
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "60b46867eaf34f40a7538b0352c384c7",
+                    "line_number": 203
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 204
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "a8b2d97ff0c5b94066f8fe01b507e111",
+                    "line_number": 207
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 12,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 12,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "d460be0e23c5b94a4d671cc2c2d6dc7a",
+                    "line_number": 208
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "3b584140360b850f334b8a92c80d3a4d",
+                    "line_number": 209
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "a028ef412a7f40b0e10b0dd11c221924",
+                    "line_number": 210
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "60b46867eaf34f40a7538b0352c384c7",
+                    "line_number": 212
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 213
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "02abc18c3b46fbd7cfee6bbcd0986b79",
+                    "line_number": 216
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "9c5085cb98c0897a985e29278d91a803",
+                    "line_number": 219
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "d981b1d60f4cbe375e5e3311a3a4f060",
+                    "line_number": 224
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "e9f139238e857c77733197982db272c7",
+                    "line_number": 225
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "6dc6b089ca3201d066ef797eed1a919d",
+                    "line_number": 226
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "0e84573e02a256667cbe2384eb8654ca",
+                    "line_number": 228
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 17,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 17,
+                            "count": 6,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 18,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 18,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 19,
+                            "count": 6,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 19,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 6,
+                    "gcovr/md5": "c10e96726bf4252a565b20128ef999de",
+                    "line_number": 230
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 20,
+                            "count": 6,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 20,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        }
+                    ],
+                    "count": 6,
+                    "gcovr/md5": "cb6af6e155d95272f018aa0626906296",
+                    "line_number": 231
+                },
+                {
+                    "branches": [],
+                    "count": 6,
+                    "gcovr/md5": "7809f539786a981944eb86f7bed11bb0",
+                    "line_number": 235
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 3,
+                            "count": 2,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 3,
+                            "count": 4,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 6,
+                    "gcovr/md5": "000f5684768590f2fee0a18a01e6c6b5",
+                    "line_number": 236
+                },
+                {
+                    "branches": [],
+                    "count": 2,
+                    "gcovr/md5": "3342cccea8bf8e188ba19004b918856b",
+                    "line_number": 237
+                },
+                {
+                    "branches": [],
+                    "count": 2,
+                    "gcovr/md5": "c07752a2d3dc88d08ce2f2735f9c0555",
+                    "line_number": 238
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "e9a046045fb1b44aed2c5ace0ea75985",
+                    "line_number": 239
+                },
+                {
+                    "branches": [],
+                    "count": 4,
+                    "gcovr/md5": "a400aed50fcf371406a227f3cc2f6ca4",
+                    "line_number": 242
+                },
+                {
+                    "branches": [],
+                    "count": 4,
+                    "gcovr/md5": "4639060162064e437efbba374abb1060",
+                    "line_number": 243
+                },
+                {
+                    "branches": [],
+                    "count": 4,
+                    "gcovr/md5": "e057593c0250f193aaeb990250f8c303",
+                    "line_number": 245
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 8,
+                            "count": 4,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 8,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 11,
+                            "count": 3,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 11,
+                            "count": 1,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 4,
+                    "gcovr/md5": "96682a50b79440e3aad517def56f6ff3",
+                    "line_number": 246
+                },
+                {
+                    "branches": [],
+                    "count": 3,
+                    "gcovr/md5": "e9a046045fb1b44aed2c5ace0ea75985",
+                    "line_number": 247
+                },
+                {
+                    "branches": [],
+                    "count": 1,
+                    "gcovr/md5": "e18ff908d6434b01d1cab056df2af5d4",
+                    "line_number": 250
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 21,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 21,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "1ef11a39640e1b2c44b065b815959afa",
+                    "line_number": 253
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "443f616e9a90a2f690218bbd5735b1de",
+                    "line_number": 254
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "59c6eded1e759787df9e7cbb0c0505ac",
+                    "line_number": 257
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "2d35a337872269dddc10136e49a2b6df",
+                    "line_number": 260
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 5,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 3,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 3,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "3040eddb15cf2f2a358ebfe2b6e28508",
+                    "line_number": 266
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 267
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "269005a79b54a6352dc56ecd6e6579f8",
+                    "line_number": 270
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "62ce229ac4e1d9ee1dfc54649dc24e6e",
+                    "line_number": 271
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "0828e6d5182904efc9714a5d1fc5cab3",
+                    "line_number": 272
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "10bae741863a6c58e7644bdd949c9055",
+                    "line_number": 273
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 6,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 6,
+                            "count": 5,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 5,
+                    "gcovr/md5": "9ae52bbb76e4591a70088679f261db58",
+                    "line_number": 275
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 276
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "dba3a2d2a26f817223b9450b86e7c26d",
+                    "line_number": 279
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "4338603b59ca0fd5c8e20ba764cfdab9",
+                    "line_number": 280
+                },
+                {
+                    "branches": [],
+                    "count": 5,
+                    "gcovr/md5": "59c6eded1e759787df9e7cbb0c0505ac",
+                    "line_number": 282
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "7784a44ed49efc6a0d72c0d03fbd1aec",
+                    "line_number": 285
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fe544a6d832c53e9bd6c308dd5e9bcb1",
+                    "line_number": 288
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "cbb184dd8e05c9709e5dcaedaa0495cf",
+                    "line_number": 289
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "ac3fb001a0fdc4b41bbd9d3a7634cb81",
+                    "line_number": 291
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 2,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 3,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 3,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "3040eddb15cf2f2a358ebfe2b6e28508",
+                    "line_number": 297
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 298
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "a160b3c8cdcf775bfe80fe3d9104103a",
+                    "line_number": 301
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "c2476e1603616619cd58aa1c76a42a07",
+                    "line_number": 302
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "caf5a8101561fa09b4605c3c81b1e637",
+                    "line_number": 304
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "62ce229ac4e1d9ee1dfc54649dc24e6e",
+                    "line_number": 305
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "10bae741863a6c58e7644bdd949c9055",
+                    "line_number": 306
+                },
+                {
+                    "branches": [
+                        {
+                            "blockno": 6,
+                            "count": 0,
+                            "fallthrough": true,
+                            "throw": false
+                        },
+                        {
+                            "blockno": 6,
+                            "count": 0,
+                            "fallthrough": false,
+                            "throw": false
+                        }
+                    ],
+                    "count": 0,
+                    "gcovr/md5": "9ae52bbb76e4591a70088679f261db58",
+                    "line_number": 308
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "fee8c7b214afa9ec99fe076561b2025c",
+                    "line_number": 309
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "b5722a35bb8b26daac26ffae0c875986",
+                    "line_number": 312
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "4338603b59ca0fd5c8e20ba764cfdab9",
+                    "line_number": 313
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "309404c5d03a93b7efe5753e54552b05",
+                    "line_number": 314
+                },
+                {
+                    "branches": [],
+                    "count": 0,
+                    "gcovr/md5": "59c6eded1e759787df9e7cbb0c0505ac",
+                    "line_number": 316
+                }
+            ]
+        }
+    ],
+    "gcovr/format_version": "0.6"
+}
