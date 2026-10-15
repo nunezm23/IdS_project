@@ -1,0 +1,1 @@
+Built-in prefix-count loop in 05_finalize_evidence.sh over findings.md.

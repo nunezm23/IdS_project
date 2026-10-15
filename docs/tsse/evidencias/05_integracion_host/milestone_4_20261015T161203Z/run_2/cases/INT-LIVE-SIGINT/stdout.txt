@@ -1,0 +1,4 @@
+[INFO] Live acquisition configuration: channel=0 rate_hz=10
+sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK
+sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK
+[INFO] live acquisition stopped

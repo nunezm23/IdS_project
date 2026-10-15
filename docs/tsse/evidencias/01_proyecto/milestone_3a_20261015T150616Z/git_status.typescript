@@ -1,0 +1,18 @@
+Script started on 2026-10-15 10:25:39-05:00 [COMMAND="git status --short" <not executed on terminal>]
+ [31mM[m test/ceedling/support/wait_wrapper.c
+ [31mM[m test/ceedling/support/wait_wrapper.h
+ [31mM[m test/ceedling/tests/test_ads1263_sample.c
+[31m??[m docs/tsse/evidencias/01_proyecto/milestone_3a_20261015T150616Z/
+[31m??[m docs/tsse/evidencias/04_unitarias/milestone_3a_20261015T150616Z/
+[31m??[m docs/tsse/evidencias/06_cobertura/milestone_3a_20261015T150616Z/
+[31m??[m docs/tsse/evidencias/07_defectos_regresion/
+[31m??[m test/ceedling/gcovr_acquisition.cfg
+[31m??[m test/ceedling/mixins/acquisition_coverage.yml
+[31m??[m test/ceedling/mixins/asan.yml
+[31m??[m test/ceedling/mixins/ubsan.yml
+[31m??[m test/ceedling/project_acquisition_robustness.yml
+[31m??[m test/ceedling/tests/test_ads1263_robustness.c
+[31m??[m test/ceedling/tests_acquisition_robustness/
+[31m??[m test/robustness/
+
+Script done on 2026-10-15 10:25:39-05:00 [COMMAND_EXIT_CODE="0"]

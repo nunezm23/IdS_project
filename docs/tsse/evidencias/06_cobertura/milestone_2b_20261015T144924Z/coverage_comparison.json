@@ -1,0 +1,23 @@
+{
+  "baseline": "milestone_2a_20261015T142406Z",
+  "current": "milestone_2b_20261015T144924Z",
+  "file": "components/ads1263/src/ads1263.c",
+  "lines": {
+    "baseline": {"covered": 13, "total": 222, "percent": 5.9},
+    "current": {"covered": 151, "total": 222, "percent": 68.0},
+    "delta_covered": 138,
+    "delta_percentage_points": 62.1
+  },
+  "functions": {
+    "baseline": {"covered": 2, "total": 16, "percent": 12.5},
+    "current": {"covered": 13, "total": 16, "percent": 81.2},
+    "delta_covered": 11,
+    "delta_percentage_points": 68.7
+  },
+  "branches": {
+    "baseline": {"covered": 2, "total": 134, "percent": 1.5},
+    "current": {"covered": 90, "total": 134, "percent": 67.2},
+    "delta_covered": 88,
+    "delta_percentage_points": 65.7
+  }
+}

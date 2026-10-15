@@ -1,0 +1,5 @@
+[INFO] Acquisition configuration: channel=0 samples=2 rate_hz=10
+[WARN] could not open CSV path: /tmp/opencode/m4-integration-run1.hhv9j2/cases/INT-CSV-FAIL/not_a_directory/output.csv
+[WARN] continuing with console output only
+sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK
+sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK

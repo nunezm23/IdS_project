@@ -1,0 +1,38 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "name": "CSV created",
+    "passed": true
+  },
+  {
+    "actual": "sample,raw,voltage,status\n1,1234567,0.001437225,OK\n2,2469134,0.002874450,OK\n",
+    "expected": "sample,raw,voltage,status\n1,1234567,0.001437225,OK\n2,2469134,0.002874450,OK\n",
+    "name": "exact CSV bytes",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "name": "exact complete console sample rows",
+    "passed": true
+  }
+]

@@ -1,0 +1,13 @@
+Script started on 2026-10-15 11:38:23-05:00 [COMMAND="git status --short --branch" <not executed on terminal>]
+## [32mfeature/tsse-testing[m
+ [31mM[m test/ceedling/project_acquisition_robustness.yml
+ [31mM[m test/ceedling/support/wait_wrapper.c
+ [31mM[m test/ceedling/support/wait_wrapper.h
+[31m??[m docs/tsse/evidencias/01_proyecto/milestone_4_20261015T161203Z/
+[31m??[m docs/tsse/evidencias/02_analisis_estatico/
+[31m??[m test/ceedling/support/stdio_wrapper.c
+[31m??[m test/ceedling/support/stdio_wrapper.h
+[31m??[m test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c
+[31m??[m test/integration/
+
+Script done on 2026-10-15 11:38:23-05:00 [COMMAND_EXIT_CODE="0"]

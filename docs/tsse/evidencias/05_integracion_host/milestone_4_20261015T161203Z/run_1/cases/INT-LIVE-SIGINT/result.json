@@ -1,0 +1,9 @@
+{
+  "assertion_count": 6,
+  "assertions_passed": 6,
+  "blocked_reason": null,
+  "case_id": "INT-LIVE-SIGINT",
+  "duration_seconds": 0.201825,
+  "exit_code": 0,
+  "state": "PASS"
+}

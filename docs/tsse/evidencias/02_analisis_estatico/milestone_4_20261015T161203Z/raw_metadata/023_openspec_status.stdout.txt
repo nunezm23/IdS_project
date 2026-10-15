@@ -1,0 +1,109 @@
+{
+  "changeName": "tsse-embedded-software-testing",
+  "schemaName": "spec-driven",
+  "planningHome": {
+    "kind": "repo",
+    "root": "/home/cronos/projects/tsse/IdS_project",
+    "changesDir": "/home/cronos/projects/tsse/IdS_project/openspec/changes",
+    "defaultSchema": "spec-driven"
+  },
+  "changeRoot": "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing",
+  "artifactPaths": {
+    "proposal": {
+      "outputPath": "proposal.md",
+      "resolvedOutputPath": "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/proposal.md",
+      "existingOutputPaths": [
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/proposal.md"
+      ]
+    },
+    "specs": {
+      "outputPath": "specs/**/*.md",
+      "resolvedOutputPath": "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/**/*.md",
+      "existingOutputPaths": [
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/control-flow-test-design/spec.md",
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/host-software-integration/spec.md",
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/host-unit-testing/spec.md",
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/software-quality-analysis/spec.md",
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/test-evidence-reproducibility/spec.md",
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/specs/test-planning-traceability/spec.md"
+      ]
+    },
+    "design": {
+      "outputPath": "design.md",
+      "resolvedOutputPath": "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/design.md",
+      "existingOutputPaths": [
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/design.md"
+      ]
+    },
+    "tasks": {
+      "outputPath": "tasks.md",
+      "resolvedOutputPath": "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/tasks.md",
+      "existingOutputPaths": [
+        "/home/cronos/projects/tsse/IdS_project/openspec/changes/tsse-embedded-software-testing/tasks.md"
+      ]
+    }
+  },
+  "isPlanningComplete": true,
+  "isComplete": true,
+  "applyRequires": [
+    "tasks"
+  ],
+  "nextSteps": [
+    "All planning artifacts are complete. Run openspec instructions apply --change \"tsse-embedded-software-testing\" --json to inspect implementation progress."
+  ],
+  "actionContext": {
+    "mode": "repo-local",
+    "sourceOfTruth": "repo",
+    "planningArtifacts": [
+      "proposal",
+      "specs",
+      "design",
+      "tasks"
+    ],
+    "linkedContext": [],
+    "allowedEditRoots": [
+      "/home/cronos/projects/tsse/IdS_project"
+    ],
+    "requiresAffectedAreaSelection": false,
+    "constraints": [
+      "Repo-local change artifacts and implementation edits are scoped to this project."
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "proposal",
+      "outputPath": "proposal.md",
+      "status": "done",
+      "requires": []
+    },
+    {
+      "id": "specs",
+      "outputPath": "specs/**/*.md",
+      "status": "done",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "design",
+      "outputPath": "design.md",
+      "status": "done",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "tasks",
+      "outputPath": "tasks.md",
+      "status": "done",
+      "requires": [
+        "specs",
+        "design"
+      ]
+    }
+  ],
+  "root": {
+    "path": "/home/cronos/projects/tsse/IdS_project",
+    "source": "nearest"
+  }
+}

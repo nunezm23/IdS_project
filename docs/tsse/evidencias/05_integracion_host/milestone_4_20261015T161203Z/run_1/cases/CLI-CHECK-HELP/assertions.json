@@ -1,0 +1,26 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "Usage:\n  ads1263_app --check\n  ads1263_app --samples <N> --channel <CH> --rate-hz <HZ> [--csv <path>]\n  ads1263_app --live --channel <CH> --rate-hz <HZ>\n  ads1263_app --help\n\nDefaults:\n  spi device  : /dev/spidev0.0\n  gpio chip   : /dev/gpiochip6\n  drdy line   : 8\n  samples     : 10\n  rate-hz     : 2\n  channel     : 0 (AIN0-AINCOM)\n\nAdvanced:\n  --spi-dev <path>       Override SPI character device\n  --gpio-chip <path>     Override GPIO chip path\n  --drdy-line <offset>   Override DRDY GPIO line offset\n  --no-drdy              Skip DRDY GPIO open/read for SPI-only checks\n  --mock                 Simulate ADS1263 registers and samples\n",
+    "expected": "Usage:",
+    "name": "stdout contains 'Usage:'",
+    "passed": true
+  },
+  {
+    "actual": "",
+    "expected": "not select exactly one command mode",
+    "name": "stderr excludes 'select exactly one command mode'",
+    "passed": true
+  }
+]

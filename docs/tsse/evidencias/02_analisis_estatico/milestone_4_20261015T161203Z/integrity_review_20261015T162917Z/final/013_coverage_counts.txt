@@ -1,0 +1,4 @@
+inventory_entries=313
+checksum_entries=305
+explicit_exclusions=8
+coverage_equation=313-8=305

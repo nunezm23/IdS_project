@@ -1,0 +1,113 @@
+Script started on 2026-10-15 09:24:22-05:00 [COMMAND="ceedling test:all" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+ℹ️ NOTICE: Enabled :test_runner ↳ :cmdline_args because :project ↳ :use_backtrace is enabled.
+
+Ceedling set up completed in 138 milliseconds
+
+👟 Preparing Build Paths...
+
+👟 Collecting Essential Test Context
+------------------------------------
+Parsing test_ads1263_initial.c for user & system #includes...
+Parsing test_ads1263_initial.c for build directive macros and test case names...
+
+👟 Ingesting Test Configurations
+--------------------------------
+Collecting search paths, flags, and defines for test_ads1263_initial.c...
+
+👟 Determining Files to Be Generated...
+
+👟 Mocking
+----------
+Generating mock for test_ads1263_initial::ads1263_gpio_linux.h...
+Generating mock for test_ads1263_initial::ads1263_spi_linux.h...
+
+👟 Test Runners
+---------------
+Generating runner for test_ads1263_initial.c...
+
+👟 Determining Artifacts to Be Built...
+
+👟 Building Objects
+-------------------
+Compiling test_ads1263_initial.c...
+Compiling test_ads1263_initial::ads1263.c...
+Compiling test_ads1263_initial::mock_ads1263_gpio_linux.c...
+Compiling test_ads1263_initial::mock_ads1263_spi_linux.c...
+Compiling test_ads1263_initial::test_ads1263_initial_runner.c...
+Compiling test_ads1263_initial::unity.c...
+Compiling test_ads1263_initial::cmock.c...
+Compiling test_ads1263_initial::wait_wrapper.c...
+
+👟 Building Test Executables
+----------------------------
+Linking test_ads1263_initial.out...
+
+👟 Executing
+------------
+Running test_ads1263_initial.out...
+
+-------------------
+FAILED TEST SUMMARY
+-------------------
+[test/ceedling/tests/test_ads1263_initial.c]
+  Test: test_UT_CFG_001_default_configuration_matches_board_defaults
+  At line (28): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_001_zero_raw_converts_to_zero
+  At line (36): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_002_A_representative_positive_raw_converts_by_formula
+  At line (45): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_002_B_representative_negative_raw_converts_by_formula
+  At line (54): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_003_A_positive_extreme_converts_to_vref
+  At line (63): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_003_B_negative_extreme_is_finite_and_uses_signed_formula
+  At line (72): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_004_A_gain_two_scales_voltage_by_half
+  At line (79): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_004_B_alternate_vref_scales_voltage
+  At line (88): "Unity Double Precision Disabled"
+
+  Test: test_UT_VOLT_005_gain_zero_matches_current_gain_one_behavior
+  At line (98): "Unity Double Precision Disabled"
+
+-----------------------
+❌ OVERALL TEST SUMMARY
+-----------------------
+TESTED:  9
+PASSED:  0
+FAILED:  9
+IGNORED: 0
+
+Running Test Suite Reports
+--------------------------
+Generating artifact build/ceedling/normal/artifacts/test/tests_report.json...
+Generating artifact build/ceedling/normal/artifacts/test/junit_tests_report.xml...
+
+
+Running Raw Tests Output Report
+-------------------------------
+Tests produced no extra console output.
+
+------------------------
+❌ BUILD FAILURE SUMMARY
+------------------------
+ • Unit test failures
+
+
+Ceedling operations completed in 721 milliseconds
+
+Script done on 2026-10-15 09:24:24-05:00 [COMMAND_EXIT_CODE="1"]

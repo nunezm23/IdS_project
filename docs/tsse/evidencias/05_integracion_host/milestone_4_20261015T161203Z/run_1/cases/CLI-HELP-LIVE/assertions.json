@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] select exactly one command mode: --check, --samples, --live, or --help\n",
+    "expected": "select exactly one command mode",
+    "name": "stderr contains 'select exactly one command mode'",
+    "passed": true
+  }
+]

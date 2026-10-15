@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] unknown option: --unknown\n",
+    "expected": "unknown option: --unknown",
+    "name": "stderr contains 'unknown option: --unknown'",
+    "passed": true
+  }
+]

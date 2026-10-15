@@ -1,0 +1,109 @@
+---
+:project:
+  :name: acquisition_robustness_tests
+  :which_ceedling: gem
+  :ceedling_version: 1.1.10
+  :use_mocks: TRUE
+  :use_test_preprocessor: :none
+  :use_backtrace: :simple
+  :build_root: build/ceedling/acquisition-robustness
+  :test_file_prefix: test_
+  :default_tasks:
+    - test:all
+  :test_threads: 1
+  :compile_threads: 1
+  :release_build: FALSE
+
+:test_build:
+  :use_assembly: FALSE
+
+:release_build:
+  :use_assembly: FALSE
+
+:plugins:
+  :load_paths: []
+  :enabled:
+    - report_tests_pretty_stdout
+    - report_tests_log_factory
+    - report_tests_raw_output_log
+
+:report_tests_log_factory:
+  :reports:
+    - json
+    - junit
+
+:extension:
+  :executable: .out
+
+:paths:
+  :test:
+    - test/ceedling/tests_acquisition_robustness/**
+  :source:
+    - components/acquisition/src/**
+  :include:
+    - components/acquisition/include/**
+    - components/ads1263/include/**
+    - components/ads1263/arch/linux/include/**
+    - components/logger/include/**
+  :support:
+    - test/ceedling/support
+  :libraries: []
+
+:files:
+  :test: []
+  :source:
+    - components/acquisition/src/acquisition.c
+
+:defines:
+  :test:
+    - _POSIX_C_SOURCE=200809L
+    - TEST_STDIO_WRAPPER=1
+  :release: []
+  :use_test_definition: FALSE
+
+:flags:
+  :test:
+    :compile:
+      - -std=c11
+      - -Wall
+      - -Wextra
+      - -Wpedantic
+      - -fno-builtin-fputs
+    :link:
+      - -Wl,--wrap=nanosleep
+      - -Wl,--wrap=fopen
+      - -Wl,--wrap=fputs
+      - -Wl,--wrap=fclose
+      - -Wl,--wrap=printf
+
+:cmock:
+  :plugins:
+    - :ignore
+    - :ignore_arg
+    - :callback
+    - :return_thru_ptr
+  :verbosity: 2
+  :when_no_prototypes: :warn
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :treat_externs: :exclude
+  :treat_inlines: :exclude
+  :memcmp_if_unknown: true
+  :when_ptr: :compare_data
+  :enforce_strict_ordering: true
+  :fail_on_unexpected_calls: true
+  :callback_include_count: true
+  :callback_after_arg_check: false
+
+:unity:
+  :defines: []
+
+:environment: []
+
+:libraries:
+  :placement: :end
+  :flag: "-l${1}"
+  :path_flag: "-L ${1}"
+  :system: []
+  :test: []
+  :release: []

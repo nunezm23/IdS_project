@@ -1,0 +1,8 @@
+Script started on 2026-10-15 10:25:53-05:00 [COMMAND="ceedling dumpconfig docs/tsse/evidencias/01_proyecto/milestone_3a_20261015T150616Z/processed_ubsan.yml --mixin=test/ceedling/mixins/ubsan.yml" <not executed on terminal>]
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+
+🌱 Dumped project configuration to docs/tsse/evidencias/01_proyecto/milestone_3a_20261015T150616Z/processed_ubsan.yml
+
+Script done on 2026-10-15 10:25:53-05:00 [COMMAND_EXIT_CODE="0"]

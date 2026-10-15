@@ -1,0 +1,1 @@
+cmp -s docs/tsse/evidencias/09_presentacion/milestone_4_20261015T161203Z/correction_initial.sha256 docs/tsse/evidencias/09_presentacion/milestone_4_20261015T161203Z/correction_regeneration.sha256

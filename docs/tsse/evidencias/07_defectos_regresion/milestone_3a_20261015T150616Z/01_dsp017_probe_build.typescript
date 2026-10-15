@@ -1,0 +1,6 @@
+Script started on 2026-10-15 10:12:18-05:00 [COMMAND="gcc -std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L -Icomponents/acquisition/include -Icomponents/ads1263/include -Icomponents/ads1263/arch/linux/include -Icomponents/logger/include components/acquisition/src/acquisition.c test/robustness/dsp017_rate1_probe.c -o build/robustness/dsp017_rate1_probe" <not executed on terminal>]
+/usr/bin/x86_64-linux-gnu-ld.bfd: /tmp/ccVDauCL.o: in function `acquisition_run_check':
+acquisition.c:(.text+0x406): undefined reference to `ads1263_read_drdy'
+collect2: error: ld returned 1 exit status
+
+Script done on 2026-10-15 10:12:18-05:00 [COMMAND_EXIT_CODE="1"]

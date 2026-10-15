@@ -1,0 +1,9 @@
+{
+  "assertion_count": 5,
+  "assertions_passed": 5,
+  "blocked_reason": null,
+  "case_id": "HAL-PRESENCE-FAILURE",
+  "duration_seconds": 0.00145,
+  "exit_code": 1,
+  "state": "PASS"
+}

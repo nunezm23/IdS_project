@@ -1,0 +1,7 @@
+Script started on 2026-10-15 09:57:02-05:00 [COMMAND="ruby -e 'tests = Dir[%q{test/ceedling/tests/test_ads1263_{registers,presence,channel,sample}.c}].flat_map { |f| File.read(f).scan(/void test_(UT_(?:REG|PRES|CHAN|SAMPLE|DRDY)_[0-9]{3}(?:_[A-D])?)_/).flatten.map { |id| id.tr(%q{_}, %q{-}) } }; lines = File.readlines(%q{docs/tsse/catalogo_casos.md}); missing = tests.reject { |id| lines.any? { |line| line.start_with?(%Q{| #{id} |}) } }; token = %q{| } + 96.chr + %q{PASS} + 96.chr + %q{ |}; not_pass = tests.select { |id| (line = lines.find { |candidate| candidate.start_with?(%Q{| #{id} |}) }) && !line.include?(token) }; puts %Q{test_ids=#{tests.length}}; puts %Q{unique_test_ids=#{tests.uniq.length}}; puts %Q{missing=#{missing.join(%q{,})}}; puts %Q{not_pass=#{not_pass.join(%q{,})}}; exit((missing.empty? && not_pass.empty?) ? 0 : 1)'" <not executed on terminal>]
+test_ids=53
+unique_test_ids=53
+missing=
+not_pass=
+
+Script done on 2026-10-15 09:57:02-05:00 [COMMAND_EXIT_CODE="0"]

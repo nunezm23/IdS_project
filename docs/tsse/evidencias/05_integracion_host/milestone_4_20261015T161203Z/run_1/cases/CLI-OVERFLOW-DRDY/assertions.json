@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] invalid drdy-line value. Valid range: 0..1023\n",
+    "expected": "invalid drdy-line value",
+    "name": "stderr contains 'invalid drdy-line value'",
+    "passed": true
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "assertion_count": 5,
+  "assertions_passed": 5,
+  "blocked_reason": null,
+  "case_id": "CLI-CSV-SAMPLES",
+  "duration_seconds": 0.001638,
+  "exit_code": 0,
+  "state": "PASS"
+}

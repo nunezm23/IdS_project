@@ -1,0 +1,9 @@
+{
+  "assertion_count": 3,
+  "assertions_passed": 3,
+  "blocked_reason": null,
+  "case_id": "CLI-REPEATED-SAMPLES",
+  "duration_seconds": 0.00087,
+  "exit_code": 1,
+  "state": "PASS"
+}

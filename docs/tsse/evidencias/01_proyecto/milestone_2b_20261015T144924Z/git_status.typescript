@@ -1,0 +1,14 @@
+Script started on 2026-10-15 09:50:45-05:00 [COMMAND="git status --short" <not executed on terminal>]
+ [31mM[m docs/tsse/catalogo_casos.md
+ [31mM[m docs/tsse/matriz_trazabilidad.md
+ [31mM[m openspec/changes/tsse-embedded-software-testing/tasks.md
+[31m??[m .gitignore
+[31m??[m docs/tsse/evidencias/01_proyecto/milestone_2a_20261015T142406Z/
+[31m??[m docs/tsse/evidencias/01_proyecto/milestone_2b_20261015T144924Z/
+[31m??[m docs/tsse/evidencias/04_unitarias/
+[31m??[m docs/tsse/evidencias/06_cobertura/
+[31m??[m docs/tsse/evidencias/milestone_2a_manifest.md
+[31m??[m project.yml
+[31m??[m test/
+
+Script done on 2026-10-15 09:50:45-05:00 [COMMAND_EXIT_CODE="0"]

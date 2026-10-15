@@ -1,0 +1,1 @@
+sha256sum -c docs/tsse/evidencias/09_presentacion/milestone_4_20261015T161203Z/deck.sha256

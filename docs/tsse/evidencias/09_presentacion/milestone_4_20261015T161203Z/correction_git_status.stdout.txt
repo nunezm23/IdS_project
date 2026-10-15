@@ -1,0 +1,23 @@
+ M docs/tsse/catalogo_casos.md
+ M docs/tsse/cft_cases.md
+ M docs/tsse/discrepancias.md
+ M docs/tsse/master_test_plan.md
+ M docs/tsse/matriz_trazabilidad.md
+ M openspec/changes/tsse-embedded-software-testing/tasks.md
+ M test/ceedling/project_acquisition_robustness.yml
+ M test/ceedling/support/wait_wrapper.c
+ M test/ceedling/support/wait_wrapper.h
+?? docs/tsse/evidencias/01_proyecto/milestone_4_20261015T161203Z/
+?? docs/tsse/evidencias/02_analisis_estatico/
+?? docs/tsse/evidencias/04_unitarias/milestone_4_20261015T161203Z/
+?? docs/tsse/evidencias/05_integracion_host/
+?? docs/tsse/evidencias/06_cobertura/milestone_4_20261015T161203Z/
+?? docs/tsse/evidencias/08_trazabilidad/
+?? docs/tsse/evidencias/09_presentacion/
+?? docs/tsse/evidencias/milestone_4_manifest.md
+?? docs/tsse/informe_tecnico_final.md
+?? docs/tsse/presentacion/
+?? test/ceedling/support/stdio_wrapper.c
+?? test/ceedling/support/stdio_wrapper.h
+?? test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c
+?? test/integration/

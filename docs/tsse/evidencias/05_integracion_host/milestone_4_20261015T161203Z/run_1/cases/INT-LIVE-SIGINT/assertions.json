@@ -1,0 +1,44 @@
+[
+  {
+    "actual": true,
+    "expected": true,
+    "name": "minimum records observed before SIGINT",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK"
+    ],
+    "name": "exact complete live sample rows",
+    "passed": true
+  },
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded clean termination",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] Live acquisition configuration: channel=0 rate_hz=10\nsample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK\nsample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK\n[INFO] live acquisition stopped\n",
+    "expected": "live acquisition stopped",
+    "name": "stdout contains 'live acquisition stopped'",
+    "passed": true
+  },
+  {
+    "actual": true,
+    "expected": true,
+    "name": "process group cleaned up",
+    "passed": true
+  }
+]

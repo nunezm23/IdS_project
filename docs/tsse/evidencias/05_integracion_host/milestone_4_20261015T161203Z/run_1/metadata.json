@@ -1,0 +1,32 @@
+{
+  "binary_dir": "/tmp/opencode/m4-integration-build.QW1QuA",
+  "boundaries": {
+    "built_in_mock": "real main, acquisition, ADS1263 core, logger, Linux adapters linked; ADS1263 mock branch simulated",
+    "fake_hal": "real main, acquisition, ADS1263 core, logger; SPI/GPIO adapter symbols scripted"
+  },
+  "build_manifest": "build_manifest.json",
+  "build_manifest_sha256": "0b9d70ab8f7657428c545763d03f0fdac4569ae79985954ca56d48db932f0450",
+  "classification": "software-only; physical SPI, GPIO, ADC, target, and real-time behavior not verified",
+  "command": [
+    "/usr/bin/python3",
+    "test/integration/run.py",
+    "--binary-dir",
+    "/tmp/opencode/m4-integration-build.QW1QuA",
+    "--evidence-dir",
+    "/tmp/opencode/m4-integration-run1.hhv9j2"
+  ],
+  "cwd": "/home/cronos/projects/tsse/IdS_project",
+  "git_head": "54a91ed4b684b5ac6f4221c8743768fad5083270",
+  "git_status_short": " M test/ceedling/project_acquisition_robustness.yml\n M test/ceedling/support/wait_wrapper.c\n M test/ceedling/support/wait_wrapper.h\n?? docs/tsse/evidencias/01_proyecto/milestone_4_20261015T161203Z/\n?? docs/tsse/evidencias/02_analisis_estatico/\n?? docs/tsse/evidencias/04_unitarias/milestone_4_20261015T161203Z/\n?? docs/tsse/evidencias/05_integracion_host/\n?? test/ceedling/support/stdio_wrapper.c\n?? test/ceedling/support/stdio_wrapper.h\n?? test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c\n?? test/integration/",
+  "host": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "machine": "x86_64",
+  "python": "3.14.4",
+  "scenario_approval": {
+    "basis": "Current user authorization in the review-remediation request for OpenSpec tasks 11.1-11.6",
+    "date": "2026-10-15",
+    "disposition": "APPROVED",
+    "reviewer": "Requesting user",
+    "scope": "all declared scenario IDs"
+  },
+  "started_utc": "2026-10-15T16:39:23.084974+00:00"
+}

@@ -1,0 +1,925 @@
+========== ADS1263 DEFINITIONS ==========
+#ifndef ADS1263_DEFS_H
+#define ADS1263_DEFS_H
+
+#include <stdint.h>
+
+#define ADS1263_CMD_NOP       0x00U
+#define ADS1263_CMD_RESET     0x06U
+#define ADS1263_CMD_START1    0x08U
+#define ADS1263_CMD_STOP1     0x0AU
+#define ADS1263_CMD_RDATA1    0x12U
+#define ADS1263_CMD_RREG      0x20U
+#define ADS1263_CMD_WREG      0x40U
+
+#define ADS1263_REG_ID        0x00U
+#define ADS1263_REG_POWER     0x01U
+#define ADS1263_REG_INTERFACE 0x02U
+#define ADS1263_REG_MODE0     0x03U
+#define ADS1263_REG_MODE1     0x04U
+#define ADS1263_REG_MODE2     0x05U
+#define ADS1263_REG_INPMUX    0x06U
+
+#define ADS1263_DEFAULT_POWER     0x11U
+#define ADS1263_DEFAULT_INTERFACE 0x05U
+#define ADS1263_DEFAULT_MODE0     0x00U
+#define ADS1263_DEFAULT_MODE1     0x80U
+
+#define ADS1263_DEFAULT_SPI_DEVICE   "/dev/spidev0.0"
+#define ADS1263_DEFAULT_GPIO_CHIP    "/dev/gpiochip6"
+#define ADS1263_DEFAULT_DRDY_LINE    8U
+#define ADS1263_DEFAULT_SPI_SPEED_HZ 1000000U
+#define ADS1263_DEFAULT_VREF         2.5
+#define ADS1263_DEFAULT_GAIN         1U
+
+#define ADS1263_INPUT_AIN0   0x00U
+#define ADS1263_INPUT_AINCOM 0x0AU
+#define ADS1263_INPMUX_AIN0_AINCOM ((uint8_t)((ADS1263_INPUT_AIN0 << 4U) | ADS1263_INPUT_AINCOM))
+
+#define ADS1263_ADC1_POSITIVE_FULL_SCALE 2147483647.0
+
+typedef enum {
+    ADS1263_OK = 0,
+    ADS1263_ERROR_SPI_OPEN,
+    ADS1263_ERROR_SPI_CONFIG,
+    ADS1263_ERROR_SPI_TRANSFER,
+    ADS1263_ERROR_GPIO_OPEN,
+    ADS1263_ERROR_GPIO_READ,
+    ADS1263_ERROR_NOT_DETECTED,
+    ADS1263_ERROR_NOT_DETECTED_ZERO,
+    ADS1263_ERROR_NOT_DETECTED_FLOATING,
+    ADS1263_ERROR_REGISTER_MISMATCH,
+    ADS1263_ERROR_INVALID_ARG,
+    ADS1263_ERROR_TIMEOUT,
+    ADS1263_ERROR_IO
+} ads1263_status_t;
+
+typedef struct {
+    int32_t raw;
+    double voltage;
+    int drdy;
+    uint8_t status_byte;
+    uint8_t checksum_byte;
+    const char *status;
+} ads1263_sample_t;
+
+typedef struct {
+    uint8_t id;
+    uint8_t power;
+    uint8_t interface;
+    uint8_t mode0;
+    uint8_t mode1;
+} ads1263_register_snapshot_t;
+
+typedef struct {
+    const char *spi_device;
+    const char *gpio_chip;
+    unsigned int drdy_line;
+    uint32_t spi_speed_hz;
+    double vref;
+    uint8_t gain;
+    int use_drdy;
+    int mock;
+} ads1263_config_t;
+
+#endif /* ADS1263_DEFS_H */
+
+========== ADS1263 API ==========
+#ifndef ADS1263_H
+#define ADS1263_H
+
+#include "ads1263_defs.h"
+#include "ads1263_gpio_linux.h"
+#include "ads1263_spi_linux.h"
+
+#include <stddef.h>
+#include <stdint.h>
+
+typedef struct {
+    ads1263_config_t config;
+    ads1263_spi_linux_t spi;
+    ads1263_gpio_linux_t gpio;
+    int initialized;
+    uint8_t mock_registers[32];
+    uint32_t mock_sample_counter;
+} ads1263_t;
+
+/**
+ * @brief Return the default STM32MP157D-DK1 demo configuration.
+ */
+ads1263_config_t ads1263_default_config(void);
+
+/**
+ * @brief Initialize Linux SPI and optional DRDY GPIO resources.
+ */
+ads1263_status_t ads1263_init(ads1263_t *dev, const ads1263_config_t *config);
+
+/**
+ * @brief Release Linux resources associated with the ADS1263 instance.
+ */
+void ads1263_close(ads1263_t *dev);
+
+/**
+ * @brief Read one or more ADS1263 registers using the RREG command.
+ */
+ads1263_status_t ads1263_read_registers(ads1263_t *dev,
+                                        uint8_t start,
+                                        uint8_t count,
+                                        uint8_t *out);
+
+/**
+ * @brief Write one or more ADS1263 registers using the WREG command.
+ */
+ads1263_status_t ads1263_write_registers(ads1263_t *dev,
+                                         uint8_t start,
+                                         uint8_t count,
+                                         const uint8_t *values);
+
+/**
+ * @brief Read and validate ADS1263 identity/default registers.
+ */
+ads1263_status_t ads1263_check_presence(ads1263_t *dev,
+                                        ads1263_register_snapshot_t *snapshot);
+
+/**
+ * @brief Configure the acquisition channel. Version 1 supports channel 0 only.
+ */
+ads1263_status_t ads1263_configure_channel(ads1263_t *dev, uint8_t channel);
+
+/**
+ * @brief Read one ADC1 conversion sample using RDATA1.
+ */
+ads1263_status_t ads1263_read_sample(ads1263_t *dev, ads1263_sample_t *sample);
+
+/**
+ * @brief Read the DRDY GPIO line as a logical value.
+ */
+ads1263_status_t ads1263_read_drdy(ads1263_t *dev, int *value);
+
+/**
+ * @brief Convert signed ADC1 raw data to an approximate voltage.
+ */
+double ads1263_raw_to_voltage(int32_t raw, double vref, uint8_t gain);
+
+/**
+ * @brief Return a stable string for a status code.
+ */
+const char *ads1263_status_to_string(ads1263_status_t status);
+
+#endif /* ADS1263_H */
+
+========== ADS1263 IMPLEMENTATION ==========
+#include "ads1263.h"
+
+#include <stdint.h>
+#include <string.h>
+#include <time.h>
+
+ads1263_config_t ads1263_default_config(void)
+{
+    ads1263_config_t config;
+
+    config.spi_device = ADS1263_DEFAULT_SPI_DEVICE;
+    config.gpio_chip = ADS1263_DEFAULT_GPIO_CHIP;
+    config.drdy_line = ADS1263_DEFAULT_DRDY_LINE;
+    config.spi_speed_hz = ADS1263_DEFAULT_SPI_SPEED_HZ;
+    config.vref = ADS1263_DEFAULT_VREF;
+    config.gain = ADS1263_DEFAULT_GAIN;
+    config.use_drdy = 1;
+    config.mock = 0;
+
+    return config;
+}
+
+static void ads1263_mock_registers_reset(ads1263_t *dev)
+{
+    if (dev == NULL) {
+        return;
+    }
+
+    memset(dev->mock_registers, 0, sizeof(dev->mock_registers));
+    dev->mock_registers[ADS1263_REG_ID] = 0x23U;
+    dev->mock_registers[ADS1263_REG_POWER] = ADS1263_DEFAULT_POWER;
+    dev->mock_registers[ADS1263_REG_INTERFACE] = ADS1263_DEFAULT_INTERFACE;
+    dev->mock_registers[ADS1263_REG_MODE0] = ADS1263_DEFAULT_MODE0;
+    dev->mock_registers[ADS1263_REG_MODE1] = ADS1263_DEFAULT_MODE1;
+    dev->mock_registers[ADS1263_REG_MODE2] = 0x04U;
+    dev->mock_registers[ADS1263_REG_INPMUX] = 0x01U;
+    dev->mock_sample_counter = 0U;
+}
+
+ads1263_status_t ads1263_init(ads1263_t *dev, const ads1263_config_t *config)
+{
+    ads1263_status_t status;
+
+    if (dev == NULL || config == NULL || config->spi_device == NULL ||
+        config->spi_speed_hz == 0U || config->gain == 0U) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    memset(dev, 0, sizeof(*dev));
+    dev->config = *config;
+    dev->spi.fd = -1;
+
+    if (config->mock != 0) {
+        ads1263_mock_registers_reset(dev);
+        dev->initialized = 1;
+        return ADS1263_OK;
+    }
+
+    status = ads1263_spi_linux_open(&dev->spi, config->spi_device, config->spi_speed_hz);
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    if (config->use_drdy != 0) {
+        if (config->gpio_chip == NULL) {
+            ads1263_spi_linux_close(&dev->spi);
+            return ADS1263_ERROR_INVALID_ARG;
+        }
+
+        status = ads1263_gpio_linux_open(&dev->gpio, config->gpio_chip, config->drdy_line);
+        if (status != ADS1263_OK) {
+            ads1263_spi_linux_close(&dev->spi);
+            return status;
+        }
+    }
+
+    dev->initialized = 1;
+    return ADS1263_OK;
+}
+
+void ads1263_close(ads1263_t *dev)
+{
+    if (dev == NULL) {
+        return;
+    }
+
+    ads1263_gpio_linux_close(&dev->gpio);
+    ads1263_spi_linux_close(&dev->spi);
+    dev->initialized = 0;
+}
+
+ads1263_status_t ads1263_read_registers(ads1263_t *dev,
+                                        uint8_t start,
+                                        uint8_t count,
+                                        uint8_t *out)
+{
+    uint8_t tx[34];
+    uint8_t rx[34];
+    size_t len;
+    ads1263_status_t status;
+
+    if (dev == NULL || out == NULL || count == 0U || count > 32U || start > 0x1FU) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (dev->config.mock != 0) {
+        memcpy(out, &dev->mock_registers[start], count);
+        return ADS1263_OK;
+    }
+
+    len = (size_t)count + 2U;
+    memset(tx, 0, sizeof(tx));
+    memset(rx, 0, sizeof(rx));
+
+    tx[0] = (uint8_t)(ADS1263_CMD_RREG | (start & 0x1FU));
+    tx[1] = (uint8_t)(count - 1U);
+
+    status = ads1263_spi_linux_transfer(&dev->spi, tx, rx, len);
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    memcpy(out, &rx[2], count);
+    return ADS1263_OK;
+}
+
+ads1263_status_t ads1263_write_registers(ads1263_t *dev,
+                                         uint8_t start,
+                                         uint8_t count,
+                                         const uint8_t *values)
+{
+    uint8_t tx[34];
+    uint8_t rx[34];
+    size_t len;
+
+    if (dev == NULL || values == NULL || count == 0U || count > 32U || start > 0x1FU) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (dev->config.mock != 0) {
+        memcpy(&dev->mock_registers[start], values, count);
+        return ADS1263_OK;
+    }
+
+    len = (size_t)count + 2U;
+    memset(tx, 0, sizeof(tx));
+    memset(rx, 0, sizeof(rx));
+
+    tx[0] = (uint8_t)(ADS1263_CMD_WREG | (start & 0x1FU));
+    tx[1] = (uint8_t)(count - 1U);
+    memcpy(&tx[2], values, count);
+
+    return ads1263_spi_linux_transfer(&dev->spi, tx, rx, len);
+}
+
+static int all_equal(const uint8_t *values, size_t len, uint8_t expected)
+{
+    for (size_t i = 0; i < len; ++i) {
+        if (values[i] != expected) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+ads1263_status_t ads1263_check_presence(ads1263_t *dev,
+                                        ads1263_register_snapshot_t *snapshot)
+{
+    uint8_t regs[5];
+    ads1263_status_t status;
+
+    if (dev == NULL || snapshot == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    memset(regs, 0, sizeof(regs));
+    memset(snapshot, 0, sizeof(*snapshot));
+
+    status = ads1263_read_registers(dev, ADS1263_REG_ID, (uint8_t)sizeof(regs), regs);
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    snapshot->id = regs[0];
+    snapshot->power = regs[1];
+    snapshot->interface = regs[2];
+    snapshot->mode0 = regs[3];
+    snapshot->mode1 = regs[4];
+
+    if (all_equal(regs, sizeof(regs), 0x00U) != 0) {
+        return ADS1263_ERROR_NOT_DETECTED_ZERO;
+    }
+
+    if (all_equal(regs, sizeof(regs), 0xFFU) != 0) {
+        return ADS1263_ERROR_NOT_DETECTED_FLOATING;
+    }
+
+    if (snapshot->power != ADS1263_DEFAULT_POWER ||
+        snapshot->interface != ADS1263_DEFAULT_INTERFACE ||
+        snapshot->mode0 != ADS1263_DEFAULT_MODE0 ||
+        snapshot->mode1 != ADS1263_DEFAULT_MODE1) {
+        return ADS1263_ERROR_REGISTER_MISMATCH;
+    }
+
+    return ADS1263_OK;
+}
+
+static ads1263_status_t ads1263_send_command(ads1263_t *dev, uint8_t command)
+{
+    uint8_t tx[1] = { command };
+    uint8_t rx[1] = { 0 };
+
+    if (dev == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (dev->config.mock != 0) {
+        return ADS1263_OK;
+    }
+
+    return ads1263_spi_linux_transfer(&dev->spi, tx, rx, sizeof(tx));
+}
+
+ads1263_status_t ads1263_configure_channel(ads1263_t *dev, uint8_t channel)
+{
+    uint8_t inpmux;
+    uint8_t readback = 0;
+    ads1263_status_t status;
+
+    if (dev == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (channel != 0U) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    inpmux = ADS1263_INPMUX_AIN0_AINCOM;
+    status = ads1263_write_registers(dev, ADS1263_REG_INPMUX, 1U, &inpmux);
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    status = ads1263_read_registers(dev, ADS1263_REG_INPMUX, 1U, &readback);
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    if (readback != inpmux) {
+        return ADS1263_ERROR_REGISTER_MISMATCH;
+    }
+
+    return ads1263_send_command(dev, ADS1263_CMD_START1);
+}
+
+ads1263_status_t ads1263_read_drdy(ads1263_t *dev, int *value)
+{
+    if (dev == NULL || value == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (dev->config.use_drdy == 0) {
+        *value = (dev->config.mock != 0) ? 1 : -1;
+        return ADS1263_OK;
+    }
+
+    return ads1263_gpio_linux_read_drdy(&dev->gpio, value);
+}
+
+static ads1263_status_t ads1263_wait_drdy(ads1263_t *dev, int *last_value)
+{
+    const unsigned int timeout_ms = 1000U;
+    const struct timespec sleep_time = { 0, 1000000L };
+
+    if (dev == NULL || last_value == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    if (dev->config.use_drdy == 0) {
+        *last_value = (dev->config.mock != 0) ? 1 : -1;
+        return ADS1263_OK;
+    }
+
+    for (unsigned int elapsed = 0; elapsed < timeout_ms; ++elapsed) {
+        ads1263_status_t status = ads1263_read_drdy(dev, last_value);
+        if (status != ADS1263_OK) {
+            return status;
+        }
+
+        if (*last_value == 0) {
+            return ADS1263_OK;
+        }
+
+        (void)nanosleep(&sleep_time, NULL);
+    }
+
+    return ADS1263_ERROR_TIMEOUT;
+}
+
+static int32_t parse_signed_32(const uint8_t *bytes)
+{
+    uint32_t raw_u32;
+
+    raw_u32 = ((uint32_t)bytes[0] << 24U) |
+              ((uint32_t)bytes[1] << 16U) |
+              ((uint32_t)bytes[2] << 8U) |
+              ((uint32_t)bytes[3]);
+
+    return (int32_t)raw_u32;
+}
+
+ads1263_status_t ads1263_read_sample(ads1263_t *dev, ads1263_sample_t *sample)
+{
+    uint8_t tx[7] = { ADS1263_CMD_RDATA1, 0, 0, 0, 0, 0, 0 };
+    uint8_t rx[7] = { 0 };
+    ads1263_status_t drdy_status;
+    ads1263_status_t status;
+    int drdy = -1;
+
+    if (dev == NULL || sample == NULL) {
+        return ADS1263_ERROR_INVALID_ARG;
+    }
+
+    memset(sample, 0, sizeof(*sample));
+
+    if (dev->config.mock != 0) {
+        dev->mock_sample_counter++;
+        sample->raw = (int32_t)((dev->mock_sample_counter * 1234567U) % 2000000000U);
+        sample->voltage = ads1263_raw_to_voltage(sample->raw, dev->config.vref, dev->config.gain);
+        sample->drdy = 1;
+        sample->status_byte = 0x80U;
+        sample->checksum_byte = 0x00U;
+        sample->status = "OK";
+        return ADS1263_OK;
+    }
+
+    drdy_status = ads1263_wait_drdy(dev, &drdy);
+
+    status = ads1263_spi_linux_transfer(&dev->spi, tx, rx, sizeof(tx));
+    if (status != ADS1263_OK) {
+        return status;
+    }
+
+    sample->status_byte = rx[1];
+    sample->raw = parse_signed_32(&rx[2]);
+    sample->checksum_byte = rx[6];
+    sample->voltage = ads1263_raw_to_voltage(sample->raw, dev->config.vref, dev->config.gain);
+    sample->drdy = drdy;
+    sample->status = (drdy_status == ADS1263_OK) ? "OK" : ads1263_status_to_string(drdy_status);
+
+    return ADS1263_OK;
+}
+
+double ads1263_raw_to_voltage(int32_t raw, double vref, uint8_t gain)
+{
+    double effective_gain;
+
+    effective_gain = (gain == 0U) ? 1.0 : (double)gain;
+    return ((double)raw / ADS1263_ADC1_POSITIVE_FULL_SCALE) * (vref / effective_gain);
+}
+
+const char *ads1263_status_to_string(ads1263_status_t status)
+{
+    switch (status) {
+    case ADS1263_OK:
+        return "OK";
+    case ADS1263_ERROR_SPI_OPEN:
+        return "SPI_OPEN";
+    case ADS1263_ERROR_SPI_CONFIG:
+        return "SPI_CONFIG";
+    case ADS1263_ERROR_SPI_TRANSFER:
+        return "SPI_TRANSFER";
+    case ADS1263_ERROR_GPIO_OPEN:
+        return "GPIO_OPEN";
+    case ADS1263_ERROR_GPIO_READ:
+        return "GPIO_READ";
+    case ADS1263_ERROR_NOT_DETECTED:
+        return "NOT_DETECTED";
+    case ADS1263_ERROR_NOT_DETECTED_ZERO:
+        return "NOT_DETECTED_ZERO";
+    case ADS1263_ERROR_NOT_DETECTED_FLOATING:
+        return "NOT_DETECTED_FLOATING";
+    case ADS1263_ERROR_REGISTER_MISMATCH:
+        return "REGISTER_MISMATCH";
+    case ADS1263_ERROR_INVALID_ARG:
+        return "INVALID_ARG";
+    case ADS1263_ERROR_TIMEOUT:
+        return "DRDY_TIMEOUT";
+    case ADS1263_ERROR_IO:
+        return "IO";
+    default:
+        return "UNKNOWN";
+    }
+}
+
+========== ACQUISITION API ==========
+#ifndef ACQUISITION_H
+#define ACQUISITION_H
+
+#include "ads1263_defs.h"
+
+#include <stdint.h>
+
+typedef struct {
+    uint8_t channel;
+    uint32_t samples;
+    uint32_t rate_hz;
+    int live;
+    const char *csv_path;
+} acquisition_config_t;
+
+/**
+ * @brief Return default demo acquisition parameters.
+ */
+acquisition_config_t acquisition_default_config(void);
+
+/**
+ * @brief Run ADS1263 register/DRDY validation.
+ */
+int acquisition_run_check(const ads1263_config_t *adc_config);
+
+/**
+ * @brief Acquire a fixed number of ADC samples.
+ */
+int acquisition_run_samples(const ads1263_config_t *adc_config,
+                            const acquisition_config_t *acq_config);
+
+/**
+ * @brief Acquire ADC samples until SIGINT.
+ */
+int acquisition_run_live(const ads1263_config_t *adc_config,
+                         const acquisition_config_t *acq_config);
+
+#endif /* ACQUISITION_H */
+
+========== ACQUISITION IMPLEMENTATION ==========
+#include "acquisition.h"
+
+#include "ads1263.h"
+#include "app_log.h"
+
+#include <signal.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <time.h>
+
+static volatile sig_atomic_t g_stop_requested;
+
+acquisition_config_t acquisition_default_config(void)
+{
+    acquisition_config_t config;
+
+    config.channel = 0;
+    config.samples = 10;
+    config.rate_hz = 2;
+    config.live = 0;
+    config.csv_path = NULL;
+
+    return config;
+}
+
+static void print_snapshot(const ads1263_register_snapshot_t *snapshot)
+{
+    if (snapshot == NULL) {
+        return;
+    }
+
+    printf("ID        = 0x%02X\n", snapshot->id);
+    printf("POWER     = 0x%02X\n", snapshot->power);
+    printf("INTERFACE = 0x%02X\n", snapshot->interface);
+    printf("MODE0     = 0x%02X\n", snapshot->mode0);
+    printf("MODE1     = 0x%02X\n", snapshot->mode1);
+}
+
+static void log_presence_error(ads1263_status_t status,
+                               const ads1263_register_snapshot_t *snapshot)
+{
+    switch (status) {
+    case ADS1263_ERROR_NOT_DETECTED_ZERO:
+        app_log_error("ADS1263 not detected: all registers read as 0x00");
+        app_log_error("Check SPI wiring, ADS1263 power, GND, CS, MISO, MOSI, SCLK and SPI mode.");
+        break;
+    case ADS1263_ERROR_NOT_DETECTED_FLOATING:
+        app_log_error("ADS1263 not detected: all registers read as 0xFF");
+        app_log_error("Check floating MISO, CS wiring, ADS1263 power, GND and SPI mode.");
+        break;
+    case ADS1263_ERROR_REGISTER_MISMATCH:
+        app_log_error("ADS1263 register baseline mismatch");
+        if (snapshot != NULL) {
+            app_log_error("Expected POWER=0x%02X INTERFACE=0x%02X MODE0=0x%02X MODE1=0x%02X",
+                          ADS1263_DEFAULT_POWER,
+                          ADS1263_DEFAULT_INTERFACE,
+                          ADS1263_DEFAULT_MODE0,
+                          ADS1263_DEFAULT_MODE1);
+        }
+        break;
+    default:
+        app_log_error("ADS1263 check failed: %s", ads1263_status_to_string(status));
+        break;
+    }
+}
+
+static int log_init_error(ads1263_status_t status, const ads1263_config_t *config)
+{
+    if (status == ADS1263_ERROR_SPI_OPEN) {
+        app_log_error("failed to open SPI device: %s", config->spi_device);
+        app_log_error("If /dev/spidev0.0 is missing, bind spi0.0 to spidev first.");
+    } else if (status == ADS1263_ERROR_GPIO_OPEN) {
+        app_log_error("failed to open DRDY GPIO: chip=%s line=%u",
+                      config->gpio_chip,
+                      config->drdy_line);
+        app_log_error("Check gpioinfo -c gpiochip6 and verify PG8 is available.");
+    } else {
+        app_log_error("failed to initialize ADS1263: %s", ads1263_status_to_string(status));
+    }
+
+    return -1;
+}
+
+int acquisition_run_check(const ads1263_config_t *adc_config)
+{
+    ads1263_t adc;
+    ads1263_register_snapshot_t snapshot;
+    ads1263_status_t status;
+    int drdy = -1;
+
+    if (adc_config == NULL) {
+        app_log_error("invalid ADC configuration");
+        return -1;
+    }
+
+    status = ads1263_init(&adc, adc_config);
+    if (status != ADS1263_OK) {
+        return log_init_error(status, adc_config);
+    }
+
+    app_log_info("ADS1263 register check");
+    status = ads1263_check_presence(&adc, &snapshot);
+    print_snapshot(&snapshot);
+
+    if (status != ADS1263_OK) {
+        log_presence_error(status, &snapshot);
+        ads1263_close(&adc);
+        return -1;
+    }
+
+    app_log_info("ADS1263 detected");
+
+    status = ads1263_read_drdy(&adc, &drdy);
+    if (status == ADS1263_OK) {
+        app_log_info("DRDY: chip=%s line=%u value=%d",
+                     adc_config->gpio_chip,
+                     adc_config->drdy_line,
+                     drdy);
+    } else {
+        app_log_warn("DRDY read failed: %s", ads1263_status_to_string(status));
+    }
+
+    ads1263_close(&adc);
+    return 0;
+}
+
+static int validate_acquisition_config(const acquisition_config_t *config)
+{
+    int errors = 0;
+
+    if (config == NULL) {
+        app_log_error("invalid acquisition configuration");
+        return -1;
+    }
+
+    if (config->samples < 1U || config->samples > 1000U) {
+        app_log_error("invalid samples value. Valid range: 1..1000");
+        errors++;
+    }
+
+    if (config->rate_hz < 1U || config->rate_hz > 10U) {
+        app_log_error("invalid rate-hz value. Valid range: 1..10");
+        errors++;
+    }
+
+    if (config->channel != 0U) {
+        app_log_error("invalid channel value. Valid range: 0..0");
+        errors++;
+    }
+
+    return errors == 0 ? 0 : -1;
+}
+
+static void sleep_for_rate(uint32_t rate_hz)
+{
+    struct timespec req;
+
+    if (rate_hz == 0U) {
+        return;
+    }
+
+    req.tv_sec = 0;
+    req.tv_nsec = 1000000000L / (long)rate_hz;
+    while (nanosleep(&req, &req) != 0) {
+    }
+}
+
+static FILE *open_csv_if_requested(const acquisition_config_t *config)
+{
+    FILE *csv = NULL;
+
+    if (config->csv_path == NULL) {
+        return NULL;
+    }
+
+    csv = fopen(config->csv_path, "w");
+    if (csv == NULL) {
+        app_log_warn("could not open CSV path: %s", config->csv_path);
+        app_log_warn("continuing with console output only");
+        return NULL;
+    }
+
+    fputs("sample,raw,voltage,status\n", csv);
+    return csv;
+}
+
+static int prepare_adc_for_acquisition(ads1263_t *adc,
+                                       const ads1263_config_t *adc_config,
+                                       const acquisition_config_t *acq_config)
+{
+    ads1263_register_snapshot_t snapshot;
+    ads1263_status_t status;
+
+    status = ads1263_init(adc, adc_config);
+    if (status != ADS1263_OK) {
+        return log_init_error(status, adc_config);
+    }
+
+    status = ads1263_check_presence(adc, &snapshot);
+    if (status != ADS1263_OK) {
+        print_snapshot(&snapshot);
+        log_presence_error(status, &snapshot);
+        ads1263_close(adc);
+        return -1;
+    }
+
+    status = ads1263_configure_channel(adc, acq_config->channel);
+    if (status != ADS1263_OK) {
+        app_log_error("failed to configure ADS1263 channel %u: %s",
+                      acq_config->channel,
+                      ads1263_status_to_string(status));
+        ads1263_close(adc);
+        return -1;
+    }
+
+    return 0;
+}
+
+static int acquire_loop(ads1263_t *adc,
+                        const acquisition_config_t *config,
+                        uint32_t max_samples,
+                        int live)
+{
+    FILE *csv = NULL;
+    uint32_t sample_index = 1;
+    int rc = 0;
+
+    csv = open_csv_if_requested(config);
+
+    while ((live != 0 && g_stop_requested == 0) ||
+           (live == 0 && sample_index <= max_samples)) {
+        ads1263_sample_t sample;
+        ads1263_status_t status;
+
+        status = ads1263_read_sample(adc, &sample);
+        if (status != ADS1263_OK) {
+            app_log_error("sample read failed: %s", ads1263_status_to_string(status));
+            rc = -1;
+            break;
+        }
+
+        app_log_sample(sample_index, &sample);
+        app_log_csv_sample(csv, sample_index, &sample);
+
+        sample_index++;
+        if (live == 0 && sample_index > max_samples) {
+            break;
+        }
+
+        sleep_for_rate(config->rate_hz);
+    }
+
+    if (csv != NULL) {
+        fclose(csv);
+    }
+
+    return rc;
+}
+
+int acquisition_run_samples(const ads1263_config_t *adc_config,
+                            const acquisition_config_t *acq_config)
+{
+    ads1263_t adc;
+    int rc;
+
+    if (adc_config == NULL || validate_acquisition_config(acq_config) != 0) {
+        return -1;
+    }
+
+    app_log_info("Acquisition configuration: channel=%u samples=%u rate_hz=%u",
+                 acq_config->channel,
+                 acq_config->samples,
+                 acq_config->rate_hz);
+
+    if (prepare_adc_for_acquisition(&adc, adc_config, acq_config) != 0) {
+        return -1;
+    }
+
+    rc = acquire_loop(&adc, acq_config, acq_config->samples, 0);
+    ads1263_close(&adc);
+
+    return rc;
+}
+
+static void handle_sigint(int signum)
+{
+    (void)signum;
+    g_stop_requested = 1;
+}
+
+int acquisition_run_live(const ads1263_config_t *adc_config,
+                         const acquisition_config_t *acq_config)
+{
+    ads1263_t adc;
+    int rc;
+
+    if (adc_config == NULL || validate_acquisition_config(acq_config) != 0) {
+        return -1;
+    }
+
+    g_stop_requested = 0;
+    (void)signal(SIGINT, handle_sigint);
+
+    app_log_info("Live acquisition configuration: channel=%u rate_hz=%u",
+                 acq_config->channel,
+                 acq_config->rate_hz);
+
+    if (prepare_adc_for_acquisition(&adc, adc_config, acq_config) != 0) {
+        return -1;
+    }
+
+    rc = acquire_loop(&adc, acq_config, 0, 1);
+    ads1263_close(&adc);
+    app_log_info("live acquisition stopped");
+
+    return rc;
+}

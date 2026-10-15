@@ -1,0 +1,74 @@
+Script started on 2026-10-15 10:24:40-05:00 [COMMAND="timeout --signal=TERM --kill-after=1s 60s ceedling -p test/ceedling/project_acquisition_robustness.yml test:all" <not executed on terminal>]
+🚧 Loaded project configuration from command line argument.
+ > Using: /home/cronos/projects/tsse/IdS_project/test/ceedling/project_acquisition_robustness.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+-------------------------------
+🌱 ACQUISITION_ROBUSTNESS_TESTS
+-------------------------------
+ℹ️ NOTICE: Enabled :test_runner ↳ :cmdline_args because :project ↳ :use_backtrace is enabled.
+
+Ceedling set up completed in 158 milliseconds
+
+👟 Preparing Build Paths...
+
+👟 Collecting Essential Test Context
+------------------------------------
+Parsing test_acquisition_robustness.c for user & system #includes...
+Parsing test_acquisition_robustness.c for build directive macros and test case names...
+
+👟 Ingesting Test Configurations
+--------------------------------
+Collecting search paths, flags, and defines for test_acquisition_robustness.c...
+
+👟 Determining Files to Be Generated...
+
+👟 Mocking
+----------
+Generating mock for test_acquisition_robustness::ads1263.h...
+
+👟 Test Runners
+---------------
+Generating runner for test_acquisition_robustness.c...
+
+👟 Determining Artifacts to Be Built...
+
+👟 Building Objects
+-------------------
+Compiling test_acquisition_robustness.c...
+Compiling test_acquisition_robustness::acquisition.c...
+Compiling test_acquisition_robustness::mock_ads1263.c...
+Compiling test_acquisition_robustness::test_acquisition_robustness_runner.c...
+Compiling test_acquisition_robustness::unity.c...
+Compiling test_acquisition_robustness::cmock.c...
+Compiling test_acquisition_robustness::wait_wrapper.c...
+
+👟 Building Test Executables
+----------------------------
+Linking test_acquisition_robustness.out...
+
+👟 Executing
+------------
+Running test_acquisition_robustness.out...
+
+-----------------------
+✅ OVERALL TEST SUMMARY
+-----------------------
+TESTED:  6
+PASSED:  6
+FAILED:  0
+IGNORED: 0
+
+Running Test Suite Reports
+--------------------------
+Generating artifact build/ceedling/acquisition-robustness/artifacts/test/tests_report.json...
+Generating artifact build/ceedling/acquisition-robustness/artifacts/test/junit_tests_report.xml...
+
+
+Running Raw Tests Output Report
+-------------------------------
+Tests produced no extra console output.
+
+Ceedling operations completed in 704 milliseconds
+
+Script done on 2026-10-15 10:24:42-05:00 [COMMAND_EXIT_CODE="0"]

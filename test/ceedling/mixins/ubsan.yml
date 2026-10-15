@@ -1,0 +1,11 @@
+---
+:project:
+  :build_root: build/ceedling/ubsan
+
+:flags:
+  :test:
+    :compile:
+      - -fsanitize=undefined
+      - -fno-omit-frame-pointer
+    :link:
+      - -fsanitize=undefined

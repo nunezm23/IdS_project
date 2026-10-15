@@ -1,0 +1,76 @@
+Script started on 2026-10-15 10:13:28-05:00 [COMMAND="timeout --signal=TERM --kill-after=1s 30s ceedling test:test_ads1263_robustness --mixin=test/ceedling/mixins/ubsan.yml" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+ℹ️ NOTICE: Enabled :test_runner ↳ :cmdline_args because :project ↳ :use_backtrace is enabled.
+
+Ceedling set up completed in 141 milliseconds
+
+👟 Preparing Build Paths...
+
+👟 Collecting Essential Test Context
+------------------------------------
+Parsing test_ads1263_robustness.c for user & system #includes...
+Parsing test_ads1263_robustness.c for build directive macros and test case names...
+
+👟 Ingesting Test Configurations
+--------------------------------
+Collecting search paths, flags, and defines for test_ads1263_robustness.c...
+
+👟 Determining Files to Be Generated...
+
+👟 Mocking
+----------
+Generating mock for test_ads1263_robustness::ads1263_gpio_linux.h...
+Generating mock for test_ads1263_robustness::ads1263_spi_linux.h...
+
+👟 Test Runners
+---------------
+Generating runner for test_ads1263_robustness.c...
+
+👟 Determining Artifacts to Be Built...
+
+👟 Building Objects
+-------------------
+Compiling test_ads1263_robustness.c...
+Compiling test_ads1263_robustness::ads1263.c...
+Compiling test_ads1263_robustness::mock_ads1263_gpio_linux.c...
+Compiling test_ads1263_robustness::mock_ads1263_spi_linux.c...
+Compiling test_ads1263_robustness::test_ads1263_robustness_runner.c...
+Compiling test_ads1263_robustness::unity.c...
+Compiling test_ads1263_robustness::cmock.c...
+Compiling test_ads1263_robustness::wait_wrapper.c...
+
+👟 Building Test Executables
+----------------------------
+Linking test_ads1263_robustness.out...
+
+👟 Executing
+------------
+Running test_ads1263_robustness.out...
+
+-----------------------
+✅ OVERALL TEST SUMMARY
+-----------------------
+TESTED:  2
+PASSED:  2
+FAILED:  0
+IGNORED: 0
+
+Running Test Suite Reports
+--------------------------
+Generating artifact build/ceedling/ubsan/artifacts/test/tests_report.json...
+Generating artifact build/ceedling/ubsan/artifacts/test/junit_tests_report.xml...
+
+
+Running Raw Tests Output Report
+-------------------------------
+Tests produced no extra console output.
+
+Ceedling operations completed in 854 milliseconds
+
+Script done on 2026-10-15 10:13:29-05:00 [COMMAND_EXIT_CODE="0"]

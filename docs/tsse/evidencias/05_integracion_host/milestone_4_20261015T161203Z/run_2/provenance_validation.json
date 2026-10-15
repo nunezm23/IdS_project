@@ -1,0 +1,13 @@
+{
+  "manifest_errors": [],
+  "manifest_sha256": "0b9d70ab8f7657428c545763d03f0fdac4569ae79985954ca56d48db932f0450",
+  "scenario_approval": {
+    "basis": "Current user authorization in the review-remediation request for OpenSpec tasks 11.1-11.6",
+    "date": "2026-10-15",
+    "disposition": "APPROVED",
+    "reviewer": "Requesting user",
+    "scope": "all declared scenario IDs"
+  },
+  "scenario_approval_errors": [],
+  "state": "PASS"
+}

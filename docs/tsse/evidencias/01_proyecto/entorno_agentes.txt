@@ -1,0 +1,8 @@
+=== ENTORNO DE AGENTES TSSE ===
+2026-10-14T22:49:22-05:00
+v24.22.0
+11.19.1
+1.19.0
+1.14.2
+feature/tsse-testing
+c59b24017f5daebb4e37512d799a0d07f589bce5

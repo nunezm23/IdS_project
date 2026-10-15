@@ -1,0 +1,190 @@
+---
+:project:
+  :name: ads1263_host_tests
+  :which_ceedling: gem
+  :ceedling_version: 1.1.10
+  :use_mocks: true
+  :use_test_preprocessor: :none
+  :use_backtrace: :simple
+  :build_root: build/ceedling/ubsan
+  :test_file_prefix: test_
+  :default_tasks:
+  - test:all
+  :test_threads: 1
+  :compile_threads: 1
+  :release_build: false
+  :use_exceptions: false
+  :use_partials: false
+:test_build:
+  :use_assembly: false
+  :preprocess_force_fallback: false
+  :preprocess_directives_only_available: false
+:release_build:
+  :use_assembly: false
+  :artifacts: []
+:plugins:
+  :load_paths:
+  - "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins"
+  :enabled:
+  - report_tests_pretty_stdout
+  - report_tests_log_factory
+  - report_tests_raw_output_log
+  :display_raw_test_results: false
+  :report_tests_pretty_stdout_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_pretty_stdout"
+  :report_tests_log_factory_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_log_factory"
+  :report_tests_raw_output_log_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/plugins/report_tests_raw_output_log"
+:report_tests_log_factory:
+  :reports:
+  - json
+  - junit
+:extension:
+  :executable: ".out"
+  :header: ".h"
+  :source: ".c"
+  :assembly: ".s"
+  :object: ".o"
+  :libraries:
+  - ".a"
+  - ".so"
+  :map: ".map"
+  :list: ".lst"
+  :testpass: ".pass"
+  :testfail: ".fail"
+  :dependencies: ".d"
+  :yaml: ".yml"
+:paths:
+  :test:
+  - "+:test/ceedling/tests/**"
+  - "-:test/ceedling/support"
+  :source:
+  - components/ads1263/src/**
+  :include:
+  - components/ads1263/include/**
+  - components/ads1263/arch/linux/include/**
+  :support:
+  - test/ceedling/support
+  :libraries: []
+  :test_toolchain_include: []
+  :release_toolchain_include: []
+:files:
+  :test: []
+  :source:
+  - components/ads1263/src/ads1263.c
+  :assembly: []
+  :support: []
+  :include: []
+:defines:
+  :test:
+  - _POSIX_C_SOURCE=200809L
+  - UNITY_INCLUDE_DOUBLE
+  :release: []
+  :use_test_definition: false
+:flags:
+  :test:
+    :compile:
+    - "-fsanitize=undefined"
+    - "-fno-omit-frame-pointer"
+    - "-std=c11"
+    - "-Wall"
+    - "-Wextra"
+    - "-Wpedantic"
+    :link:
+    - "-fsanitize=undefined"
+    - "-Wl,--wrap=nanosleep"
+:cmock:
+  :plugins:
+  - :ignore
+  - :callback
+  :verbosity: 2
+  :when_no_prototypes: :warn
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :treat_externs: :exclude
+  :treat_inlines: :exclude
+  :memcmp_if_unknown: true
+  :when_ptr: :compare_data
+  :enforce_strict_ordering: true
+  :fail_on_unexpected_calls: true
+  :callback_include_count: true
+  :callback_after_arg_check: false
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :includes: []
+  :defines:
+  - CMOCK_MOCK_PREFIX=mock_
+  :unity_helper_path: []
+  :mock_path: build/ceedling/ubsan/test/mocks
+:unity:
+  :defines: []
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :use_param_tests: false
+:environment: []
+:libraries:
+  :placement: :end
+  :flag: "-l${1}"
+  :path_flag: "-L ${1}"
+  :system: []
+  :test: []
+  :release: []
+:history:
+  :config:
+  - :type: :file
+    :path: "./project.yml"
+    :mechanism: :project
+  - :type: :file
+    :path: test/ceedling/mixins/ubsan.yml
+    :mechanism: :cmdline
+    :source: "--mixin"
+    :value: test/ceedling/mixins/ubsan.yml
+:cexception:
+  :vendor_path: "/home/cronos/.local/share/gem/ruby/3.3.0/gems/ceedling-1.1.10/vendor"
+  :defines: []
+:partials:
+  :max_extraction_length: 5000
+:test_runner:
+  :cmdline_args: true
+  :includes: []
+  :defines: []
+  :file_suffix: _runner
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :enforce_strict_ordering: true
+  :use_param_tests: false
+:tools:
+  :test_compiler:
+    :executable: gcc
+    :name: default_test_compiler
+    :optional: false
+    :arguments:
+    - -I"${5}"
+    - -D"${6}"
+    - "-DGNU_COMPILER"
+    - "-g"
+    - -c "${1}"
+    - -o "${2}"
+    - "-MMD"
+    - -MF "${4}"
+    :stderr_redirect: :none
+  :test_linker:
+    :executable: gcc
+    :name: default_test_linker
+    :optional: false
+    :arguments:
+    - "${1}"
+    - "${5}"
+    - -o "${2}"
+    - ''
+    - "${4}"
+    :stderr_redirect: :none
+  :test_fixture:
+    :executable: "${1}"
+    :name: default_test_fixture
+    :optional: false
+    :arguments: []
+    :stderr_redirect: :none
+  :test_fixture_simple_backtrace:
+    :executable: "${1}"
+    :name: default_test_fixture_simple_backtrace
+    :optional: false
+    :arguments:
+    - "${2}"
+    :stderr_redirect: :none

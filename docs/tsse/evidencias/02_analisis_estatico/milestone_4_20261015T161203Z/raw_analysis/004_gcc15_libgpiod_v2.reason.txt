@@ -1,0 +1,1 @@
+The shared libgpiod-v2 pkg-config/header gate failed. See raw_metadata/015_*, 017_*, and 019_*.

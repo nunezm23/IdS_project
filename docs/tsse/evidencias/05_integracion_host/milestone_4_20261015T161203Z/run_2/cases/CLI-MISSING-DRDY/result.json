@@ -1,0 +1,9 @@
+{
+  "assertion_count": 3,
+  "assertions_passed": 3,
+  "blocked_reason": null,
+  "case_id": "CLI-MISSING-DRDY",
+  "duration_seconds": 0.000994,
+  "exit_code": 1,
+  "state": "PASS"
+}

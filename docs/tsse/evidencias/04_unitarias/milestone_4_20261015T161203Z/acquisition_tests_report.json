@@ -1,0 +1,138 @@
+{
+  "Name": "acquisition_robustness_tests",
+  "BuildDuration": 1.182110391999231,
+  "FailedTests": [
+
+  ],
+  "PassedTests": [
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P01_null_adc_short_circuits_without_observations"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P02_null_acquisition_config_logs_only_validation_error"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P03_samples_zero_is_rejected_before_ads_or_file_calls"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P04_samples_above_upper_bound_is_rejected"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P05_rate_zero_is_rejected_before_ads_or_wait_calls"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P06_rate_above_upper_bound_is_rejected"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P07_unsupported_channel_is_rejected_before_configuration"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P08_three_invalid_fields_log_all_errors_in_order"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P09_spi_open_init_failure_has_specific_guidance_and_no_close"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P10_gpio_open_init_failure_has_specific_guidance_and_no_close"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P11_generic_init_failure_uses_status_text_and_no_close"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P12_zero_presence_prints_snapshot_logs_guidance_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P13_floating_presence_prints_snapshot_logs_guidance_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P14_mismatch_presence_logs_baseline_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P15_io_presence_uses_status_text_after_snapshot_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P16_configure_failure_suppresses_loop_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P17_one_sample_without_csv_succeeds_without_sleep"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P18_csv_open_failure_warns_and_continues_without_stream"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P19_csv_success_truncates_writes_header_outputs_and_closes_first"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P20_first_read_failure_has_no_output_or_sleep_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P21_two_samples_have_one_back_edge_and_one_sleep"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P22_second_read_failure_preserves_first_output_and_closes"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P23_eintr_retries_with_scripted_remainder_before_second_read"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_cft.c",
+      "test": "test_CFT_P24_upper_sample_bound_csv_header_then_early_failure_cleanup"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_001_gpio_status_sample_is_emitted_and_run_succeeds"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_002_timeout_status_sample_is_emitted_and_run_succeeds"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_003_gpio_then_spi_failure_aborts_without_output"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_004_timeout_then_spi_failure_aborts_without_output"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_DSP017_001_rate_one_builds_invalid_timespec_on_every_retry"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_DSP017_002_host_posix_rejects_captured_timespec"
+    }
+  ],
+  "IgnoredTests": [
+
+  ],
+  "Summary": {
+    "total_tests": 30,
+    "passed": 30,
+    "ignored": 0,
+    "failures": 0
+  }
+}

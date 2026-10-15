@@ -1,0 +1,5 @@
+Script started on 2026-10-15 09:59:03-05:00 [COMMAND="ruby -e 'files = [%q{project.yml}, %q{docs/tsse/catalogo_casos.md}, %q{docs/tsse/discrepancias.md}, %q{docs/tsse/matriz_trazabilidad.md}, %q{docs/tsse/evidencias/milestone_2b_manifest.md}, %q{openspec/changes/tsse-embedded-software-testing/tasks.md}] + Dir[%q{test/ceedling/**/*.{c,h,yml,cfg}}] + Dir[%q{docs/tsse/evidencias/{01_proyecto,04_unitarias,06_cobertura}/milestone_2b_20261015T144924Z/README.md}]; findings = files.flat_map { |f| File.readlines(f).each_with_index.filter_map { |line, i| %Q{#{f}:#{i + 1}} if line.match?(/[ \t]+$/) } }; puts %Q{files_checked=#{files.length}}; puts %Q{trailing_whitespace=#{findings.length}}; puts findings; exit(findings.empty? ? 0 : 1)'" <not executed on terminal>]
+files_checked=19
+trailing_whitespace=0
+
+Script done on 2026-10-15 09:59:03-05:00 [COMMAND_EXIT_CODE="0"]

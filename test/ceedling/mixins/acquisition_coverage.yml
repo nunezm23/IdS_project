@@ -1,0 +1,20 @@
+---
+:project:
+  :build_root: build/ceedling/acquisition-coverage
+
+:plugins:
+  :enabled:
+    - gcov
+
+:gcov:
+  :summaries: TRUE
+  :report_task: FALSE
+  :untested_sources: :ignore
+  :utilities:
+    - gcovr
+  :reports:
+    - Text
+    - HtmlDetailed
+    - JSON
+  :gcovr:
+    :config_file: test/ceedling/gcovr_acquisition.cfg

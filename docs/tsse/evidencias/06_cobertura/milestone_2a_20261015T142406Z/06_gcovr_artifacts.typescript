@@ -1,0 +1,27 @@
+Script started on 2026-10-15 09:27:09-05:00 [COMMAND="gcovr --root . --filter 'components/ads1263/src/ads1263\.c$' --merge-mode-functions merge-use-line-max --txt docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.txt --html-details docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.html --json-pretty docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.json --print-summary" <not executed on terminal>]
+[34m(INFO) Reading coverage data...[0m
+[31m(ERROR) Error occurred while reading reports:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gcovr/__main__.py", line 389, in main
+    covdata: CovData = gcovr_formats.read_reports(options)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gcovr/formats/__init__.py", line 68, in read_reports
+    covdata = GcovHandler(options).read_report()
+  File "/usr/lib/python3/dist-packages/gcovr/formats/gcov/__init__.py", line 202, in read_report
+    return read_report(self.options)
+  File "/usr/lib/python3/dist-packages/gcovr/formats/gcov/read.py", line 76, in read_report
+    datafiles.update(find_files(search_path, options.gcov_exclude_dirs))
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gcovr/formats/gcov/read.py", line 134, in find_datafiles
+    files = list(
+        search_file(
+    ...<3 lines>...
+        )
+    )
+  File "/usr/lib/python3/dist-packages/gcovr/utils.py", line 103, in search_file
+    raise IOError("Unknown directory '" + path + "'")
+OSError: Unknown directory 'docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.json'
+
+Unknown directory 'docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.json'[0m
+
+Script done on 2026-10-15 09:27:10-05:00 [COMMAND_EXIT_CODE="64"]

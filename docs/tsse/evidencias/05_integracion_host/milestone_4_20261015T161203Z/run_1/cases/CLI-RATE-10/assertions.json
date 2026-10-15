@@ -1,0 +1,30 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] Acquisition configuration: channel=0 samples=1 rate_hz=10\nsample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK\n",
+    "expected": "rate_hz=10",
+    "name": "stdout contains 'rate_hz=10'",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK"
+    ],
+    "name": "exact complete sample row",
+    "passed": true
+  }
+]

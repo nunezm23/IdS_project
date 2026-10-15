@@ -1,0 +1,106 @@
+---
+:project:
+  :name: ads1263_host_tests
+  :which_ceedling: gem
+  :ceedling_version: 1.1.10
+  :use_mocks: TRUE
+  :use_test_preprocessor: :none
+  :use_backtrace: :simple
+  :build_root: build/ceedling/normal
+  :test_file_prefix: test_
+  :default_tasks:
+    - test:all
+  :test_threads: 1
+  :compile_threads: 1
+  :release_build: FALSE
+
+:mixins:
+  :enabled: []
+  :load_paths:
+    - test/ceedling/mixins
+
+:test_build:
+  :use_assembly: FALSE
+
+:release_build:
+  :use_assembly: FALSE
+
+:plugins:
+  :load_paths: []
+  :enabled:
+    - report_tests_pretty_stdout
+    - report_tests_log_factory
+    - report_tests_raw_output_log
+
+:report_tests_log_factory:
+  :reports:
+    - json
+    - junit
+
+:extension:
+  :executable: .out
+
+:paths:
+  :test:
+    - +:test/ceedling/tests/**
+    - -:test/ceedling/support
+  :source:
+    - components/ads1263/src/**
+  :include:
+    - components/ads1263/include/**
+    - components/ads1263/arch/linux/include/**
+  :support:
+    - test/ceedling/support
+  :libraries: []
+
+:files:
+  :test: []
+  :source:
+    - components/ads1263/src/ads1263.c
+
+:defines:
+  :test:
+    - _POSIX_C_SOURCE=200809L
+    - UNITY_INCLUDE_DOUBLE
+  :release: []
+  :use_test_definition: FALSE
+
+:flags:
+  :test:
+    :compile:
+      - -std=c11
+      - -Wall
+      - -Wextra
+      - -Wpedantic
+    :link:
+      - -Wl,--wrap=nanosleep
+
+:cmock:
+  :plugins:
+    - :ignore
+    - :callback
+  :verbosity: 2
+  :when_no_prototypes: :warn
+  :mock_prefix: mock_
+  :mock_suffix: ''
+  :treat_externs: :exclude
+  :treat_inlines: :exclude
+  :memcmp_if_unknown: true
+  :when_ptr: :compare_data
+  :enforce_strict_ordering: true
+  :fail_on_unexpected_calls: true
+  :callback_include_count: true
+  :callback_after_arg_check: false
+
+:unity:
+  :defines: []
+
+:environment: []
+
+:libraries:
+  :placement: :end
+  :flag: "-l${1}"
+  :path_flag: "-L ${1}"
+  :system: []
+  :test: []
+  :release: []

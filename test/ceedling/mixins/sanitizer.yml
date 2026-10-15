@@ -1,0 +1,11 @@
+---
+:project:
+  :build_root: build/ceedling/sanitizer
+
+:flags:
+  :test:
+    :compile:
+      - -fsanitize=address,undefined
+      - -fno-omit-frame-pointer
+    :link:
+      - -fsanitize=address,undefined

@@ -1,0 +1,50 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] ADS1263 not detected: all registers read as 0x00\n[ERROR] Check SPI wiring, ADS1263 power, GND, CS, MISO, MOSI, SCLK and SPI mode.\n",
+    "expected": "not detected: all registers read as 0x00",
+    "name": "stderr contains 'not detected: all registers read as 0x00'",
+    "passed": true
+  },
+  {
+    "actual": [
+      "SPI_OPEN device=/dev/spidev0.0 speed=1000000 result=OK",
+      "GPIO_OPEN chip=/dev/gpiochip6 line=8 result=OK",
+      "SPI_TRANSFER len=7 tx=20:04:00:00:00:00:00 result=OK",
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "expected": [
+      "SPI_OPEN device=/dev/spidev0.0 speed=1000000 result=OK",
+      "GPIO_OPEN chip=/dev/gpiochip6 line=8 result=OK",
+      "SPI_TRANSFER len=7 tx=20:04:00:00:00:00:00 result=OK",
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "name": "strict HAL event trace",
+    "passed": true
+  },
+  {
+    "actual": [
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "expected": [
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "name": "HAL resources closed in order",
+    "passed": true
+  }
+]

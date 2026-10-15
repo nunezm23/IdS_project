@@ -1,0 +1,1 @@
+pkg-config is unavailable (exit 127), the libgpiod >= 2.0 package gate cannot pass (exit 127), and the gpiod.h syntax probe fails (exit 1). See raw_metadata/015_*, 017_*, and 019_*.

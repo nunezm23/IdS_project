@@ -1,0 +1,1 @@
+sha256sum -c "docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/integrity_review_20261015T162917Z/final/011_complete_sha256.txt"

@@ -1,0 +1,1 @@
+[ERROR] invalid rate-hz value. Valid range: 1..10

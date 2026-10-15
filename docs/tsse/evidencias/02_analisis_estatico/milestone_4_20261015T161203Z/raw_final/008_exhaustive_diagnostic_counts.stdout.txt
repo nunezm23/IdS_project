@@ -1,0 +1,7 @@
+style=41
+information=33
+missingIncludeSystem=32
+checkersReport_metadata=1
+constParameterPointer=1
+unusedStructMember=37
+staticFunction=3

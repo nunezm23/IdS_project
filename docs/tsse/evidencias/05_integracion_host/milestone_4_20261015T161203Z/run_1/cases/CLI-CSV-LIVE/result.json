@@ -1,0 +1,9 @@
+{
+  "assertion_count": 3,
+  "assertions_passed": 3,
+  "blocked_reason": null,
+  "case_id": "CLI-CSV-LIVE",
+  "duration_seconds": 0.001023,
+  "exit_code": 1,
+  "state": "PASS"
+}

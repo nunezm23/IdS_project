@@ -1,0 +1,42 @@
+{
+  "Name": "[GCOV] acquisition_robustness_tests",
+  "BuildDuration": 0.8298324859997592,
+  "FailedTests": [
+
+  ],
+  "PassedTests": [
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_001_gpio_status_sample_is_emitted_and_run_succeeds"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_002_timeout_status_sample_is_emitted_and_run_succeeds"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_003_gpio_then_spi_failure_aborts_without_output"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_ROB003_004_timeout_then_spi_failure_aborts_without_output"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_DSP017_001_rate_one_builds_invalid_timespec_on_every_retry"
+    },
+    {
+      "file": "test/ceedling/tests_acquisition_robustness/test_acquisition_robustness.c",
+      "test": "test_UT_ACQ_DSP017_002_host_posix_rejects_captured_timespec"
+    }
+  ],
+  "IgnoredTests": [
+
+  ],
+  "Summary": {
+    "total_tests": 6,
+    "passed": 6,
+    "ignored": 0,
+    "failures": 0
+  }
+}

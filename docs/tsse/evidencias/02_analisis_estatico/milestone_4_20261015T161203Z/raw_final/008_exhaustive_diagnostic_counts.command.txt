@@ -1,0 +1,1 @@
+Built-in field-count loop in 05_finalize_evidence.sh over the exhaustive pipe-delimited stderr.

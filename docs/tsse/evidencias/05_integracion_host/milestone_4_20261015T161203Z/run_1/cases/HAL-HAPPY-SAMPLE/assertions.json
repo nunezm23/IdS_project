@@ -1,0 +1,70 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[INFO] Acquisition configuration: channel=0 samples=1 rate_hz=10\nsample=001 raw=00001234567 voltage=0.001437 drdy=0 status=OK\n",
+    "expected": "raw=00001234567",
+    "name": "stdout contains 'raw=00001234567'",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=0 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=0 status=OK"
+    ],
+    "name": "exact complete sample row",
+    "passed": true
+  },
+  {
+    "actual": [
+      "SPI_OPEN device=/dev/spidev0.0 speed=1000000 result=OK",
+      "GPIO_OPEN chip=/dev/gpiochip6 line=8 result=OK",
+      "SPI_TRANSFER len=7 tx=20:04:00:00:00:00:00 result=OK",
+      "SPI_TRANSFER len=3 tx=46:00:0A result=OK",
+      "SPI_TRANSFER len=3 tx=26:00:00 result=OK",
+      "SPI_TRANSFER len=1 tx=08 result=OK",
+      "GPIO_READ value=0 result=OK",
+      "SPI_TRANSFER len=7 tx=12:00:00:00:00:00:00 result=OK",
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "expected": [
+      "SPI_OPEN device=/dev/spidev0.0 speed=1000000 result=OK",
+      "GPIO_OPEN chip=/dev/gpiochip6 line=8 result=OK",
+      "SPI_TRANSFER len=7 tx=20:04:00:00:00:00:00 result=OK",
+      "SPI_TRANSFER len=3 tx=46:00:0A result=OK",
+      "SPI_TRANSFER len=3 tx=26:00:00 result=OK",
+      "SPI_TRANSFER len=1 tx=08 result=OK",
+      "GPIO_READ value=0 result=OK",
+      "SPI_TRANSFER len=7 tx=12:00:00:00:00:00:00 result=OK",
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "name": "strict HAL event trace",
+    "passed": true
+  },
+  {
+    "actual": [
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "expected": [
+      "GPIO_CLOSE",
+      "SPI_CLOSE"
+    ],
+    "name": "HAL resources closed in order",
+    "passed": true
+  }
+]

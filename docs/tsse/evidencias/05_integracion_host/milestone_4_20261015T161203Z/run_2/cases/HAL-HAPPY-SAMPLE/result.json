@@ -1,0 +1,9 @@
+{
+  "assertion_count": 6,
+  "assertions_passed": 6,
+  "blocked_reason": null,
+  "case_id": "HAL-HAPPY-SAMPLE",
+  "duration_seconds": 0.001293,
+  "exit_code": 0,
+  "state": "PASS"
+}

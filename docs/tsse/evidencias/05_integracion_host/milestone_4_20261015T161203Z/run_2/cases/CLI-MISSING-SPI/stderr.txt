@@ -1,0 +1,1 @@
+[ERROR] --spi-dev requires a value

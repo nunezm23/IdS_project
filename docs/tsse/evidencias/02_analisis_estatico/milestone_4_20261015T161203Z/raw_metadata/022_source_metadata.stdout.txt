@@ -1,0 +1,12 @@
+main/main.c|size=6356|mtime=2026-10-14 20:45:37.180255234 -0500|mode=664
+components/logger/src/app_log.c|size=1501|mtime=2026-10-14 20:45:37.179949849 -0500|mode=664
+components/acquisition/src/acquisition.c|size=8675|mtime=2026-10-14 20:45:37.179049234 -0500|mode=664
+components/ads1263/src/ads1263.c|size=10716|mtime=2026-10-14 20:45:37.179741737 -0500|mode=664
+components/ads1263/arch/linux/src/ads1263_spi_linux.c|size=2163|mtime=2026-10-14 20:45:37.179563271 -0500|mode=664
+components/ads1263/arch/linux/src/ads1263_gpio_linux.c|size=3418|mtime=2026-10-14 20:45:37.179404422 -0500|mode=664
+components/logger/include/app_log.h|size=687|mtime=2026-10-14 20:45:37.179949849 -0500|mode=664
+components/acquisition/include/acquisition.h|size=876|mtime=2026-10-14 20:45:37.179049234 -0500|mode=664
+components/ads1263/include/ads1263.h|size=2318|mtime=2026-10-14 20:45:37.179563271 -0500|mode=664
+components/ads1263/include/ads1263_defs.h|size=2218|mtime=2026-10-14 20:45:37.179741737 -0500|mode=664
+components/ads1263/arch/linux/include/ads1263_spi_linux.h|size=986|mtime=2026-10-14 20:45:37.179404422 -0500|mode=664
+components/ads1263/arch/linux/include/ads1263_gpio_linux.h|size=872|mtime=2026-10-14 20:45:37.179341363 -0500|mode=664

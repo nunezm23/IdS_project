@@ -1,0 +1,14 @@
+Script started on 2026-10-15 09:49:42-05:00 [COMMAND="ceedling clobber" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+
+ℹ️ Clobbering all generated files...
+(For large projects, this task may take a long time to complete)
+
+
+Script done on 2026-10-15 09:49:43-05:00 [COMMAND_EXIT_CODE="0"]

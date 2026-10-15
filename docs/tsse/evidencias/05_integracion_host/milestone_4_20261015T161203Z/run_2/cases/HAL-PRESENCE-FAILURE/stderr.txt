@@ -1,0 +1,2 @@
+[ERROR] ADS1263 not detected: all registers read as 0x00
+[ERROR] Check SPI wiring, ADS1263 power, GND, CS, MISO, MOSI, SCLK and SPI mode.

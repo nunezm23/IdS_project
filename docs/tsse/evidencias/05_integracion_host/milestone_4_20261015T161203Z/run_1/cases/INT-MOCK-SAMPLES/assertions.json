@@ -1,0 +1,28 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK",
+      "sample=003 raw=00003703701 voltage=0.004312 drdy=1 status=OK"
+    ],
+    "expected": [
+      "sample=001 raw=00001234567 voltage=0.001437 drdy=1 status=OK",
+      "sample=002 raw=00002469134 voltage=0.002874 drdy=1 status=OK",
+      "sample=003 raw=00003703701 voltage=0.004312 drdy=1 status=OK"
+    ],
+    "name": "exact complete sample rows",
+    "passed": true
+  }
+]

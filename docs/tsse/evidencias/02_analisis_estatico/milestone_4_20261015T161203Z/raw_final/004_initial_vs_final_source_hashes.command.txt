@@ -1,0 +1,1 @@
+cmp docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/raw_metadata/021_source_sha256.stdout.txt docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/raw_final/002_final_source_sha256.stdout.txt

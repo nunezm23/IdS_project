@@ -1,0 +1,20 @@
+[
+  {
+    "actual": false,
+    "expected": false,
+    "name": "bounded execution",
+    "passed": true
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "exit status",
+    "passed": true
+  },
+  {
+    "actual": "[ERROR] invalid rate-hz value. Valid range: 1..10\n",
+    "expected": "invalid rate-hz value",
+    "name": "stderr contains 'invalid rate-hz value'",
+    "passed": true
+  }
+]

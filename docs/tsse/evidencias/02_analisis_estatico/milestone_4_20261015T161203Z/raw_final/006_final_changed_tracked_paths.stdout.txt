@@ -1,0 +1,3 @@
+test/ceedling/project_acquisition_robustness.yml
+test/ceedling/support/wait_wrapper.c
+test/ceedling/support/wait_wrapper.h

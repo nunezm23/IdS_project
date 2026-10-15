@@ -1,0 +1,9 @@
+{
+  "assertion_count": 3,
+  "assertions_passed": 3,
+  "blocked_reason": null,
+  "case_id": "CLI-RATE-11",
+  "duration_seconds": 0.001112,
+  "exit_code": 1,
+  "state": "PASS"
+}
