@@ -1,0 +1,9 @@
+=== TSSE: LINEA BASE ===
+2026-10-14T22:08:11-05:00
+/home/cronos/projects/tsse/IdS_project
+feature/tsse-testing
+c59b24017f5daebb4e37512d799a0d07f589bce5
+## feature/tsse-testing
+c59b24017f5daebb4e37512d799a0d07f589bce5
+ADD: project ok
+2026-08-23 20:48:03 -0500

@@ -1,0 +1,69 @@
+=== FUNCIONES DEL DRIVER ADS1263 ===
+7:ads1263_config_t ads1263_default_config(void)
+40:ads1263_status_t ads1263_init(ads1263_t *dev, const ads1263_config_t *config)
+81:void ads1263_close(ads1263_t *dev)
+92:ads1263_status_t ads1263_read_registers(ads1263_t *dev,
+127:ads1263_status_t ads1263_write_registers(ads1263_t *dev,
+167:ads1263_status_t ads1263_check_presence(ads1263_t *dev,
+225:ads1263_status_t ads1263_configure_channel(ads1263_t *dev, uint8_t channel)
+257:ads1263_status_t ads1263_read_drdy(ads1263_t *dev, int *value)
+313:ads1263_status_t ads1263_read_sample(ads1263_t *dev, ads1263_sample_t *sample)
+355:double ads1263_raw_to_voltage(int32_t raw, double vref, uint8_t gain)
+
+=== FUNCIONES DE ADQUISICION ===
+13:acquisition_config_t acquisition_default_config(void)
+84:int acquisition_run_check(const ads1263_config_t *adc_config)
+260:int acquisition_run_samples(const ads1263_config_t *adc_config,
+291:int acquisition_run_live(const ads1263_config_t *adc_config,
+
+=== DEPENDENCIAS DEL DRIVER ===
+1:#include "ads1263.h"
+3:#include <stdint.h>
+4:#include <string.h>
+5:#include <time.h>
+
+=== DOCUMENTACION Y REQUISITOS ===
+# Requirements
+
+| ID | Requirement | Verification |
+| --- | --- | --- |
+| REQ-001 | The application shall run in Linux user space on STM32MP157D-DK1. | Build and execute `ads1263_app` on target. |
+| REQ-002 | The application shall communicate with ADS1263 through `/dev/spidev0.0`. | `--check` opens SPI device and reads registers. |
+| REQ-003 | SPI shall use mode 1, 8 bits per word and 1 MHz by default. | Code inspection and `spidev` configuration path. |
+| REQ-004 | The application shall read ADS1263 registers `0x00..0x04`. | `--check` output. |
+| REQ-005 | The application shall detect disconnected SPI when all registers read `0x00` or `0xFF`. | Disconnect/power-off ADS1263 and run `--check`. |
+| REQ-006 | The application shall read DRDY from `/dev/gpiochip6` line `8`. | `--check` prints DRDY value. |
+| REQ-007 | The application shall acquire samples from channel `0`. | Run `--samples N --channel 0 --rate-hz HZ`. |
+| REQ-008 | The application shall support fixed sample count mode. | Verify exactly `N` sample lines. |
+| REQ-009 | The application shall support live mode. | Run `--live` and stop with Ctrl+C. |
+| REQ-010 | The application shall optionally write CSV output. | Run with `--csv /tmp/ads1263_demo.csv`. |
+| REQ-011 | Invalid parameters shall be rejected with clear errors. | Run invalid CLI values. |
+| REQ-012 | Linux-specific code shall remain isolated in `components/ads1263/arch/linux`. | Code inspection. |
+# Architecture
+
+The demo uses process segmentation at code level: CLI, use-case controller, device component, Linux HAL and logging are separate.
+
+## Components
+
+| Component | Responsibility |
+| --- | --- |
+| `main` | CLI parsing and command selection. |
+| `acquisition` | Use-case flow for check, fixed samples and live acquisition. |
+| `ads1263` | ADS1263 commands, register validation, channel setup and sample conversion. |
+| `ads1263/arch/linux` | Linux `spidev` and `libgpiod` access. |
+| `logger` | Console and CSV formatting. |
+
+## Runtime flow
+
+1. Parse command-line options.
+2. Build `ads1263_config_t` and `acquisition_config_t`.
+3. Open SPI and DRDY GPIO.
+4. Validate ADS1263 presence with RREG.
+5. For acquisition modes, write `INPMUX` for `AIN0-AINCOM` and send `START1`.
+6. Read samples with `RDATA1`.
+7. Print console rows and optionally append CSV rows.
+8. Release GPIO/SPI resources.
+
+## Error strategy
+
+The code returns explicit status codes. User-facing messages are produced in the acquisition/logger layers so low-level drivers remain reusable.
