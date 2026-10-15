@@ -69,6 +69,8 @@
 - [x] 9.3 Rerun affected suites after test-infrastructure corrections and preserve both before/after runs; verify no prior failure evidence is overwritten.
 - [ ] 9.4 If a separately approved production correction later occurs, rerun the minimal reproduction, all relevant unit/integration suites, production build check, static analysis, and coverage; verify before/after and regression evidence are linked.
 
+Disposition for 9.4: `NOT APPLICABLE — CONDITION NOT TRIGGERED`. No production correction was approved or implemented, so no post-correction regression execution exists or is claimed.
+
 ## 10. Coverage Reporting
 
 - [x] 10.1 Configure a dedicated GCC/gcov coverage profile and gcovr filters for tested production modules while excluding tests, generated runners/mocks, frameworks, and support fakes; verify the report file list and denominator are correct.
@@ -95,19 +97,14 @@
 ## 13. Evidence Collection and Traceability Closure
 
 - [ ] 13.1 Extend the evidence tree and manifest without deleting or overwriting existing TSSE evidence; verify unique run identifiers prevent overwrite and categories cover baseline, static, CFT, unit, integration, coverage, defects/regression, traceability, and presentation.
+
+Disposition for 13.1: incomplete. Strict append-only preservation cannot be achieved retroactively. During Milestone 4 corrections, `docs/tsse/evidencias/02_analisis_estatico/milestone_4_20261015T161203Z/00_policy.md`, `README.md`, and `05_finalize_evidence.sh` were modified after the historical checksum manifest, and the earlier `docs/tsse/presentacion/verificacion_software_ads1263_milestone_4.pptx` binary was replaced at the same path. Static-analysis provenance remains in `07_integrity_addendum.md`, the old-manifest verification, and the corrected complete checksum set; presentation provenance retains superseded hashes, generation/correction logs, and the current snapshot checksum, but not the earlier PPTX binary. Future runs should use immutable unique run IDs, never reuse artifact destinations, checksum inputs and outputs before interpretation edits, and publish corrections only as separately checksummed addenda.
+
 - [x] 13.2 Add reproducibility metadata to every new run set, including revisions, worktree, host, versions, working directory, exact command, timestamps, exit code, and real/mock/simulated classification; verify references use repository-relative paths or documented variables and a sample run can be repeated from its record.
 - [x] 13.3 Audit raw-to-summary links and status labels; verify every `PASS`, `FAIL`, coverage number, or defect claim has source evidence and every missing activity is `BLOCKED`, `NOT RUN`, or `OUT OF SCOPE`.
 - [x] 13.4 Finalize bidirectional traceability from requirements/hypotheses to atomic cases, results, evidence, and defects; verify every case links back to a requirement or robustness objective and every in-scope requirement has a disposition.
 - [x] 13.5 Audit each confirmed defect record for stable ID, approved contract reference, preconditions, minimal reproduction, expected/actual behavior, impact, evidence, disposition, and regression links; verify unresolved hypotheses and ambiguities are not recorded as confirmed defects.
 
-## 14. Final Technical Report
+## External Academic Deliverables (Outside Active Checklist)
 
-- [x] 14.1 Write the report covering the real embedded system, architecture, historical validation, TSSE scope, Master Test Plan, formal CFT derivation, test architecture, implemented cases, actual results, coverage, findings, and limitations; verify each quantitative claim links to evidence.
-- [x] 14.2 Include an explicit discrepancy and uncertainty section for hardware-only requirements, REQ-012, CSV semantics, ROB-001, ROB-003, blocked tools/scenarios, and untested behavior; verify no ambiguity is silently converted into compliance or defect status.
-- [ ] 14.3 Perform a factual and reproducibility review against source, traceability, and raw evidence; verify planned, executed, blocked, and historical work remain visibly distinct and reviewer approval is recorded.
-
-## 15. Google Slides Presentation Preparation
-
-- [x] 15.1 Prepare a Google Slides-compatible main deck and speaker outline covering system/baseline, scope, quality strategy, one readable CFT model/path example, unit/mock architecture, actual results, coverage/traceability, and conclusions/limitations; verify no planned result is presented as executed.
-- [x] 15.2 Add backup slides for detailed paths, test inventory, raw excerpts, findings, coverage by module, and defect records; verify the main narrative remains concise while review evidence is accessible.
-- [ ] 15.3 Conduct and record a timed rehearsal targeting approximately ten minutes; verify timing, slide ownership, terminology, hardware disclaimer, and likely question responses are captured in presentation evidence.
+The final academic report in LaTeX and the final Google Slides presentation, visual review, speaker notes, and rehearsal are owned by the human user and ChatGPT web workflow. Their former six tasks were removed from this active implementation checklist by explicit scope reassignment, not because implementation work was lost. Exact original task text and the pre-reconciliation `63/67` state are preserved in `docs/tsse/evidencias/10_scope_reconciliation/milestone_4_scope_reconciliation_20261015T171524Z/tasks_63_of_67_historical.md` with its checksum and provenance README. Previously generated academic artifacts remain untouched historical material.

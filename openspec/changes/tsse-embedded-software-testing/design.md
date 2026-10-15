@@ -29,6 +29,7 @@ Existing TSSE decisions are retained: host-native execution, no physical hardwar
 - Preserve exact commands, raw outputs, result states, coverage scope, and defect/regression history.
 - Keep unit, integration, static, sanitizer, and coverage profiles distinguishable so one tool does not invalidate another tool's evidence.
 - Make every claim proportional to the boundary exercised.
+- Provide a concise factual index from academic objectives to retained technical evidence.
 
 **Non-Goals:**
 
@@ -37,6 +38,7 @@ Existing TSSE decisions are retained: host-native execution, no physical hardwar
 - Treating built-in mock mode as protocol, Linux adapter, or hardware verification.
 - Establishing hard real-time guarantees or a coverage pass percentage.
 - Resolving application contract ambiguities by assertion alone.
+- Authoring or approving the final academic LaTeX report, Google Slides presentation, speaker notes, or rehearsal; those deliverables are external to this implementation workflow.
 
 ## Decisions
 
@@ -291,7 +293,7 @@ Corrections to documentation require explicit change history and must not erase 
 - [ASan may miss intra-object overwrite] -> Combine sanitizer evidence with explicit boundary or canary checks and avoid overclaiming memory-safety coverage.
 - [Tool availability/version drift blocks reproducibility] -> Verify versions before execution, record deviations, and mark unavailable activities blocked without installing packages unless authorized.
 - [Coverage pressure could distort scope] -> Report uncovered code and rationale; do not rewrite production or add trivial tests solely to inflate a number.
-- [Ten-minute presentation cannot contain all details] -> Keep the main deck to system/scope, strategy, one CFT view, representative tests/results, coverage, and limitations; retain detailed paths and logs in backup slides.
+- [External academic authors could overstate host evidence] -> Provide a factual handoff index with exact paths, numerators/denominators, classifications, and hardware limitations; retain academic authoring and approval outside this workflow.
 
 ## Migration Plan
 
@@ -304,13 +306,13 @@ There is no runtime deployment or data migration. Implementation proceeds increm
 5. Investigate robustness hypotheses in isolated profiles and pass the review gate before any correction.
 6. Add acquisition/CFT and mandatory mock integration scenarios.
 7. Collect static, coverage, sanitizer, regression, and evidence artifacts.
-8. Finalize report and presentation from actual results only.
+8. Finalize the factual technical evidence handoff from actual results only; the human user and ChatGPT web workflow own the separate LaTeX report and Google Slides presentation.
 
 If test infrastructure destabilizes the production build, rollback consists of removing or disabling only test-specific configuration/support; no production source should require rollback. Existing evidence is retained and labeled rather than deleted.
 
 ## Open Questions
 
-- The official academic rubric is not present in the repository; any additional mandatory threshold or format discovered later must be recorded prospectively.
+- The official academic rubric is not present in the repository; academic formatting and presentation decisions are external and must not retroactively alter technical evidence or acceptance criteria.
 - Cppcheck availability is inconsistent with existing evidence and must be rechecked at execution time without assuming installation state.
 - Scripted fake-HAL integration remains conditional on the explicit feasibility gate; built-in mock integration is mandatory regardless.
 - CSV failure and DRDY return semantics remain application-contract decisions. Until approved, their cases are characterization evidence rather than conformance or confirmed-defect evidence.

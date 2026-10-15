@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Defines how test commands, environments, raw outputs, summaries, defects, traceability, and presentation material are preserved so results remain honest, reviewable, and reproducible.
+Defines how test commands, environments, raw outputs, summaries, defects, traceability, technical handoff material, and historical academic artifacts are preserved so results remain honest, reviewable, and reproducible.
 
 ## ADDED Requirements
 
@@ -21,14 +21,14 @@ Raw stdout, stderr, reports, and generated artifacts SHALL be preserved without 
 - **THEN** both executions remain available under distinct identifiers or timestamps and the summary links to each
 
 ### Requirement: Planned, executed, and blocked separation
-Documents and presentations SHALL clearly distinguish proposed cases, implemented but unexecuted cases, actual executions, blocked work, and historical hardware validation.
+Technical evidence and handoff material SHALL clearly distinguish proposed cases, implemented but unexecuted cases, actual executions, blocked work, and historical hardware validation. Any later external academic reuse SHALL retain those distinctions.
 
-#### Scenario: Presentation prepared before a case runs
-- **WHEN** a slide mentions that case
+#### Scenario: Handoff prepared before a case runs
+- **WHEN** the technical handoff mentions that case
 - **THEN** it is labeled planned or not run and contains no fabricated output, result, screenshot, or coverage value
 
 ### Requirement: Evidence organization
-Evidence SHALL be organized by baseline, static analysis, CFT, unit tests, host integration, coverage, defects/regression, traceability, and presentation, with a manifest or equivalent index linking stable test IDs to artifacts.
+Evidence SHALL be organized by baseline, static analysis, CFT, unit tests, host integration, coverage, defects/regression, traceability, technical handoff, and preserved historical academic artifacts, with a manifest or equivalent index linking stable test IDs to artifacts.
 
 #### Scenario: Evidence audit
 - **WHEN** the evidence tree and manifest are reviewed
@@ -52,19 +52,19 @@ A confirmed defect record SHALL contain a stable identifier, contract reference,
 - **WHEN** current DRDY behavior is reproduced but no requirement defines propagation
 - **THEN** the record remains a characterized ambiguity rather than a confirmed defect
 
-### Requirement: Final technical report
-The final report SHALL describe the real system and architecture, selected scope, Master Test Plan, formal CFT derivation, implemented tests, actual results, module-scoped coverage, findings, limitations, and traceability to retained evidence.
+### Requirement: Technical evidence handoff
+The implementation workflow SHALL provide a concise factual index linking the academic TSSE objectives to retained planning, CFT, unit, integration, coverage, static-analysis, defect, traceability, checksum, and reproducibility evidence.
 
-#### Scenario: Report readiness review
-- **WHEN** the technical report is declared complete
-- **THEN** every quantitative or defect claim links to execution evidence and every unexecuted or hardware-only area is visibly qualified
+#### Scenario: Handoff readiness review
+- **WHEN** the technical evidence handoff is declared complete
+- **THEN** every quantitative or defect claim links to execution evidence and every unexecuted, blocked, ambiguous, or hardware-only area is visibly qualified
 
-### Requirement: Ten-minute presentation package
-The project SHALL prepare a concise Google Slides-compatible presentation and speaker outline covering system context, scope, quality strategy, CFT, unit-test architecture, actual results, coverage, conclusions, and limitations, with detailed material relegated to backup slides.
+### Requirement: External academic deliverable ownership
+The final academic LaTeX report and final Google Slides presentation SHALL be authored and reviewed outside this OpenCode/OpenSpec implementation workflow. Previously generated report and presentation artifacts SHALL remain historical material and SHALL NOT be deleted, overwritten, regenerated, or represented as newly approved during scope reconciliation.
 
-#### Scenario: Timed presentation review
-- **WHEN** the presentation is rehearsed
-- **THEN** the main narrative fits approximately ten minutes and does not present planned work or historical hardware validation as current host-test results
+#### Scenario: Implementation scope is reconciled
+- **WHEN** active implementation tasks are reviewed after academic ownership is reassigned
+- **THEN** report and presentation authoring tasks are absent from the active checklist, their original checklist text remains in a checksummed historical snapshot, and the task-count change is identified as scope reassignment rather than lost work
 
 ### Requirement: Environment change transparency
 Missing tools or incompatible versions SHALL be reported as environment constraints. Results SHALL not be fabricated or borrowed, and package installation or environment changes SHALL occur only when separately authorized.

@@ -11,11 +11,11 @@ The ADS1263 acquisition application has already been functionally validated on t
 - Plan native x86-64 unit testing of unchanged production sources with Ceedling 1.1.10, Unity, CMock, GCC 15.2, controlled mocks/stubs, and no physical target dependencies.
 - Plan host-based integration scenarios using the built-in mock mode and, if feasible, scripted hardware-interface substitutes without claiming physical SPI, GPIO, timing, or ADC validation.
 - Define collection and reporting of gcov/gcovr coverage, Cppcheck findings, AddressSanitizer evidence for ROB-001, optional UndefinedBehaviorSanitizer observations, defect records, regression results, and reproducibility metadata.
-- Preserve evidence suitable for a final technical report and an approximately ten-minute Google Slides presentation.
+- Preserve evidence and provide a factual technical handoff suitable for later academic reuse without assigning final report or presentation authoring to this implementation change.
 - Investigate ROB-001 register-range handling and ROB-003 DRDY error propagation as hypotheses. No defect will be declared without controlled evidence; ROB-003 also requires an approved software-contract interpretation.
 - Add explicit review gates before any production-code modification or defect correction.
 
-The planned deliverables are finalized TSSE planning and traceability documents, a verified CFT model and derived cases, host-test infrastructure and automated tests, raw and summarized execution evidence, module-scoped coverage reports, static-analysis evidence, defect/regression records, a final technical report, and presentation material. In this proposal phase only the OpenSpec planning artifacts are created; no tests are implemented or executed.
+The planned deliverables are finalized TSSE planning and traceability documents, a verified CFT model and derived cases, host-test infrastructure and automated tests, raw and summarized execution evidence, module-scoped coverage reports, static-analysis evidence, defect/regression records, and a factual technical handoff index. The final academic report in LaTeX and the final Google Slides presentation are external deliverables owned by the human user and ChatGPT web workflow, not implementation tasks in this change. In this proposal phase only the OpenSpec planning artifacts are created; no tests are implemented or executed.
 
 ### Scope
 
@@ -30,6 +30,7 @@ The planned deliverables are finalized TSSE planning and traceability documents,
 - Cross-compilation, target deployment, flashing, SDK qualification, or real-hardware timing characterization.
 - Rewriting production algorithms or adding testing-only branches to production code.
 - Correcting suspected defects during planning, inventing coverage thresholds, or presenting expected/mock output as physical or executed evidence.
+- Authoring or approving the final academic LaTeX report, Google Slides presentation, speaker notes, or rehearsal.
 
 ## Capabilities
 
@@ -40,7 +41,7 @@ The planned deliverables are finalized TSSE planning and traceability documents,
 - `host-unit-testing`: Defines native compilation of unchanged production C sources, dependency isolation, unit-case design, and repeatable Ceedling execution.
 - `host-software-integration`: Defines software-only integration scenarios across selected real modules and simulated hardware boundaries.
 - `software-quality-analysis`: Defines module-scoped coverage, static analysis, sanitizer-assisted ROB-001 investigation, result interpretation, and regression measurement without an invented pass threshold.
-- `test-evidence-reproducibility`: Defines evidence provenance, preservation, execution-state labeling, defect records, final reporting, and reproducible commands.
+- `test-evidence-reproducibility`: Defines evidence provenance, preservation, execution-state labeling, defect records, factual technical handoff, and reproducible commands.
 
 ### Modified Capabilities
 

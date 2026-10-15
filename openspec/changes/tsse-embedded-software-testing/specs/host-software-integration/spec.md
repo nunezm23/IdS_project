@@ -68,5 +68,5 @@ The project SHALL perform a feasibility review before deciding whether to add a 
 Host integration results SHALL be labeled software-only and SHALL not be used to claim target execution, electrical correctness, physical SPI/GPIO behavior, ADC accuracy, or real-time sampling performance.
 
 #### Scenario: Integration summary published
-- **WHEN** integration results are included in the report or presentation
+- **WHEN** integration results are included in the technical handoff or reused in an external academic deliverable
 - **THEN** each result identifies simulated boundaries and states that physical hardware was not verified
