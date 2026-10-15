@@ -1,0 +1,11 @@
+Script started on 2026-10-15 09:51:04-05:00 [COMMAND="jq '{file: .files[0].file, uncovered_functions: [.files[0].functions[] | select(.execution_count == 0) | .name]}' docs/tsse/evidencias/06_cobertura/milestone_2b_20261015T144924Z/coverage.json" <not executed on terminal>]
+[1;39m{[0m
+  [1;34m"file"[0m[1;39m:[0m [0;32m"components/ads1263/src/ads1263.c"[0m[1;39m,[0m
+  [1;34m"uncovered_functions"[0m[1;39m:[0m [1;39m[[0m
+    [0;32m"ads1263_close"[0m[1;39m,[0m
+    [0;32m"ads1263_init"[0m[1;39m,[0m
+    [0;32m"ads1263_mock_registers_reset"[0m
+  [1;39m][0m
+[1;39m}[0m
+
+Script done on 2026-10-15 09:51:04-05:00 [COMMAND_EXIT_CODE="0"]

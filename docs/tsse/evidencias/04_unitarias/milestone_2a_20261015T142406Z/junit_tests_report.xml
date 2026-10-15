@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<testsuites name="ads1263_host_tests" tests="9" failures="0" time="0.001">
+  <testsuite name="test/ceedling/tests/test_ads1263_initial" tests="9" failures="0" skipped="0" errors="0" time="0.001">
+    <testcase name="test_UT_CFG_001_default_configuration_matches_board_defaults" time="0.000"/>
+    <testcase name="test_UT_VOLT_001_zero_raw_converts_to_zero" time="0.000"/>
+    <testcase name="test_UT_VOLT_002_A_representative_positive_raw_converts_by_formula" time="0.000"/>
+    <testcase name="test_UT_VOLT_002_B_representative_negative_raw_converts_by_formula" time="0.000"/>
+    <testcase name="test_UT_VOLT_003_A_positive_extreme_converts_to_vref" time="0.000"/>
+    <testcase name="test_UT_VOLT_003_B_negative_extreme_is_finite_and_uses_signed_formula" time="0.000"/>
+    <testcase name="test_UT_VOLT_004_A_gain_two_scales_voltage_by_half" time="0.000"/>
+    <testcase name="test_UT_VOLT_004_B_alternate_vref_scales_voltage" time="0.000"/>
+    <testcase name="test_UT_VOLT_005_gain_zero_matches_current_gain_one_behavior" time="0.000"/>
+  </testsuite>
+</testsuites>

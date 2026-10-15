@@ -1,0 +1,97 @@
+Script started on 2026-10-15 09:26:27-05:00 [COMMAND="ceedling gcov:all --mixin=test/ceedling/mixins/coverage.yml" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+ℹ️ NOTICE: Enabled :test_runner ↳ :cmdline_args because :project ↳ :use_backtrace is enabled.
+
+Ceedling set up completed in 199 milliseconds
+
+👟 Preparing Build Paths...
+
+👟 Collecting Essential Test Context
+------------------------------------
+Parsing test_ads1263_initial.c for user & system #includes...
+Parsing test_ads1263_initial.c for build directive macros and test case names...
+
+👟 Ingesting Test Configurations
+--------------------------------
+Collecting search paths, flags, and defines for test_ads1263_initial.c...
+
+👟 Determining Files to Be Generated...
+
+👟 Mocking
+----------
+Generating mock for test_ads1263_initial::ads1263_gpio_linux.h...
+Generating mock for test_ads1263_initial::ads1263_spi_linux.h...
+
+👟 Test Runners
+---------------
+Generating runner for test_ads1263_initial.c...
+
+👟 Determining Artifacts to Be Built...
+
+👟 Building Objects
+-------------------
+Compiling with coverage test_ads1263_initial.c...
+Compiling with coverage test_ads1263_initial::ads1263.c...
+Compiling with coverage test_ads1263_initial::mock_ads1263_gpio_linux.c...
+Compiling with coverage test_ads1263_initial::mock_ads1263_spi_linux.c...
+Compiling with coverage test_ads1263_initial::test_ads1263_initial_runner.c...
+Compiling with coverage test_ads1263_initial::unity.c...
+Compiling with coverage test_ads1263_initial::cmock.c...
+Compiling with coverage test_ads1263_initial::wait_wrapper.c...
+
+👟 Building Test Executables
+----------------------------
+Linking test_ads1263_initial.out...
+
+👟 Executing
+------------
+Running test_ads1263_initial.out...
+
+-----------------------------
+GCOV: ✅ OVERALL TEST SUMMARY
+-----------------------------
+TESTED:  9
+PASSED:  9
+FAILED:  0
+IGNORED: 0
+
+---------------------------
+GCOV: CODE COVERAGE SUMMARY
+---------------------------
+
+test_ads1263_initial
+--------------------
+ads1263.c | Lines executed:5.86% of 222
+ads1263.c | Branches executed:1.49% of 134
+ads1263.c | Taken at least once:1.49% of 134
+ads1263.c | Calls executed:0.00% of 25
+ads1263.c | Lines executed:5.86% of 222
+⚠️ WARNING: :gcov ↳ :gcovr ↳ :config_file is set, so the following options are ignored: :merge_mode_function. Provide equivalent settings directly in your gcovr configuration file instead.
+
+Running Gcovr Coverage Reports
+------------------------------
+ℹ️ NOTICE: Generating JSON coverage report in 'build/ceedling/coverage/artifacts/gcov/gcovr/'...
+ℹ️ NOTICE: Generating HTML coverage report in 'build/ceedling/coverage/artifacts/gcov/gcovr/'...
+Done in 456 milliseconds.
+Generating a text coverage report in 'build/ceedling/coverage/artifacts/gcov/gcovr'...
+Done in 186 milliseconds.
+
+Running Test Suite Reports
+--------------------------
+Generating artifact build/ceedling/coverage/artifacts/gcov/tests_report.json...
+Generating artifact build/ceedling/coverage/artifacts/gcov/junit_tests_report.xml...
+
+
+Running Raw Tests Output Report
+-------------------------------
+Tests produced no extra console output.
+
+Ceedling operations completed in 1.56 seconds
+
+Script done on 2026-10-15 09:26:29-05:00 [COMMAND_EXIT_CODE="0"]

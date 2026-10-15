@@ -1,0 +1,16 @@
+Script started on 2026-10-15 09:28:13-05:00 [COMMAND="ceedling paths:include" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+
+🌱 Include paths:
+ • components/ads1263/arch/linux/include
+ • components/ads1263/include
+Path count: 2
+
+
+Script done on 2026-10-15 09:28:13-05:00 [COMMAND_EXIT_CODE="0"]

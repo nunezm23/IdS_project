@@ -38,19 +38,19 @@
 
 ## 6. Ceedling Setup
 
-- [ ] 6.1 Verify and record GCC, Ceedling, Unity, CMock, gcov, gcovr, and related runtime versions without installing packages; verify unavailable or mismatched tools are marked `BLOCKED` rather than substituted silently.
-- [ ] 6.2 Add an independent Ceedling configuration for C11 native builds with `_POSIX_C_SOURCE=200809L`, production include/source paths, CMock support, and separate normal/coverage/sanitizer output; verify configuration inspection shows no target SDK or physical device dependency.
-- [ ] 6.3 Add minimal test-support seams for SPI, GPIO, and waits using generated mocks or test-only wrappers; verify a smoke suite compiles and links the actual `components/ads1263/src/ads1263.c` without Linux adapter objects.
-- [ ] 6.4 Document non-interactive clean, unit, coverage, and sanitizer commands and their expected exit semantics; verify the normal unit command runs from repository context and nonzero status is observable on an intentional temporary failing assertion.
-- [ ] 6.5 Audit test build provenance and production diffs; verify no copied algorithm, production `UNIT_TEST` branch, static-helper exposure, production C/H modification, or production Makefile modification was introduced.
+- [x] 6.1 Verify and record GCC, Ceedling, Unity, CMock, gcov, gcovr, and related runtime versions without installing packages; verify unavailable or mismatched tools are marked `BLOCKED` rather than substituted silently.
+- [x] 6.2 Add an independent Ceedling configuration for C11 native builds with `_POSIX_C_SOURCE=200809L`, production include/source paths, CMock support, and separate normal/coverage/sanitizer output; verify configuration inspection shows no target SDK or physical device dependency.
+- [x] 6.3 Add minimal test-support seams for SPI, GPIO, and waits using generated mocks or test-only wrappers; verify a smoke suite compiles and links the actual `components/ads1263/src/ads1263.c` without Linux adapter objects.
+- [x] 6.4 Document non-interactive clean, unit, coverage, and sanitizer commands and their expected exit semantics; verify the normal unit command runs from repository context and nonzero status is observable on an intentional temporary failing assertion.
+- [x] 6.5 Audit test build provenance and production diffs; verify no copied algorithm, production `UNIT_TEST` branch, static-helper exposure, production C/H modification, or production Makefile modification was introduced.
 
 ## 7. Unit Test Implementation
 
-- [ ] 7.1 Implement voltage-conversion cases for zero, signs, representative values, integer extrema, gains, Vrefs, tolerance, and gain-zero characterization; verify all cases execute against `ads1263_raw_to_voltage()` from production source.
-- [ ] 7.2 Implement register read/write argument, boundary, frame, payload/response, and transfer-error cases; verify callbacks assert complete RREG/WREG bytes and output-buffer effects for valid ranges.
-- [ ] 7.3 Implement presence cases for null arguments, transfer failure, all zero, all `0xFF`, each mandatory baseline mismatch, accepted ID variation, and success; verify snapshots and statuses are asserted for each partition.
-- [ ] 7.4 Implement channel cases for null/unsupported input, write failure, read failure, mismatch, START1 failure, and successful ordering; verify later calls are suppressed after each failure.
-- [ ] 7.5 Implement sample cases for null arguments, mock determinism, immediate/delayed/no DRDY, GPIO error, timeout, SPI error, exact RDATA1 frame, signed decoding, status/checksum, and voltage; verify timeout cases use no real one-second wait.
+- [x] 7.1 Implement voltage-conversion cases for zero, signs, representative values, integer extrema, gains, Vrefs, tolerance, and gain-zero characterization; verify all cases execute against `ads1263_raw_to_voltage()` from production source.
+- [x] 7.2 Implement register read/write argument, boundary, frame, payload/response, and transfer-error cases; verify callbacks assert complete RREG/WREG bytes and output-buffer effects for valid ranges.
+- [x] 7.3 Implement presence cases for null arguments, transfer failure, all zero, all `0xFF`, each mandatory baseline mismatch, accepted ID variation, and success; verify snapshots and statuses are asserted for each partition.
+- [x] 7.4 Implement channel cases for null/unsupported input, write failure, read failure, mismatch, START1 failure, and successful ordering; verify later calls are suppressed after each failure.
+- [x] 7.5 Implement sample cases for null arguments, mock determinism, immediate/delayed/no DRDY, GPIO error, timeout, SPI error, exact RDATA1 frame, signed decoding, status/checksum, and voltage; verify timeout cases use no real one-second wait.
 - [ ] 7.6 Implement acquisition cases corresponding to the approved CFT set with an ADS1263 mock and logger/event spy; verify returns, ordered calls, sample/sleep counts, CSV effects, and cleanup match each path oracle.
 - [ ] 7.7 Run the unit suite twice from clean test build state; verify identical case inventory and outcomes, no `/dev/spidev*` or `/dev/gpiochip*` access, and preserved raw outputs for both runs.
 
@@ -71,10 +71,10 @@
 
 ## 10. Coverage Reporting
 
-- [ ] 10.1 Configure a dedicated GCC/gcov coverage profile and gcovr filters for tested production modules while excluding tests, generated runners/mocks, frameworks, and support fakes; verify the report file list and denominator are correct.
-- [ ] 10.2 Run the identified passing or qualified suite under coverage with stale profile data removed; verify line, branch, and function reports are generated with matching GCC/gcov versions.
-- [ ] 10.3 Analyze uncovered decisions and functions by module and link justified gaps to infeasible, excluded, blocked, or deferred cases; verify no minimum percentage is presented as an acceptance gate.
-- [ ] 10.4 Preserve text and human-readable coverage artifacts plus command metadata; verify every percentage cited in traceability, report, or slides resolves to this run and named module scope.
+- [x] 10.1 Configure a dedicated GCC/gcov coverage profile and gcovr filters for tested production modules while excluding tests, generated runners/mocks, frameworks, and support fakes; verify the report file list and denominator are correct.
+- [x] 10.2 Run the identified passing or qualified suite under coverage with stale profile data removed; verify line, branch, and function reports are generated with matching GCC/gcov versions.
+- [x] 10.3 Analyze uncovered decisions and functions by module and link justified gaps to infeasible, excluded, blocked, or deferred cases; verify no minimum percentage is presented as an acceptance gate.
+- [x] 10.4 Preserve text and human-readable coverage artifacts plus command metadata; verify every percentage cited in traceability, report, or slides resolves to this run and named module scope.
 
 ## 11. Host-Based Software Integration Testing
 

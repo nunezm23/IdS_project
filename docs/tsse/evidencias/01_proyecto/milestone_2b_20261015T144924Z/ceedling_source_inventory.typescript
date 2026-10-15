@@ -1,0 +1,17 @@
+Script started on 2026-10-15 09:50:45-05:00 [COMMAND="ceedling files:source" <not executed on terminal>]
+🚧 Loaded project configuration from working directory.
+ > Using: /home/cronos/projects/tsse/IdS_project/project.yml
+ > Working directory: /home/cronos/projects/tsse/IdS_project
+
+---------------------
+🌱 ADS1263_HOST_TESTS
+---------------------
+
+🌱 Source files:
+ • components/ads1263/src/ads1263.c
+File count: 1
+
+ℹ️ This list sourced only from your project file, not from any build directive macros in test files.
+
+
+Script done on 2026-10-15 09:50:46-05:00 [COMMAND_EXIT_CODE="0"]

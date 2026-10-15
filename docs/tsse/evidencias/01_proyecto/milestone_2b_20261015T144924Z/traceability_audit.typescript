@@ -1,0 +1,7 @@
+Script started on 2026-10-15 09:56:50-05:00 [COMMAND="ruby -e 'tests = Dir[%q{test/ceedling/tests/test_ads1263_{registers,presence,channel,sample}.c}].flat_map { |f| File.read(f).scan(/void test_(UT_(?:REG|PRES|CHAN|SAMPLE|DRDY)_[0-9]{3}(?:_[A-D])?)_/).flatten.map { |id| id.tr(%q{_}, %q{-}) } }; catalog = File.read(%q{docs/tsse/catalogo_casos.md}); missing = tests.reject { |id| catalog.include?(%Q{| #{id} |}) }; not_pass = tests.select { |id| !(catalog =~ /^\| #{Regexp.escape(id)} .*\|  \|/)}; puts %Q{test_ids=#{tests.length}}; puts %Q{unique_test_ids=#{tests.uniq.length}}; puts %Q{missing=#{missing.join(%q{,})}}; puts %Q{not_pass=#{not_pass.join(%q{,})}}; exit((missing.empty? && not_pass.empty?) ? 0 : 1)'" <not executed on terminal>]
+test_ids=53
+unique_test_ids=53
+missing=
+not_pass=UT-REG-001-A,UT-REG-001-B,UT-REG-001-C,UT-REG-001-D,UT-REG-002,UT-REG-003,UT-REG-004-A,UT-REG-004-B,UT-REG-004-C,UT-REG-004-D,UT-REG-005,UT-REG-006-A,UT-REG-006-B,UT-REG-009-A,UT-REG-009-B,UT-REG-009-C,UT-REG-009-D,UT-REG-010,UT-REG-011-A,UT-REG-011-B,UT-PRES-001,UT-PRES-002,UT-PRES-003,UT-PRES-004,UT-PRES-005,UT-PRES-006,UT-PRES-007,UT-PRES-008,UT-PRES-009,UT-PRES-010,UT-PRES-011,UT-CHAN-001,UT-CHAN-002,UT-CHAN-003,UT-CHAN-004,UT-CHAN-005,UT-CHAN-006,UT-CHAN-007,UT-SAMPLE-001-A,UT-SAMPLE-001-B,UT-SAMPLE-002,UT-SAMPLE-003,UT-SAMPLE-004,UT-SAMPLE-005,UT-SAMPLE-006,UT-SAMPLE-007,UT-SAMPLE-008,UT-DRDY-001-A,UT-DRDY-001-B,UT-DRDY-002,UT-DRDY-003,UT-DRDY-004,UT-DRDY-005
+
+Script done on 2026-10-15 09:56:50-05:00 [COMMAND_EXIT_CODE="1"]

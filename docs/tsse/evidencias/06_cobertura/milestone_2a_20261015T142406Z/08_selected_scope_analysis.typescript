@@ -1,0 +1,106 @@
+Script started on 2026-10-15 09:29:09-05:00 [COMMAND="jq '{files: [.files[] | {file, functions: [.functions[] | {name, execution_count}], selected_lines: [.lines[] | select(.line_number >= 355 and .line_number <= 360) | {line_number, count, branches}]}]}' docs/tsse/evidencias/06_cobertura/milestone_2a_20261015T142406Z/coverage.json" <not executed on terminal>]
+[1;39m{[0m
+  [1;34m"files"[0m[1;39m:[0m [1;39m[[0m
+    [1;39m{[0m
+      [1;34m"file"[0m[1;39m:[0m [0;32m"components/ads1263/src/ads1263.c"[0m[1;39m,[0m
+      [1;34m"functions"[0m[1;39m:[0m [1;39m[[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_check_presence"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_close"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_configure_channel"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_default_config"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m1[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_init"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_mock_registers_reset"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_raw_to_voltage"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m9[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_read_drdy"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_read_registers"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_read_sample"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_send_command"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_status_to_string"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_wait_drdy"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"ads1263_write_registers"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"all_equal"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"name"[0m[1;39m:[0m [0;32m"parse_signed_32"[0m[1;39m,[0m
+          [1;34m"execution_count"[0m[1;39m:[0m [0;39m0[0m
+        [1;39m}[0m
+      [1;39m][0m[1;39m,[0m
+      [1;34m"selected_lines"[0m[1;39m:[0m [1;39m[[0m
+        [1;39m{[0m
+          [1;34m"line_number"[0m[1;39m:[0m [0;39m355[0m[1;39m,[0m
+          [1;34m"count"[0m[1;39m:[0m [0;39m9[0m[1;39m,[0m
+          [1;34m"branches"[0m[1;39m:[0m [1;39m[][0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"line_number"[0m[1;39m:[0m [0;39m359[0m[1;39m,[0m
+          [1;34m"count"[0m[1;39m:[0m [0;39m9[0m[1;39m,[0m
+          [1;34m"branches"[0m[1;39m:[0m [1;39m[[0m
+            [1;39m{[0m
+              [1;34m"blockno"[0m[1;39m:[0m [0;39m2[0m[1;39m,[0m
+              [1;34m"count"[0m[1;39m:[0m [0;39m8[0m[1;39m,[0m
+              [1;34m"fallthrough"[0m[1;39m:[0m [0;39mtrue[0m[1;39m,[0m
+              [1;34m"throw"[0m[1;39m:[0m [0;39mfalse[0m
+            [1;39m}[0m[1;39m,[0m
+            [1;39m{[0m
+              [1;34m"blockno"[0m[1;39m:[0m [0;39m2[0m[1;39m,[0m
+              [1;34m"count"[0m[1;39m:[0m [0;39m1[0m[1;39m,[0m
+              [1;34m"fallthrough"[0m[1;39m:[0m [0;39mfalse[0m[1;39m,[0m
+              [1;34m"throw"[0m[1;39m:[0m [0;39mfalse[0m
+            [1;39m}[0m
+          [1;39m][0m
+        [1;39m}[0m[1;39m,[0m
+        [1;39m{[0m
+          [1;34m"line_number"[0m[1;39m:[0m [0;39m360[0m[1;39m,[0m
+          [1;34m"count"[0m[1;39m:[0m [0;39m9[0m[1;39m,[0m
+          [1;34m"branches"[0m[1;39m:[0m [1;39m[][0m
+        [1;39m}[0m
+      [1;39m][0m
+    [1;39m}[0m
+  [1;39m][0m
+[1;39m}[0m
+
+Script done on 2026-10-15 09:29:09-05:00 [COMMAND_EXIT_CODE="0"]

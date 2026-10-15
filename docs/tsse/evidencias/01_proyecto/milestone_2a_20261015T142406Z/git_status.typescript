@@ -1,0 +1,9 @@
+Script started on 2026-10-15 09:27:54-05:00 [COMMAND="git status --short" <not executed on terminal>]
+[31m??[m .gitignore
+[31m??[m docs/tsse/evidencias/01_proyecto/milestone_2a_20261015T142406Z/
+[31m??[m docs/tsse/evidencias/04_unitarias/
+[31m??[m docs/tsse/evidencias/06_cobertura/
+[31m??[m project.yml
+[31m??[m test/
+
+Script done on 2026-10-15 09:27:54-05:00 [COMMAND_EXIT_CODE="0"]

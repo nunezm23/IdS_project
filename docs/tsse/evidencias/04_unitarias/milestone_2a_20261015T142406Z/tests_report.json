@@ -1,0 +1,54 @@
+{
+  "Name": "ads1263_host_tests",
+  "BuildDuration": 0.6643591010000591,
+  "FailedTests": [
+
+  ],
+  "PassedTests": [
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_CFG_001_default_configuration_matches_board_defaults"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_001_zero_raw_converts_to_zero"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_002_A_representative_positive_raw_converts_by_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_002_B_representative_negative_raw_converts_by_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_003_A_positive_extreme_converts_to_vref"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_003_B_negative_extreme_is_finite_and_uses_signed_formula"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_004_A_gain_two_scales_voltage_by_half"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_004_B_alternate_vref_scales_voltage"
+    },
+    {
+      "file": "test/ceedling/tests/test_ads1263_initial.c",
+      "test": "test_UT_VOLT_005_gain_zero_matches_current_gain_one_behavior"
+    }
+  ],
+  "IgnoredTests": [
+
+  ],
+  "Summary": {
+    "total_tests": 9,
+    "passed": 9,
+    "ignored": 0,
+    "failures": 0
+  }
+}
